@@ -18,7 +18,7 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/extension.js",
+  "main": "./dist/index.js",
   "icon": "assets/zova.png",
   "publisher": "cabloy",
   "license": "MIT",
