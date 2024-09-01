@@ -1,24 +1,47 @@
 {
   "name": "zova-vscode",
-  "displayName": "zova-vscode",
-  "description": "tools for zova",
+  "displayName": "Zova Tools",
+  "description": "An extension for Zova offering commands and tools to make your experience more pleasant.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.92.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages",
+    "Snippets"
   ],
-  "activationEvents": [],
+  "repository": "https://github.com/cabloy/zova-vscode",
+  "homepage": "https://zova.js.org",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/extension.js",
+  "icon": "assets/zova.png",
+  "publisher": "Cabloy",
+  "license": "MIT",
+  "keywords": [
+    "Zova",
+    "Vue",
+    "Zova Framework",
+    "VSCode",
+    "ioc"
+  ],
   "contributes": {
     "commands": [
       {
         "command": "zova-vscode.helloWorld",
-        "title": "Hello World"
+        "title": "Hello World",
+        "category": "Zova Init"
       }
     ]
   },
+  "permissions": [
+    "webview",
+    "http"
+  ],
   "scripts": {
     "vscode:prepublish": "pnpm run package",
     "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
