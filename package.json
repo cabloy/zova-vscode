@@ -20,7 +20,7 @@
   ],
   "main": "./dist/extension.js",
   "icon": "assets/zova.png",
-  "publisher": "Cabloy",
+  "publisher": "cabloy",
   "license": "MIT",
   "keywords": [
     "Zova",
