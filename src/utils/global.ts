@@ -5,8 +5,8 @@ export function getProjectRootDirectory(): string {
 }
 
 export function newTerminal(
-  terminalName: string,
   command: string,
+  terminalName: string = 'zova-cli',
   cwd?: string
 ) {
   const existingTerminal = vscode.window.terminals.find(
