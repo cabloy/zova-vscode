@@ -4,7 +4,7 @@ import {
   RelativePattern,
   workspace,
 } from 'vscode';
-import { getProjectRootDirectory } from '../utils/global.js';
+import { getWorkspaceRootDirectory } from '../utils/zova.js';
 
 export class FileWatchers {
   context: ExtensionContext;
@@ -16,7 +16,7 @@ export class FileWatchers {
 
   start() {
     this.rootWatcher = workspace.createFileSystemWatcher(
-      new RelativePattern(getProjectRootDirectory(), '**/*')
+      new RelativePattern(getWorkspaceRootDirectory(), '**/*')
     );
     this.rootWatcher.onDidCreate((uri) => {
       console.log('create:', uri);

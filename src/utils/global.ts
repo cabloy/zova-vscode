@@ -1,9 +1,5 @@
 import * as vscode from 'vscode';
 
-export function getWorkspaceRootDirectory(): string {
-  return vscode.workspace.workspaceFolders?.[0].uri.fsPath!;
-}
-
 export function newTerminal(
   command: string,
   terminalName: string = 'zova-cli',
