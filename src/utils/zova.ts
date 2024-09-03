@@ -1,7 +1,6 @@
 import path from 'node:path';
 import fse from 'fs-extra';
 import * as vscode from 'vscode';
-import eggBornUtils from 'egg-born-utils';
 
 export interface IProjectInfo {
   directoryCurrent?: string;
@@ -36,9 +35,14 @@ export async function hasZovaProject(): Promise<IProjectInfo | undefined> {
     return _projectInfo;
   }
   // multi
-  const pathNames = await eggBornUtils.tools.globbyAsync(
-    path.join(workspaceFolder, '*/src/boot/zova.ts')
-  );
+  let pathNames = await fse.readdir(workspaceFolder);
+  pathNames = pathNames
+    .map((item) => {
+      return path.join(workspaceFolder, item);
+    })
+    .filter((item) => {
+      return isZovaProject(item);
+    });
   if (pathNames.length > 0) {
     _projectInfo.isMulti = true;
     return _projectInfo;
