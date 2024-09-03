@@ -1,4 +1,9 @@
-import { ExtensionContext, FileSystemWatcher, workspace } from 'vscode';
+import {
+  ExtensionContext,
+  FileSystemWatcher,
+  RelativePattern,
+  workspace,
+} from 'vscode';
 import { getProjectRootDirectory } from '../utils/global.js';
 
 export class FileWatchers {
@@ -11,7 +16,7 @@ export class FileWatchers {
 
   start() {
     this.rootWatcher = workspace.createFileSystemWatcher(
-      getProjectRootDirectory()
+      new RelativePattern(getProjectRootDirectory(), '**/*')
     );
     this.rootWatcher.onDidCreate((uri) => {
       console.log('create:', uri);
