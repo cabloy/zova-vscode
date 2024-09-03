@@ -1,6 +1,10 @@
 import path from 'node:path';
 import fse from 'fs-extra';
-import { getProjectRootDirectory } from './global.js';
+import * as vscode from 'vscode';
+
+export function getProjectRootDirectory(): string {
+  return vscode.workspace.workspaceFolders?.[0].uri.fsPath!;
+}
 
 export function isZovaProject() {
   const pathRoot = getProjectRootDirectory();

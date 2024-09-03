@@ -8,7 +8,7 @@ import { getProjectRootDirectory } from '../utils/global.js';
 
 export class FileWatchers {
   context: ExtensionContext;
-  rootWatcher: FileSystemWatcher = undefined!;
+  rootWatcher?: FileSystemWatcher;
 
   constructor(context: ExtensionContext) {
     this.context = context;
@@ -32,7 +32,7 @@ export class FileWatchers {
   stop() {
     if (this.rootWatcher) {
       this.rootWatcher.dispose();
-      this.rootWatcher = undefined!;
+      this.rootWatcher = undefined;
     }
   }
 }
