@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 
 export interface IProjectInfo {
   directoryCurrent?: string;
-  isMulti: boolean;
+  isMulti?: boolean;
 }
 let _projectInfo: IProjectInfo = {
   directoryCurrent: undefined,
@@ -23,7 +23,23 @@ export function isZovaProject(pathRoot: string) {
   return fse.pathExistsSync(pathTest);
 }
 
+export function getProjectInfo() {
+  return _projectInfo;
+}
+
+export function setProjectInfo(projectInfo: IProjectInfo) {
+  Object.assign(_projectInfo, projectInfo);
+  vscode.commands.executeCommand(
+    'setContext',
+    'zova.currentZovaProject',
+    _projectInfo.directoryCurrent
+  );
+}
+
 export async function hasZovaProject(): Promise<IProjectInfo | undefined> {
+  // reset
+  _projectInfo.directoryCurrent = undefined;
+  _projectInfo.isMulti = false;
   // workspace
   const workspaceFolder = getWorkspaceRootDirectory();
   if (!workspaceFolder) {

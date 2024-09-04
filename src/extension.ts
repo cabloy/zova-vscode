@@ -15,6 +15,7 @@ export function activateExtension(context: vscode.ExtensionContext) {
   );
 
   textEditorWatchers = new TextEditorWatchers(context);
+  textEditorWatchers.start();
 
   fileWatchers = new FileWatchers(context);
   fileWatchers.start();
