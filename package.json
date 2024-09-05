@@ -35,6 +35,40 @@
         "command": "zova-vscode.helloWorld",
         "title": "Hello World",
         "category": "Zova Init"
+      },
+      {
+        "command": "zova.createLocalBean",
+        "title": "Create Local Bean",
+        "category": "Zova Create"
+      }
+    ],
+    "menus": {
+      "commandPalette": [],
+      "explorer/context": [
+        {
+          "submenu": "zova.create",
+          "group": "navigation"
+        },
+        {
+          "submenu": "zova.init",
+          "group": "navigation"
+        }
+      ],
+      "zova.create": [
+        {
+          "command": "zova.createLocalBean"
+        }
+      ],
+      "zova.init": []
+    },
+    "submenus": [
+      {
+        "id": "zova.create",
+        "label": "Zova Create"
+      },
+      {
+        "id": "zova.init",
+        "label": "Zova Init"
       }
     ]
   },
