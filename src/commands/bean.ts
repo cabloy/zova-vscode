@@ -1,10 +1,7 @@
-import { ProcessHelper } from '@cabloy/process-helper';
 import { Uri, window, workspace } from 'vscode';
 import {
   combineCliResourcePath,
   extractCommandPathInfo,
-  getWorkspaceRootDirectory,
-  getZovaProjectCurrent,
   trimPathPrefixs,
 } from '../utils/zova.js';
 import { LocalConsole } from '../utils/console.js';
