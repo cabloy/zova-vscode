@@ -1,6 +1,8 @@
 import { ProcessHelper } from '@cabloy/process-helper';
 import { Uri, window } from 'vscode';
 import {
+  combineCliResourcePath,
+  extractCommandPathInfo,
   getWorkspaceRootDirectory,
   getZovaProjectCurrent,
 } from '../utils/zova.js';
@@ -9,10 +11,20 @@ import path from 'node:path';
 import { invokeZovaCli } from '../utils/commands.js';
 
 export async function createLocalBean(resource: Uri) {
-  const projectCurrent = getZovaProjectCurrent(resource.fsPath);
+  const commandPathInfo = extractCommandPathInfo(resource.fsPath);
+  console.log(commandPathInfo);
+  const name = await window.showInputBox({
+    prompt: 'What is the local bean name?',
+  });
+  if (!name) {
+    return;
+  }
   await invokeZovaCli(
-    [':create:bean', 'test3', '--module=test-demo'],
-    projectCurrent
+    [
+      ':create:local',
+      combineCliResourcePath(commandPathInfo.pathResource, name),
+      `--module=${commandPathInfo.moduleName}`,
+    ],
+    commandPathInfo.projectCurrent
   );
-  window.showInformationMessage('Hello World from zova-vscode!');
 }
