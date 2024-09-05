@@ -47,16 +47,19 @@
       "explorer/context": [
         {
           "submenu": "zova.create",
-          "group": "navigation"
+          "group": "navigation",
+          "when": "zova.hasZovaProject"
         },
         {
           "submenu": "zova.init",
-          "group": "navigation"
+          "group": "navigation",
+          "when": "zova.hasZovaProject"
         }
       ],
       "zova.create": [
         {
-          "command": "zova.createLocalBean"
+          "command": "zova.createLocalBean",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ )"
         }
       ],
       "zova.init": []

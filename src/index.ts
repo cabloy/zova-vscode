@@ -1,21 +1,11 @@
 import * as vscode from 'vscode';
 import { hasZovaProject, isZovaProject } from './utils/zova.js';
 import { activateExtension, deactivateExtension } from './extension.js';
+import { ContextKeys } from './utils/contextKeys.js';
 
 export async function activate(context: vscode.ExtensionContext) {
-  const projectInfo = await hasZovaProject();
-  vscode.commands.executeCommand(
-    'setContext',
-    'zova.hasZovaProject',
-    !!projectInfo
-  );
-  if (projectInfo && !projectInfo.isMulti) {
-    vscode.commands.executeCommand(
-      'setContext',
-      'zova.currentZovaProject',
-      projectInfo.directoryCurrent
-    );
-  }
+  const contextKeys = new ContextKeys();
+  const projectInfo = await contextKeys.initialize();
   if (projectInfo) {
     activateExtension(context);
   }
