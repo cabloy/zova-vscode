@@ -32,11 +32,6 @@
   "contributes": {
     "commands": [
       {
-        "command": "zova-vscode.helloWorld",
-        "title": "Hello World",
-        "category": "Zova Init"
-      },
-      {
         "command": "zova.createLocalBean",
         "title": "Create Local Bean",
         "category": "Zova Create"
