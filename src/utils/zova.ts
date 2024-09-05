@@ -4,7 +4,9 @@ import * as vscode from 'vscode';
 
 export interface ICommandPathInfo {
   projectCurrent: string;
+  suiteRoot?: string;
   suiteName?: string;
+  moduleRoot?: string;
   moduleName?: string;
   pathResource: string;
 }
@@ -95,12 +97,14 @@ export function extractCommandPathInfo(resource: string) {
   // suite
   const suiteInfo = extractSuiteInfo(pathResource);
   if (suiteInfo) {
+    commandPathInfo.suiteRoot = suiteInfo.suiteRoot;
     commandPathInfo.suiteName = suiteInfo.suiteName;
     commandPathInfo.pathResource = suiteInfo.resource;
   }
   // module
   const moduleInfo = extractModuleInfo(pathResource);
   if (moduleInfo) {
+    commandPathInfo.moduleRoot = moduleInfo.moduleRoot;
     commandPathInfo.moduleName = moduleInfo.moduleName;
     commandPathInfo.pathResource = moduleInfo.resource;
   }
@@ -113,6 +117,7 @@ export function extractSuiteInfo(resource: string) {
     const matches = resource.match(pattern);
     if (matches) {
       return {
+        suiteRoot: matches[0],
         suiteName: matches[1],
         resource: resource.substring(matches[0].length + 1),
       };
@@ -131,6 +136,7 @@ export function extractModuleInfo(resource: string) {
     const matches = resource.match(pattern);
     if (matches) {
       return {
+        moduleRoot: matches[0],
         moduleName: matches[1],
         resource: resource.substring(matches[0].length + 1),
       };
