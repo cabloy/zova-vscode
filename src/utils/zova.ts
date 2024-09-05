@@ -150,3 +150,12 @@ export function combineCliResourcePath(pathResource: string, resource: string) {
   }
   return `${pathResource}/${resource}`;
 }
+
+export function trimPathPrefixs(pathResource: string, prefixs: string[]) {
+  for (const prefix of prefixs) {
+    if (pathResource.startsWith(prefix)) {
+      pathResource = pathResource.substring(prefix.length);
+    }
+  }
+  return pathResource;
+}
