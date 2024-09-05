@@ -2,6 +2,7 @@ import { ExtensionContext, window, Disposable } from 'vscode';
 import {
   getProjectInfo,
   getWorkspaceRootDirectory,
+  getZovaProjectCurrent,
   isZovaProject,
   setProjectInfo,
 } from '../utils/zova.js';
@@ -37,9 +38,7 @@ export class TextEditorWatchers {
       return;
     }
     // multi
-    const workspaceFolder = getWorkspaceRootDirectory();
-    const pos = file.indexOf(path.sep, workspaceFolder.length + 1);
-    const projectFolder = file.substring(0, pos);
+    const projectFolder = getZovaProjectCurrent(file);
     if (isZovaProject(projectFolder)) {
       setProjectInfo({ directoryCurrent: projectFolder });
     } else {

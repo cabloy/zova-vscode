@@ -64,3 +64,15 @@ export async function hasZovaProject(): Promise<IProjectInfo | undefined> {
     return _projectInfo;
   }
 }
+
+export function getZovaProjectCurrent(file: string) {
+  const projectInfo = getProjectInfo();
+  if (!projectInfo.isMulti) {
+    return projectInfo.directoryCurrent;
+  }
+  // multi
+  const workspaceFolder = getWorkspaceRootDirectory();
+  const pos = file.indexOf(path.sep, workspaceFolder.length + 1);
+  const projectFolder = file.substring(0, pos);
+  return projectFolder;
+}
