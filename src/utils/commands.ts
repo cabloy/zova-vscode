@@ -1,6 +1,11 @@
 import { commands, ExtensionContext } from 'vscode';
 import { createLocalBean } from '../commands/bean.js';
 import { logger } from './outputChannel.js';
+import { LocalConsole } from './console.js';
+import { ProcessHelper } from '@cabloy/process-helper';
+import { getWorkspaceRootDirectory } from './zova.js';
+import { existsSync } from 'fs-extra';
+import path from 'node:path';
 
 const extensionCommands = [
   { command: 'zova.createLocalBean', function: createLocalBean },
@@ -33,4 +38,40 @@ function wrapperCommand(command, fn) {
       logger.log(`command: ${command} Error: ${err.message}`);
     }
   };
+}
+
+export async function invokeZovaCli(args: string[], projectCurrent: string) {
+  const console = new LocalConsole();
+  const processHelper = new ProcessHelper(projectCurrent, console);
+  const workspaceFolder = getWorkspaceRootDirectory();
+  if (existsSync(path.join(workspaceFolder, 'zova-cli'))) {
+    await processHelper.spawnCmd({
+      cmd: 'tsc',
+      args: ['-b'],
+      options: {
+        stdio: 'pipe',
+        cwd: path.join(workspaceFolder, 'zova-cli'),
+      },
+    });
+    await processHelper.spawnExe({
+      cmd: 'node',
+      args: [
+        path.join(workspaceFolder, 'zova-cli/cli/dist/bin/zova.js'),
+      ].concat(args),
+      options: {
+        stdio: 'pipe',
+        cwd: projectCurrent,
+      },
+    });
+  } else {
+    // spawn
+    await processHelper.spawnCmd({
+      cmd: 'zova',
+      args,
+      options: {
+        stdio: 'pipe',
+        cwd: projectCurrent,
+      },
+    });
+  }
 }
