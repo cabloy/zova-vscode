@@ -12,15 +12,16 @@ import path from 'node:path';
 import { invokeZovaCli } from '../utils/commands.js';
 
 export async function createLocalBean(resource: Uri) {
+  // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(resource.fsPath);
-  console.log(commandPathInfo);
+  // name
   const name = await window.showInputBox({
     prompt: 'What is the local bean name?',
   });
   if (!name) {
     return;
   }
-  //
+  // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
     ['src/bean/', 'src/']
@@ -37,11 +38,8 @@ export async function createLocalBean(resource: Uri) {
         commandPathInfo.moduleRoot,
         `src/bean/local.${pathResource}.ts`
       );
-  workspace
-    .openTextDocument(
-      Uri.file(path.join(commandPathInfo.projectCurrent, fileDest))
-    )
-    .then((doc) => {
-      window.showTextDocument(doc);
-    });
+  const doc = await workspace.openTextDocument(
+    Uri.file(path.join(commandPathInfo.projectCurrent, fileDest))
+  );
+  window.showTextDocument(doc);
 }
