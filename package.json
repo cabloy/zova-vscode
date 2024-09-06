@@ -33,37 +33,37 @@
     "commands": [
       {
         "command": "zova.createLocalBean",
-        "title": "Create Local Bean",
+        "title": "Bean: Local",
         "category": "Zova Create"
       },
       {
         "command": "zova.createModelBean",
-        "title": "Create Model Bean",
+        "title": "Bean: Model",
         "category": "Zova Create"
       },
       {
         "command": "zova.createStoreBean",
-        "title": "Create Store Bean",
+        "title": "Bean: Store",
         "category": "Zova Create"
       },
       {
         "command": "zova.createStyleBean",
-        "title": "Create Style Bean",
+        "title": "Bean: Style",
         "category": "Zova Create"
       },
       {
         "command": "zova.createThemeBean",
-        "title": "Create Theme Bean",
+        "title": "Bean: Theme",
         "category": "Zova Create"
       },
       {
         "command": "zova.createToolBean",
-        "title": "Create Tool Bean",
+        "title": "Bean: Tool",
         "category": "Zova Create"
       },
       {
         "command": "zova.createGeneralBean",
-        "title": "Create General Bean",
+        "title": "Bean: General",
         "category": "Zova Create"
       }
     ],
