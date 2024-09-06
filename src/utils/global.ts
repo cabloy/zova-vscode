@@ -21,3 +21,10 @@ export function newTerminal(
     terminal.show();
   }
 }
+
+export async function showTextDocument(pathResource: string) {
+  const doc = await vscode.workspace.openTextDocument(
+    vscode.Uri.file(pathResource)
+  );
+  vscode.window.showTextDocument(doc);
+}

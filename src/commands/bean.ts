@@ -7,10 +7,9 @@ import {
 import { LocalConsole } from '../utils/console.js';
 import path from 'node:path';
 import { invokeZovaCli } from '../utils/commands.js';
+import { showTextDocument } from '../utils/global.js';
 
 export async function createLocalBean(resource: Uri) {
-  // commandPathInfo
-  const commandPathInfo = extractCommandPathInfo(resource.fsPath);
   // name
   const name = await window.showInputBox({
     prompt: 'What is the local bean name?',
@@ -18,6 +17,8 @@ export async function createLocalBean(resource: Uri) {
   if (!name) {
     return;
   }
+  // commandPathInfo
+  const commandPathInfo = extractCommandPathInfo(resource.fsPath);
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
@@ -35,8 +36,5 @@ export async function createLocalBean(resource: Uri) {
         commandPathInfo.moduleRoot,
         `src/bean/local.${pathResource}.ts`
       );
-  const doc = await workspace.openTextDocument(
-    Uri.file(path.join(commandPathInfo.projectCurrent, fileDest))
-  );
-  window.showTextDocument(doc);
+  showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
