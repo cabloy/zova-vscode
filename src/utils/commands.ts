@@ -1,5 +1,13 @@
 import { commands, ExtensionContext } from 'vscode';
-import { createGeneralBean, createLocalBean } from '../commands/bean.js';
+import {
+  createGeneralBean,
+  createLocalBean,
+  createModelBean,
+  createStoreBean,
+  createStyleBean,
+  createThemeBean,
+  createToolBean,
+} from '../commands/bean.js';
 import { logger } from './outputChannel.js';
 import { LocalConsole } from './console.js';
 import { ProcessHelper } from '@cabloy/process-helper';
@@ -9,6 +17,11 @@ import path from 'node:path';
 
 const extensionCommands = [
   { command: 'zova.createLocalBean', function: createLocalBean },
+  { command: 'zova.createModelBean', function: createModelBean },
+  { command: 'zova.createStoreBean', function: createStoreBean },
+  { command: 'zova.createStyleBean', function: createStyleBean },
+  { command: 'zova.createThemeBean', function: createThemeBean },
+  { command: 'zova.createToolBean', function: createToolBean },
   { command: 'zova.createGeneralBean', function: createGeneralBean },
 ];
 

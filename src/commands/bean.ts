@@ -55,6 +55,38 @@ export async function createModelBean(resource: Uri) {
   );
 }
 
+export async function createStoreBean(resource: Uri) {
+  await createGeneralBean_common(
+    resource,
+    'store',
+    'What is the store bean name?'
+  );
+}
+
+export async function createStyleBean(resource: Uri) {
+  await createGeneralBean_common(
+    resource,
+    'style',
+    'What is the style bean name?'
+  );
+}
+
+export async function createThemeBean(resource: Uri) {
+  await createGeneralBean_common(
+    resource,
+    'theme',
+    'What is the theme bean name?'
+  );
+}
+
+export async function createToolBean(resource: Uri) {
+  await createGeneralBean_common(
+    resource,
+    'tool',
+    'What is the tool bean name?'
+  );
+}
+
 export async function createGeneralBean(resource: Uri) {
   await createGeneralBean_common(
     resource,
