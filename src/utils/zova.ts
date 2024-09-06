@@ -80,11 +80,25 @@ export function getZovaProjectCurrent(resource: string) {
   if (!projectInfo.isMulti) {
     return projectInfo.directoryCurrent;
   }
+  // current
+  if (!resource) {
+    return projectInfo.directoryCurrent;
+  }
   // multi
   const workspaceFolder = getWorkspaceRootDirectory();
   const pos = resource.indexOf(path.sep, workspaceFolder.length + 1);
   const projectFolder = resource.substring(0, pos);
   return projectFolder;
+}
+
+export function preparePathResource(resource?: vscode.Uri) {
+  const fsPath = resource
+    ? resource.fsPath
+    : vscode.window.activeTextEditor?.document.uri.fsPath;
+  if (!fsPath) {
+    return { fromPalette: true, fsPath };
+  }
+  return { fromPalette: !resource, fsPath };
 }
 
 export function extractCommandPathInfo(resource: string) {

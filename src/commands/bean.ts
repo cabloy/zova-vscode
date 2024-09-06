@@ -2,6 +2,7 @@ import { Uri, window, workspace } from 'vscode';
 import {
   combineCliResourcePath,
   extractCommandPathInfo,
+  preparePathResource,
   trimPathPrefixs,
 } from '../utils/zova.js';
 import { LocalConsole } from '../utils/console.js';
@@ -9,7 +10,8 @@ import path from 'node:path';
 import { invokeZovaCli } from '../utils/commands.js';
 import { showTextDocument } from '../utils/global.js';
 
-export async function createLocalBean(resource: Uri) {
+export async function createLocalBean(resource?: Uri) {
+  const { fromPalette, fsPath } = preparePathResource(resource);
   // name
   const name = await window.showInputBox({
     prompt: 'What is the local bean name?',
@@ -18,7 +20,10 @@ export async function createLocalBean(resource: Uri) {
     return;
   }
   // commandPathInfo
-  const commandPathInfo = extractCommandPathInfo(resource.fsPath);
+  const commandPathInfo = extractCommandPathInfo(fsPath);
+  if (fromPalette) {
+    commandPathInfo.pathResource = '';
+  }
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),

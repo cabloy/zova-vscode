@@ -46,11 +46,11 @@
       "commandPalette": [
         {
           "command": "zova.createLocalBean",
-          "when": "false"
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
           "command": "zova.createGeneralBean",
-          "when": "false"
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
         }
       ],
       "explorer/context": [
