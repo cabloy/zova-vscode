@@ -14,8 +14,10 @@ import { ProcessHelper } from '@cabloy/process-helper';
 import { getWorkspaceRootDirectory } from './zova.js';
 import { existsSync } from 'fs-extra';
 import path from 'node:path';
+import { toolsIcons, toolsRes } from '../commands/tools.js';
 
 const extensionCommands = [
+  // create
   { command: 'zova.createLocalBean', function: createLocalBean },
   { command: 'zova.createModelBean', function: createModelBean },
   { command: 'zova.createStoreBean', function: createStoreBean },
@@ -23,6 +25,9 @@ const extensionCommands = [
   { command: 'zova.createThemeBean', function: createThemeBean },
   { command: 'zova.createToolBean', function: createToolBean },
   { command: 'zova.createGeneralBean', function: createGeneralBean },
+  // tools
+  { command: 'zova.toolsIcons', function: toolsIcons },
+  { command: 'zova.toolsRes', function: toolsRes },
 ];
 
 export class Commands {

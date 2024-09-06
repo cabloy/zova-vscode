@@ -65,6 +65,16 @@
         "command": "zova.createGeneralBean",
         "title": "Bean: General",
         "category": "Zova Create"
+      },
+      {
+        "command": "zova.toolsIcons",
+        "title": "Generate icons",
+        "category": "Zova Tools"
+      },
+      {
+        "command": "zova.toolsRes",
+        "title": "Generate .res",
+        "category": "Zova Tools"
       }
     ],
     "menus": {
@@ -96,6 +106,14 @@
         {
           "command": "zova.createGeneralBean",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.toolsIcons",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.toolsRes",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
         }
       ],
       "explorer/context": [
@@ -106,6 +124,11 @@
         },
         {
           "submenu": "zova.init",
+          "group": "navigation",
+          "when": "zova.hasZovaProject"
+        },
+        {
+          "submenu": "zova.tools",
           "group": "navigation",
           "when": "zova.hasZovaProject"
         }
@@ -140,7 +163,17 @@
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/bean/)"
         }
       ],
-      "zova.init": []
+      "zova.init": [],
+      "zova.tools": [
+        {
+          "command": "zova.toolsIcons",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
+        },
+        {
+          "command": "zova.toolsRes",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/\\.res/)"
+        }
+      ]
     },
     "submenus": [
       {
@@ -150,6 +183,10 @@
       {
         "id": "zova.init",
         "label": "Zova Init"
+      },
+      {
+        "id": "zova.tools",
+        "label": "Zova Tools"
       }
     ]
   },
