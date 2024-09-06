@@ -12,6 +12,9 @@ import { showTextDocument } from '../utils/global.js';
 
 export async function createLocalBean(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
+  if (!fsPath) {
+    return;
+  }
   // name
   const name = await window.showInputBox({
     prompt: 'What is the local bean name?',
@@ -45,6 +48,10 @@ export async function createLocalBean(resource?: Uri) {
 }
 
 export async function createGeneralBean(resource: Uri) {
+  const { fromPalette, fsPath } = preparePathResource(resource);
+  if (!fsPath) {
+    return;
+  }
   // name
   const name = await window.showInputBox({
     prompt: 'What is the general bean name?',
@@ -52,16 +59,20 @@ export async function createGeneralBean(resource: Uri) {
   if (!name) {
     return;
   }
-  await createGeneralBean_common(resource, name, 'bean');
+  await createGeneralBean_common(fromPalette, fsPath, name, 'bean');
 }
 
 export async function createGeneralBean_common(
-  resource: Uri,
+  fromPalette: boolean,
+  fsPath: string,
   name: string,
   sceneName: string
 ) {
   // commandPathInfo
-  const commandPathInfo = extractCommandPathInfo(resource.fsPath);
+  const commandPathInfo = extractCommandPathInfo(fsPath);
+  if (fromPalette) {
+    commandPathInfo.pathResource = '';
+  }
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
