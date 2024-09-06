@@ -47,27 +47,36 @@ export async function createLocalBean(resource?: Uri) {
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
 
+export async function createModelBean(resource: Uri) {
+  await createGeneralBean_common(
+    resource,
+    'model',
+    'What is the model bean name?'
+  );
+}
+
 export async function createGeneralBean(resource: Uri) {
+  await createGeneralBean_common(
+    resource,
+    'bean',
+    'What is the general bean name?'
+  );
+}
+
+export async function createGeneralBean_common(
+  resource: Uri,
+  sceneName: string,
+  prompt: string
+) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
   }
   // name
-  const name = await window.showInputBox({
-    prompt: 'What is the general bean name?',
-  });
+  const name = await window.showInputBox({ prompt });
   if (!name) {
     return;
   }
-  await createGeneralBean_common(fromPalette, fsPath, name, 'bean');
-}
-
-export async function createGeneralBean_common(
-  fromPalette: boolean,
-  fsPath: string,
-  name: string,
-  sceneName: string
-) {
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   if (fromPalette) {
