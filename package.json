@@ -35,12 +35,21 @@
         "command": "zova.createLocalBean",
         "title": "Create Local Bean",
         "category": "Zova Create"
+      },
+      {
+        "command": "zova.createGeneralBean",
+        "title": "Create General Bean",
+        "category": "Zova Create"
       }
     ],
     "menus": {
       "commandPalette": [
         {
           "command": "zova.createLocalBean",
+          "when": "false"
+        },
+        {
+          "command": "zova.createGeneralBean",
           "when": "false"
         }
       ],
@@ -60,6 +69,10 @@
         {
           "command": "zova.createLocalBean",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/bean/ || resourcePath=~ /src\\/component/ || resourcePath=~ /src\\/page/)"
+        },
+        {
+          "command": "zova.createGeneralBean",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/bean/)"
         }
       ],
       "zova.init": []

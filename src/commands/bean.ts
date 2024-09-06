@@ -38,3 +38,43 @@ export async function createLocalBean(resource: Uri) {
       );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
+
+export async function createGeneralBean(resource: Uri) {
+  // name
+  const name = await window.showInputBox({
+    prompt: 'What is the general bean name?',
+  });
+  if (!name) {
+    return;
+  }
+  await createGeneralBean_common(resource, name, 'bean');
+}
+
+export async function createGeneralBean_common(
+  resource: Uri,
+  name: string,
+  sceneName: string
+) {
+  // commandPathInfo
+  const commandPathInfo = extractCommandPathInfo(resource.fsPath);
+  // pathResource
+  const pathResource = trimPathPrefixs(
+    combineCliResourcePath(commandPathInfo.pathResource, name),
+    ['src/bean/', 'src/']
+  );
+  // invoke
+  await invokeZovaCli(
+    [
+      `:create:${sceneName}`,
+      pathResource,
+      `--module=${commandPathInfo.moduleName}`,
+    ],
+    commandPathInfo.projectCurrent
+  );
+  // open
+  let fileDest = path.join(
+    commandPathInfo.moduleRoot,
+    `src/bean/${sceneName}.${pathResource}.ts`
+  );
+  showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
+}
