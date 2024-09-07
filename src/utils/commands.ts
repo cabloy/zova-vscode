@@ -18,6 +18,8 @@ import { createComponent } from '../commands/create/component.js';
 import { createPage } from '../commands/create/page.js';
 import { initIcons } from '../commands/init/icons.js';
 import { toolsRes } from '../commands/tools/res.js';
+import { initConfig } from '../commands/init/config.js';
+import { initConstant } from '../commands/init/constant.js';
 
 const extensionCommands = [
   // create
@@ -32,6 +34,8 @@ const extensionCommands = [
   { command: 'zova.createPage', function: createPage },
   // init
   { command: 'zova.initIcons', function: initIcons },
+  { command: 'zova.initConfig', function: initConfig },
+  { command: 'zova.initConstant', function: initConstant },
   // tools
   { command: 'zova.toolsRes', function: toolsRes },
 ];

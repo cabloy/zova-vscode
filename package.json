@@ -82,6 +82,16 @@
         "category": "Zova Init"
       },
       {
+        "command": "zova.initConfig",
+        "title": "Config",
+        "category": "Zova Init"
+      },
+      {
+        "command": "zova.initConstant",
+        "title": "Constant",
+        "category": "Zova Init"
+      },
+      {
         "command": "zova.toolsRes",
         "title": "Generate .res",
         "category": "Zova Tools"
@@ -127,6 +137,14 @@
         },
         {
           "command": "zova.initIcons",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.initConfig",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.initConstant",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -192,6 +210,14 @@
       "zova.init": [
         {
           "command": "zova.initIcons",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
+        },
+        {
+          "command": "zova.initConfig",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
+        },
+        {
+          "command": "zova.initConstant",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
         }
       ],
