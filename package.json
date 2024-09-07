@@ -82,11 +82,6 @@
         "category": "Zova Init"
       },
       {
-        "command": "zova.toolsIcons",
-        "title": "Generate icons",
-        "category": "Zova Tools"
-      },
-      {
         "command": "zova.toolsRes",
         "title": "Generate .res",
         "category": "Zova Tools"
@@ -132,10 +127,6 @@
         },
         {
           "command": "zova.initIcons",
-          "when": "zova.hasZovaProject && zova.currentZovaProject"
-        },
-        {
-          "command": "zova.toolsIcons",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -205,10 +196,6 @@
         }
       ],
       "zova.tools": [
-        {
-          "command": "zova.toolsIcons",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
-        },
         {
           "command": "zova.toolsRes",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/\\.res/)"

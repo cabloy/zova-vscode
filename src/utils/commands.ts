@@ -14,10 +14,10 @@ import { ProcessHelper } from '@cabloy/process-helper';
 import { getWorkspaceRootDirectory } from './zova.js';
 import { existsSync } from 'fs-extra';
 import path from 'node:path';
-import { toolsIcons, toolsRes } from '../commands/tools.js';
 import { createComponent } from '../commands/create/component.js';
 import { createPage } from '../commands/create/page.js';
 import { initIcons } from '../commands/init/icons.js';
+import { toolsRes } from '../commands/tools/res.js';
 
 const extensionCommands = [
   // create
@@ -33,7 +33,6 @@ const extensionCommands = [
   // init
   { command: 'zova.initIcons', function: initIcons },
   // tools
-  { command: 'zova.toolsIcons', function: toolsIcons },
   { command: 'zova.toolsRes', function: toolsRes },
 ];
 

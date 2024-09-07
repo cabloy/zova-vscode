@@ -1,6 +1,9 @@
 import { Uri, window } from 'vscode';
-import { extractCommandPathInfo, preparePathResource } from '../utils/zova.js';
-import { invokeZovaCli } from '../utils/commands.js';
+import {
+  extractCommandPathInfo,
+  preparePathResource,
+} from '../../utils/zova.js';
+import { invokeZovaCli } from '../../utils/commands.js';
 
 export async function toolsIcons(resource?: Uri) {
   const { fsPath } = preparePathResource(resource);
