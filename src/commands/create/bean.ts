@@ -4,11 +4,11 @@ import {
   extractCommandPathInfo,
   preparePathResource,
   trimPathPrefixs,
-} from '../utils/zova.js';
-import { LocalConsole } from '../utils/console.js';
+} from '../../utils/zova.js';
+import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
-import { invokeZovaCli } from '../utils/commands.js';
-import { showTextDocument } from '../utils/global.js';
+import { invokeZovaCli } from '../../utils/commands.js';
+import { showTextDocument } from '../../utils/global.js';
 
 export async function createLocalBean(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);

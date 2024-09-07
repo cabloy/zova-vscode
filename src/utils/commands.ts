@@ -7,7 +7,7 @@ import {
   createStyleBean,
   createThemeBean,
   createToolBean,
-} from '../commands/bean.js';
+} from '../commands/create/bean.js';
 import { logger } from './outputChannel.js';
 import { LocalConsole } from './console.js';
 import { ProcessHelper } from '@cabloy/process-helper';
@@ -15,8 +15,8 @@ import { getWorkspaceRootDirectory } from './zova.js';
 import { existsSync } from 'fs-extra';
 import path from 'node:path';
 import { toolsIcons, toolsRes } from '../commands/tools.js';
-import { createComponent } from '../commands/component.js';
-import { createPage } from '../commands/page.js';
+import { createComponent } from '../commands/create/component.js';
+import { createPage } from '../commands/create/page.js';
 
 const extensionCommands = [
   // create

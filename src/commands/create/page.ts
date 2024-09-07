@@ -4,20 +4,20 @@ import {
   extractCommandPathInfo,
   preparePathResource,
   trimPathPrefixs,
-} from '../utils/zova.js';
-import { LocalConsole } from '../utils/console.js';
+} from '../../utils/zova.js';
+import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
-import { invokeZovaCli } from '../utils/commands.js';
-import { showTextDocument } from '../utils/global.js';
+import { invokeZovaCli } from '../../utils/commands.js';
+import { showTextDocument } from '../../utils/global.js';
 
-export async function createComponent(resource?: Uri) {
+export async function createPage(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
   }
   // name
   const name = await window.showInputBox({
-    prompt: 'What is the component name?',
+    prompt: 'What is the page name?',
   });
   if (!name) {
     return;
@@ -30,21 +30,17 @@ export async function createComponent(resource?: Uri) {
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['src/component/', 'src/']
+    ['src/page/', 'src/']
   );
   // invoke
   await invokeZovaCli(
-    [
-      ':create:component',
-      pathResource,
-      `--module=${commandPathInfo.moduleName}`,
-    ],
+    [':create:page', pathResource, `--module=${commandPathInfo.moduleName}`],
     commandPathInfo.projectCurrent
   );
   // open
   let fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/component/${pathResource}/controller.ts`
+    `src/page/${pathResource}/controller.ts`
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
