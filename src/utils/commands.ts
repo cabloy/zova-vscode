@@ -16,6 +16,7 @@ import { existsSync } from 'fs-extra';
 import path from 'node:path';
 import { toolsIcons, toolsRes } from '../commands/tools.js';
 import { createComponent } from '../commands/component.js';
+import { createPage } from '../commands/page.js';
 
 const extensionCommands = [
   // create
@@ -27,6 +28,7 @@ const extensionCommands = [
   { command: 'zova.createToolBean', function: createToolBean },
   { command: 'zova.createGeneralBean', function: createGeneralBean },
   { command: 'zova.createComponent', function: createComponent },
+  { command: 'zova.createPage', function: createPage },
   // tools
   { command: 'zova.toolsIcons', function: toolsIcons },
   { command: 'zova.toolsRes', function: toolsRes },

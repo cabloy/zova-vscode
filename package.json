@@ -72,6 +72,11 @@
         "category": "Zova Create"
       },
       {
+        "command": "zova.createPage",
+        "title": "Page",
+        "category": "Zova Create"
+      },
+      {
         "command": "zova.toolsIcons",
         "title": "Generate icons",
         "category": "Zova Tools"
@@ -114,6 +119,10 @@
         },
         {
           "command": "zova.createComponent",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.createPage",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -174,6 +183,10 @@
         {
           "command": "zova.createComponent",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/component$/)"
+        },
+        {
+          "command": "zova.createPage",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/page$/)"
         }
       ],
       "zova.init": [],
