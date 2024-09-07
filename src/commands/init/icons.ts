@@ -4,6 +4,8 @@ import {
   preparePathResource,
 } from '../../utils/zova.js';
 import { invokeZovaCli } from '../../utils/commands.js';
+import path from 'node:path';
+import { showTextDocument } from '../../utils/global.js';
 
 export async function initIcons(resource?: Uri) {
   const { fsPath } = preparePathResource(resource);
@@ -20,5 +22,11 @@ export async function initIcons(resource?: Uri) {
     [':init:icons', commandPathInfo.moduleName],
     commandPathInfo.projectCurrent
   );
-  window.showInformationMessage('Init icons successfully!');
+  // open
+  let fileDest = path.join(
+    commandPathInfo.moduleRoot,
+    `icons/default/zova.svg`
+  );
+  showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
+  // window.showInformationMessage('Init icons successfully!');
 }
