@@ -145,7 +145,7 @@
       "zova.create": [
         {
           "command": "zova.createLocalBean",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/bean/ || resourcePath=~ /src\\/component/ || resourcePath=~ /src\\/page/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/bean/ || resourcePath=~ /src\\/component\\/[^\\/]*$/ || resourcePath=~ /src\\/page\\/[^\\/]*$/)"
         },
         {
           "command": "zova.createModelBean",
@@ -173,7 +173,7 @@
         },
         {
           "command": "zova.createComponent",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/component/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/component$/)"
         }
       ],
       "zova.init": [],
