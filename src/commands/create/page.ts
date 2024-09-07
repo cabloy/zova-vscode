@@ -38,7 +38,7 @@ export async function createPage(resource?: Uri) {
     commandPathInfo.projectCurrent
   );
   // open
-  let fileDest = path.join(
+  const fileDest = path.join(
     commandPathInfo.moduleRoot,
     `src/page/${pathResource}/controller.ts`
   );

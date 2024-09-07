@@ -23,7 +23,7 @@ export async function initConstant(resource?: Uri) {
     commandPathInfo.projectCurrent
   );
   // open
-  let fileDest = path.join(
+  const fileDest = path.join(
     commandPathInfo.moduleRoot,
     `src/config/constants.ts`
   );

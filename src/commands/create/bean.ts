@@ -38,7 +38,7 @@ export async function createLocalBean(resource?: Uri) {
     commandPathInfo.projectCurrent
   );
   // open
-  let fileDest = pathResource.includes('/')
+  const fileDest = pathResource.includes('/')
     ? path.join(commandPathInfo.moduleRoot, 'src', `${pathResource}.ts`)
     : path.join(
         commandPathInfo.moduleRoot,
@@ -129,7 +129,7 @@ export async function createGeneralBean_common(
     commandPathInfo.projectCurrent
   );
   // open
-  let fileDest = path.join(
+  const fileDest = path.join(
     commandPathInfo.moduleRoot,
     `src/bean/${sceneName}.${pathResource}.ts`
   );

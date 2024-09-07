@@ -23,7 +23,7 @@ export async function initIcons(resource?: Uri) {
     commandPathInfo.projectCurrent
   );
   // open
-  let fileDest = path.join(
+  const fileDest = path.join(
     commandPathInfo.moduleRoot,
     `icons/default/zova.svg`
   );

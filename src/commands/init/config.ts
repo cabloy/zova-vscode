@@ -23,6 +23,9 @@ export async function initConfig(resource?: Uri) {
     commandPathInfo.projectCurrent
   );
   // open
-  let fileDest = path.join(commandPathInfo.moduleRoot, `src/config/config.ts`);
+  const fileDest = path.join(
+    commandPathInfo.moduleRoot,
+    `src/config/config.ts`
+  );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

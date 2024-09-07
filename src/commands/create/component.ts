@@ -42,7 +42,7 @@ export async function createComponent(resource?: Uri) {
     commandPathInfo.projectCurrent
   );
   // open
-  let fileDest = path.join(
+  const fileDest = path.join(
     commandPathInfo.moduleRoot,
     `src/component/${pathResource}/controller.ts`
   );
