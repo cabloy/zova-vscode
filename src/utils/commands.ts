@@ -17,6 +17,7 @@ import path from 'node:path';
 import { toolsIcons, toolsRes } from '../commands/tools.js';
 import { createComponent } from '../commands/create/component.js';
 import { createPage } from '../commands/create/page.js';
+import { initIcons } from '../commands/init/icons.js';
 
 const extensionCommands = [
   // create
@@ -29,6 +30,8 @@ const extensionCommands = [
   { command: 'zova.createGeneralBean', function: createGeneralBean },
   { command: 'zova.createComponent', function: createComponent },
   { command: 'zova.createPage', function: createPage },
+  // init
+  { command: 'zova.initIcons', function: initIcons },
   // tools
   { command: 'zova.toolsIcons', function: toolsIcons },
   { command: 'zova.toolsRes', function: toolsRes },
