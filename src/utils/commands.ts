@@ -15,6 +15,7 @@ import { getWorkspaceRootDirectory } from './zova.js';
 import { existsSync } from 'fs-extra';
 import path from 'node:path';
 import { toolsIcons, toolsRes } from '../commands/tools.js';
+import { createComponent } from '../commands/component.js';
 
 const extensionCommands = [
   // create
@@ -25,6 +26,7 @@ const extensionCommands = [
   { command: 'zova.createThemeBean', function: createThemeBean },
   { command: 'zova.createToolBean', function: createToolBean },
   { command: 'zova.createGeneralBean', function: createGeneralBean },
+  { command: 'zova.createComponent', function: createComponent },
   // tools
   { command: 'zova.toolsIcons', function: toolsIcons },
   { command: 'zova.toolsRes', function: toolsRes },
