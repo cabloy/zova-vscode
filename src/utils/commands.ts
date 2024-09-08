@@ -23,6 +23,7 @@ import { initConstant } from '../commands/init/constant.js';
 import { initLocale } from '../commands/init/locale.js';
 import { initError } from '../commands/init/error.js';
 import { initMock } from '../commands/init/mock.js';
+import { createService } from '../commands/create/service.js';
 
 const extensionCommands = [
   // create
@@ -35,6 +36,7 @@ const extensionCommands = [
   { command: 'zova.createGeneralBean', function: createGeneralBean },
   { command: 'zova.createComponent', function: createComponent },
   { command: 'zova.createPage', function: createPage },
+  { command: 'zova.createService', function: createService },
   // init
   { command: 'zova.initIcon', function: initIcon },
   { command: 'zova.initConfig', function: initConfig },

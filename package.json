@@ -77,6 +77,11 @@
         "category": "Zova Create"
       },
       {
+        "command": "zova.createService",
+        "title": "Service",
+        "category": "Zova Create"
+      },
+      {
         "command": "zova.initIcon",
         "title": "Icon",
         "category": "Zova Init"
@@ -148,6 +153,10 @@
         },
         {
           "command": "zova.createPage",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.createService",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -232,6 +241,10 @@
         {
           "command": "zova.createPage",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/page$/)"
+        },
+        {
+          "command": "zova.createService",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/service$/)"
         }
       ],
       "zova.init": [
