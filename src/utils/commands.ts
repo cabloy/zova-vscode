@@ -22,8 +22,8 @@ import { initConfig } from '../commands/init/config.js';
 import { initConstant } from '../commands/init/constant.js';
 import { initLocale } from '../commands/init/locale.js';
 import { initError } from '../commands/init/error.js';
-import { initMock } from '../commands/init/mock.js';
 import { createService } from '../commands/create/service.js';
+import { createMock } from '../commands/create/mock.js';
 
 const extensionCommands = [
   // create
@@ -37,13 +37,13 @@ const extensionCommands = [
   { command: 'zova.createComponent', function: createComponent },
   { command: 'zova.createPage', function: createPage },
   { command: 'zova.createService', function: createService },
+  { command: 'zova.createMock', function: createMock },
   // init
   { command: 'zova.initIcon', function: initIcon },
   { command: 'zova.initConfig', function: initConfig },
   { command: 'zova.initConstant', function: initConstant },
   { command: 'zova.initLocale', function: initLocale },
   { command: 'zova.initError', function: initError },
-  { command: 'zova.initMock', function: initMock },
   // tools
   { command: 'zova.toolsRes', function: toolsRes },
 ];

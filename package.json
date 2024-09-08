@@ -82,6 +82,11 @@
         "category": "Zova Create"
       },
       {
+        "command": "zova.createMock",
+        "title": "Mock",
+        "category": "Zova Create"
+      },
+      {
         "command": "zova.initIcon",
         "title": "Icon",
         "category": "Zova Init"
@@ -104,11 +109,6 @@
       {
         "command": "zova.initError",
         "title": "Error",
-        "category": "Zova Init"
-      },
-      {
-        "command": "zova.initMock",
-        "title": "Mock",
         "category": "Zova Init"
       },
       {
@@ -160,6 +160,10 @@
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
+          "command": "zova.createMock",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
           "command": "zova.initIcon",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
@@ -177,10 +181,6 @@
         },
         {
           "command": "zova.initError",
-          "when": "zova.hasZovaProject && zova.currentZovaProject"
-        },
-        {
-          "command": "zova.initMock",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -245,6 +245,10 @@
         {
           "command": "zova.createService",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /src\\/service$/)"
+        },
+        {
+          "command": "zova.createMock",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath=~ /\\/mock$/)"
         }
       ],
       "zova.init": [
@@ -266,10 +270,6 @@
         },
         {
           "command": "zova.initError",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
-        },
-        {
-          "command": "zova.initMock",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
         }
       ],
