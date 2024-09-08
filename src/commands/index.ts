@@ -6,4 +6,4 @@ export * from './create/mock.js';
 export * from './init/icon.js';
 export * from './init/config.js';
 export * from './init/constant.js';
-export * from './tools/res.js';
+export * from './tools/metadata.js';

@@ -17,7 +17,7 @@ import path from 'node:path';
 import { createComponent } from '../commands/create/component.js';
 import { createPage } from '../commands/create/page.js';
 import { initIcon } from '../commands/init/icon.js';
-import { toolsRes } from '../commands/tools/res.js';
+import { toolsMetadata } from '../commands/tools/metadata.js';
 import { initConfig } from '../commands/init/config.js';
 import { initConstant } from '../commands/init/constant.js';
 import { initLocale } from '../commands/init/locale.js';
@@ -45,7 +45,7 @@ const extensionCommands = [
   { command: 'zova.initLocale', function: initLocale },
   { command: 'zova.initError', function: initError },
   // tools
-  { command: 'zova.toolsRes', function: toolsRes },
+  { command: 'zova.toolsMetadata', function: toolsMetadata },
 ];
 
 export class Commands {

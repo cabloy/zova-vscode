@@ -25,7 +25,7 @@ export async function toolsIcon(resource?: Uri) {
   window.showInformationMessage('Generate icon successfully!');
 }
 
-export async function toolsRes(resource?: Uri) {
+export async function toolsMetadata(resource?: Uri) {
   const { fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
@@ -37,11 +37,14 @@ export async function toolsRes(resource?: Uri) {
   }
   // invoke
   await invokeZovaCli(
-    [':tools:res', commandPathInfo.moduleName],
+    [':tools:metadata', commandPathInfo.moduleName],
     commandPathInfo.projectCurrent
   );
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/.res/index.ts`);
+  const fileDest = path.join(
+    commandPathInfo.moduleRoot,
+    `src/.metadata/index.ts`
+  );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
-  //window.showInformationMessage('Generate .res successfully!');
+  //window.showInformationMessage('Generate .metadata successfully!');
 }
