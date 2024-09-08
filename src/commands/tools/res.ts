@@ -7,7 +7,7 @@ import { invokeZovaCli } from '../../utils/commands.js';
 import path from 'node:path';
 import { showTextDocument } from '../../utils/global.js';
 
-export async function toolsIcons(resource?: Uri) {
+export async function toolsIcon(resource?: Uri) {
   const { fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
@@ -19,10 +19,10 @@ export async function toolsIcons(resource?: Uri) {
   }
   // invoke
   await invokeZovaCli(
-    [':tools:icons', commandPathInfo.moduleName],
+    [':tools:icon', commandPathInfo.moduleName],
     commandPathInfo.projectCurrent
   );
-  window.showInformationMessage('Generate icons successfully!');
+  window.showInformationMessage('Generate icon successfully!');
 }
 
 export async function toolsRes(resource?: Uri) {

@@ -16,7 +16,7 @@ import { existsSync } from 'fs-extra';
 import path from 'node:path';
 import { createComponent } from '../commands/create/component.js';
 import { createPage } from '../commands/create/page.js';
-import { initIcons } from '../commands/init/icons.js';
+import { initIcon } from '../commands/init/icon.js';
 import { toolsRes } from '../commands/tools/res.js';
 import { initConfig } from '../commands/init/config.js';
 import { initConstant } from '../commands/init/constant.js';
@@ -35,7 +35,7 @@ const extensionCommands = [
   { command: 'zova.createComponent', function: createComponent },
   { command: 'zova.createPage', function: createPage },
   // init
-  { command: 'zova.initIcons', function: initIcons },
+  { command: 'zova.initIcon', function: initIcon },
   { command: 'zova.initConfig', function: initConfig },
   { command: 'zova.initConstant', function: initConstant },
   { command: 'zova.initLocale', function: initLocale },

@@ -77,8 +77,8 @@
         "category": "Zova Create"
       },
       {
-        "command": "zova.initIcons",
-        "title": "Icons",
+        "command": "zova.initIcon",
+        "title": "Icon",
         "category": "Zova Init"
       },
       {
@@ -146,7 +146,7 @@
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
-          "command": "zova.initIcons",
+          "command": "zova.initIcon",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -227,7 +227,7 @@
       ],
       "zova.init": [
         {
-          "command": "zova.initIcons",
+          "command": "zova.initIcon",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
         },
         {
