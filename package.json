@@ -102,6 +102,11 @@
         "category": "Zova Init"
       },
       {
+        "command": "zova.initMock",
+        "title": "Mock",
+        "category": "Zova Init"
+      },
+      {
         "command": "zova.toolsRes",
         "title": "Generate .res",
         "category": "Zova Tools"
@@ -163,6 +168,10 @@
         },
         {
           "command": "zova.initError",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.initMock",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -244,6 +253,10 @@
         },
         {
           "command": "zova.initError",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
+        },
+        {
+          "command": "zova.initMock",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/)"
         }
       ],

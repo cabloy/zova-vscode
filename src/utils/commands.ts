@@ -22,6 +22,7 @@ import { initConfig } from '../commands/init/config.js';
 import { initConstant } from '../commands/init/constant.js';
 import { initLocale } from '../commands/init/locale.js';
 import { initError } from '../commands/init/error.js';
+import { initMock } from '../commands/init/mock.js';
 
 const extensionCommands = [
   // create
@@ -40,6 +41,7 @@ const extensionCommands = [
   { command: 'zova.initConstant', function: initConstant },
   { command: 'zova.initLocale', function: initLocale },
   { command: 'zova.initError', function: initError },
+  { command: 'zova.initMock', function: initMock },
   // tools
   { command: 'zova.toolsRes', function: toolsRes },
 ];
