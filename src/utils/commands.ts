@@ -20,6 +20,8 @@ import { initIcons } from '../commands/init/icons.js';
 import { toolsRes } from '../commands/tools/res.js';
 import { initConfig } from '../commands/init/config.js';
 import { initConstant } from '../commands/init/constant.js';
+import { initLocale } from '../commands/init/locale.js';
+import { initError } from '../commands/init/error.js';
 
 const extensionCommands = [
   // create
@@ -36,6 +38,8 @@ const extensionCommands = [
   { command: 'zova.initIcons', function: initIcons },
   { command: 'zova.initConfig', function: initConfig },
   { command: 'zova.initConstant', function: initConstant },
+  { command: 'zova.initLocale', function: initLocale },
+  { command: 'zova.initError', function: initError },
   // tools
   { command: 'zova.toolsRes', function: toolsRes },
 ];
