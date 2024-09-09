@@ -25,7 +25,7 @@ export async function createModule(resource?: Uri) {
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   if (fromPalette) {
-    commandPathInfo.pathResource = '';
+    commandPathInfo.pathResource = 'src/module';
   }
   // pathResource
   const pathResource = trimPathPrefixs(
