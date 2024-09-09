@@ -30,7 +30,7 @@ export async function createModule(resource?: Uri) {
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['modules/']
+    ['src/']
   );
   // invoke
   await invokeZovaCli(
@@ -44,6 +44,8 @@ export async function createModule(resource?: Uri) {
     commandPathInfo.projectCurrent
   );
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/index.ts`);
+  const fileDest = commandPathInfo.suiteName
+    ? path.join(commandPathInfo.suiteRoot, `modules/${name}/src/index.ts`)
+    : path.join(commandPathInfo.pathResource, `${name}/src/index.ts`);
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
