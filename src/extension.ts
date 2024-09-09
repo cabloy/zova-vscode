@@ -4,7 +4,7 @@ import { FileWatchers } from './watchers/files.js';
 import { TextEditorWatchers } from './watchers/textEditor.js';
 import { Commands } from './utils/commands.js';
 
-let fileWatchers: FileWatchers | undefined;
+// let fileWatchers: FileWatchers | undefined;
 let textEditorWatchers: TextEditorWatchers | undefined;
 export function activateExtension(context: vscode.ExtensionContext) {
   logger.log('Zova-vscode is active');
@@ -15,8 +15,8 @@ export function activateExtension(context: vscode.ExtensionContext) {
   textEditorWatchers = new TextEditorWatchers(context);
   textEditorWatchers.start();
 
-  fileWatchers = new FileWatchers(context);
-  fileWatchers.start();
+  // fileWatchers = new FileWatchers(context);
+  // fileWatchers.start();
 }
 
 export function deactivateExtension() {
@@ -24,8 +24,8 @@ export function deactivateExtension() {
     textEditorWatchers.stop();
     textEditorWatchers = undefined;
   }
-  if (fileWatchers) {
-    fileWatchers.stop();
-    fileWatchers = undefined;
-  }
+  // if (fileWatchers) {
+  //   fileWatchers.stop();
+  //   fileWatchers = undefined;
+  // }
 }
