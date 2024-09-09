@@ -229,6 +229,10 @@
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/src\\/suite$/ || resourcePath =~ /\\/src\\/suite-vendor$/)"
         },
         {
+          "command": "zova.createModule",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/src\\/module$/ || resourcePath =~ /\\/src\\/module-vendor$/ || resourcePath =~ /\\/src\\/suite\\/[^\\/]*$/ || resourcePath =~ /\\/src\\/suite-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/src\\/suite\\/[^\\/]*\\/modules$/ || resourcePath =~ /\\/src\\/suite-vendor\\/[^\\/]*\\/modules$/)"
+        },
+        {
           "command": "zova.createLocalBean",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath =~ /\\/module\\/[^\\/]*\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]*\\/src$/ || resourcePath=~ /src\\/bean/ || resourcePath=~ /src\\/component\\/[^\\/]*$/ || resourcePath=~ /src\\/page\\/[^\\/]*$/)"
         },
