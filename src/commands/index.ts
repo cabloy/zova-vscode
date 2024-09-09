@@ -4,6 +4,7 @@ export * from './create/page.js';
 export * from './create/service.js';
 export * from './create/mock.js';
 export * from './create/module.js';
+export * from './create/suite.js';
 export * from './init/icon.js';
 export * from './init/config.js';
 export * from './init/constant.js';
