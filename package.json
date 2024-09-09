@@ -32,6 +32,16 @@
   "contributes": {
     "commands": [
       {
+        "command": "zova.createSuite",
+        "title": "Suite",
+        "category": "Zova Create"
+      },
+      {
+        "command": "zova.createModule",
+        "title": "Module",
+        "category": "Zova Create"
+      },
+      {
         "command": "zova.createLocalBean",
         "title": "Bean: Local",
         "category": "Zova Create"
@@ -120,6 +130,14 @@
     "menus": {
       "commandPalette": [
         {
+          "command": "zova.createSuite",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.createModule",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
           "command": "zova.createLocalBean",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
@@ -206,6 +224,10 @@
         }
       ],
       "zova.create": [
+        {
+          "command": "zova.createSuite",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/src\\/suite$/ || resourcePath =~ /\\/src\\/suite-vendor$/)"
+        },
         {
           "command": "zova.createLocalBean",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]*$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*$/ || resourcePath =~ /\\/modules\\/[^\\/]*$/ || resourcePath =~ /\\/module\\/[^\\/]*\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]*\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]*\\/src$/ || resourcePath=~ /src\\/bean/ || resourcePath=~ /src\\/component\\/[^\\/]*$/ || resourcePath=~ /src\\/page\\/[^\\/]*$/)"

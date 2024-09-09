@@ -24,6 +24,7 @@ import { initLocale } from '../commands/init/locale.js';
 import { initError } from '../commands/init/error.js';
 import { createService } from '../commands/create/service.js';
 import { createMock } from '../commands/create/mock.js';
+import { createModule } from '../commands/create/module.js';
 
 const extensionCommands = [
   // create
@@ -38,6 +39,7 @@ const extensionCommands = [
   { command: 'zova.createPage', function: createPage },
   { command: 'zova.createService', function: createService },
   { command: 'zova.createMock', function: createMock },
+  { command: 'zova.createModule', function: createModule },
   // init
   { command: 'zova.initIcon', function: initIcon },
   { command: 'zova.initConfig', function: initConfig },
