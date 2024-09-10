@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@cabloy/process-helper':
-        specifier: ^1.0.4
-        version: 1.0.4
+        specifier: ^1.0.5
+        version: 1.0.5
       fs-extra:
         specifier: ^11.2.0
         version: 11.2.0
@@ -57,8 +57,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@cabloy/process-helper@1.0.4':
-    resolution: {integrity: sha512-w3HBtxHWTisyfdlkfz77CacBkfrypuInLd/qSwu34QWTSlvKBxFouVUARlmvjOFn5nWVNdr37BnP2BwnWeo7YA==}
+  '@cabloy/process-helper@1.0.5':
+    resolution: {integrity: sha512-Ab4qDASNyGKF88E61kUh0K/+0tFtv2M2/aSXeU4/D7IsqBerE1Z+yiZiqTHj7W4mCKHQVRpc2DVfQb4KelPsuw==}
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -1561,7 +1561,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@cabloy/process-helper@1.0.4': {}
+  '@cabloy/process-helper@1.0.5': {}
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true

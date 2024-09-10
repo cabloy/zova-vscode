@@ -1,4 +1,4 @@
-import { commands, ExtensionContext } from 'vscode';
+import { commands, ExtensionContext, window } from 'vscode';
 import {
   createGeneralBean,
   createLocalBean,
@@ -76,7 +76,9 @@ function wrapperCommand(command, fn) {
     try {
       await fn(...args);
     } catch (err) {
-      logger.log(`command: ${command} Error: ${err.message}`);
+      // need not logger.log to avoid log the same error twice
+      // logger.log(`command: ${command} Error: ${err.message}`);
+      window.showInformationMessage(err.message);
     }
   };
 }

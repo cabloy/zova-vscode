@@ -340,7 +340,7 @@
     "test": "vscode-test"
   },
   "dependencies": {
-    "@cabloy/process-helper": "^1.0.4",
+    "@cabloy/process-helper": "^1.0.5",
     "fs-extra": "^11.2.0"
   },
   "devDependencies": {
