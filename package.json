@@ -15,9 +15,6 @@
   "activationEvents": [
     "onStartupFinished"
   ],
-  "files": [
-    "dist"
-  ],
   "main": "./dist/index.js",
   "icon": "assets/zova.png",
   "publisher": "cabloy",
