@@ -8,7 +8,7 @@ import {
 import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
 import { invokeZovaCli } from '../../utils/commands.js';
-import { showTextDocument } from '../../utils/global.js';
+import { newTerminal, showTextDocument } from '../../utils/global.js';
 
 export async function createModule(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
@@ -43,6 +43,8 @@ export async function createModule(resource?: Uri) {
     ],
     commandPathInfo.projectCurrent
   );
+  // pnpm install
+  newTerminal('pnpm install', commandPathInfo.projectCurrent);
   // open
   const fileDest = commandPathInfo.suiteName
     ? path.join(commandPathInfo.suiteRoot, `modules/${name}/src/index.ts`)

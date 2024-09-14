@@ -87,6 +87,7 @@ export async function invokeZovaCli(args: string[], projectCurrent: string) {
   const console = new LocalConsole();
   const processHelper = new ProcessHelper(projectCurrent, console);
   const workspaceFolder = getWorkspaceRootDirectory();
+  args = args.concat('--vscode');
   if (existsSync(path.join(workspaceFolder, 'zova-cli'))) {
     await processHelper.spawnCmd({
       cmd: 'tsc',

@@ -1,21 +1,19 @@
+import path from 'node:path';
 import * as vscode from 'vscode';
 
-export function newTerminal(
-  command: string,
-  terminalName: string = 'zova-cli',
-  cwd?: string
-) {
+export function newTerminal(command: string, projectCurrent: string) {
+  const basename = path.basename(projectCurrent);
+  const terminalName = `zova-cli:${basename}`;
   const existingTerminal = vscode.window.terminals.find(
     (terminal) => terminal.name === terminalName
   );
-
   if (existingTerminal) {
     existingTerminal.show();
     existingTerminal.sendText(command);
   } else {
     const terminal = vscode.window.createTerminal({
       name: terminalName,
-      cwd,
+      cwd: projectCurrent,
     });
     terminal.sendText(command);
     terminal.show();
