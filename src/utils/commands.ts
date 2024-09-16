@@ -26,6 +26,7 @@ import { createService } from '../commands/create/service.js';
 import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
 import { createSuite } from '../commands/create/suite.js';
+import { refactorPageQuery } from '../commands/refactor/pageQuery.js';
 
 const extensionCommands = [
   // create
@@ -48,6 +49,8 @@ const extensionCommands = [
   { command: 'zova.initConstant', function: initConstant },
   { command: 'zova.initLocale', function: initLocale },
   { command: 'zova.initError', function: initError },
+  // refactor
+  { command: 'zova.refactorPageQuery', function: refactorPageQuery },
   // tools
   { command: 'zova.toolsMetadata', function: toolsMetadata },
 ];
