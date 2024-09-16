@@ -129,6 +129,11 @@
         "category": "Zova Refactor"
       },
       {
+        "command": "zova.refactorComponentGeneric",
+        "title": "Add Component Generic",
+        "category": "Zova Refactor"
+      },
+      {
         "command": "zova.toolsMetadata",
         "title": "Generate .metadata",
         "category": "Zova Tools"
@@ -215,6 +220,10 @@
         {
           "command": "zova.refactorPageParams",
           "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/"
+        },
+        {
+          "command": "zova.refactorComponentGeneric",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/"
         },
         {
           "command": "zova.toolsMetadata",
@@ -327,6 +336,10 @@
         {
           "command": "zova.refactorPageParams",
           "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorComponentGeneric",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/)"
         }
       ],
       "zova.tools": [
