@@ -205,7 +205,7 @@
         },
         {
           "command": "zova.refactorPageQuery",
-          "when": "zova.hasZovaProject && zova.currentZovaProject"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/"
         },
         {
           "command": "zova.toolsMetadata",
