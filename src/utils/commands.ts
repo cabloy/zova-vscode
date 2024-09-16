@@ -27,6 +27,7 @@ import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
 import { createSuite } from '../commands/create/suite.js';
 import { refactorPageQuery } from '../commands/refactor/pageQuery.js';
+import { refactorPageParams } from '../commands/refactor/pageParams.js';
 
 const extensionCommands = [
   // create
@@ -51,6 +52,7 @@ const extensionCommands = [
   { command: 'zova.initError', function: initError },
   // refactor
   { command: 'zova.refactorPageQuery', function: refactorPageQuery },
+  { command: 'zova.refactorPageParams', function: refactorPageParams },
   // tools
   { command: 'zova.toolsMetadata', function: toolsMetadata },
 ];

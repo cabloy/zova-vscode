@@ -124,6 +124,11 @@
         "category": "Zova Refactor"
       },
       {
+        "command": "zova.refactorPageParams",
+        "title": "Add Page Params",
+        "category": "Zova Refactor"
+      },
+      {
         "command": "zova.toolsMetadata",
         "title": "Generate .metadata",
         "category": "Zova Tools"
@@ -205,6 +210,10 @@
         },
         {
           "command": "zova.refactorPageQuery",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/"
+        },
+        {
+          "command": "zova.refactorPageParams",
           "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/"
         },
         {
@@ -313,6 +322,10 @@
       "zova.refactor": [
         {
           "command": "zova.refactorPageQuery",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorPageParams",
           "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/)"
         }
       ],
