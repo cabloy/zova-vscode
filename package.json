@@ -119,6 +119,11 @@
         "category": "Zova Init"
       },
       {
+        "command": "zova.refactorPageQuery",
+        "title": "Add Page Query",
+        "category": "Zova Refactor"
+      },
+      {
         "command": "zova.toolsMetadata",
         "title": "Generate .metadata",
         "category": "Zova Tools"
@@ -199,6 +204,10 @@
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
+          "command": "zova.refactorPageQuery",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
           "command": "zova.toolsMetadata",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         }
@@ -211,6 +220,11 @@
         },
         {
           "submenu": "zova.init",
+          "group": "navigation",
+          "when": "zova.hasZovaProject"
+        },
+        {
+          "submenu": "zova.refactor",
           "group": "navigation",
           "when": "zova.hasZovaProject"
         },
@@ -296,6 +310,12 @@
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/)"
         }
       ],
+      "zova.refactor": [
+        {
+          "command": "zova.refactorPageQuery",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/)"
+        }
+      ],
       "zova.tools": [
         {
           "command": "zova.toolsMetadata",
@@ -311,6 +331,10 @@
       {
         "id": "zova.init",
         "label": "Zova Init"
+      },
+      {
+        "id": "zova.refactor",
+        "label": "Zova Refactor"
       },
       {
         "id": "zova.tools",
