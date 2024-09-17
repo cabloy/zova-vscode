@@ -134,6 +134,16 @@
         "category": "Zova Refactor"
       },
       {
+        "command": "zova.refactorAnotherRender",
+        "title": "Create Another Render Bean",
+        "category": "Zova Refactor"
+      },
+      {
+        "command": "zova.refactorAnotherStyle",
+        "title": "Create Another Style Bean",
+        "category": "Zova Refactor"
+      },
+      {
         "command": "zova.toolsMetadata",
         "title": "Generate .metadata",
         "category": "Zova Tools"
@@ -224,6 +234,14 @@
         {
           "command": "zova.refactorComponentGeneric",
           "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/"
+        },
+        {
+          "command": "zova.refactorAnotherRender",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+\\/render\\.tsx$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/render\\.tsx$/)"
+        },
+        {
+          "command": "zova.refactorAnotherStyle",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+\\/style\\.ts$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/style\\.ts$/)"
         },
         {
           "command": "zova.toolsMetadata",
@@ -340,6 +358,14 @@
         {
           "command": "zova.refactorComponentGeneric",
           "when": "zova.hasZovaProject && (resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorAnotherRender",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/render\\.tsx$/ || resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/render\\.tsx$/)"
+        },
+        {
+          "command": "zova.refactorAnotherStyle",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/style\\.ts$/ || resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/style\\.ts$/)"
         }
       ],
       "zova.tools": [
