@@ -30,6 +30,7 @@ import { refactorPageQuery } from '../commands/refactor/pageQuery.js';
 import { refactorPageParams } from '../commands/refactor/pageParams.js';
 import { refactorComponentGeneric } from '../commands/refactor/componentGeneric.js';
 import { refactorAnotherRender } from '../commands/refactor/anotherRender.js';
+import { refactorAnotherStyle } from '../commands/refactor/anotherStyle.js';
 
 const extensionCommands = [
   // create
@@ -62,6 +63,10 @@ const extensionCommands = [
   {
     command: 'zova.refactorAnotherRender',
     function: refactorAnotherRender,
+  },
+  {
+    command: 'zova.refactorAnotherStyle',
+    function: refactorAnotherStyle,
   },
   // tools
   { command: 'zova.toolsMetadata', function: toolsMetadata },
