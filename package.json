@@ -144,6 +144,16 @@
         "category": "Zova Refactor"
       },
       {
+        "command": "zova.refactorRenamePage",
+        "title": "Rename Page",
+        "category": "Zova Refactor"
+      },
+      {
+        "command": "zova.refactorRenameComponent",
+        "title": "Rename Component",
+        "category": "Zova Refactor"
+      },
+      {
         "command": "zova.toolsMetadata",
         "title": "Generate .metadata",
         "category": "Zova Tools"
@@ -242,6 +252,14 @@
         {
           "command": "zova.refactorAnotherStyle",
           "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+\\/style\\.ts$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/style\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorRenamePage",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/"
+        },
+        {
+          "command": "zova.refactorRenameComponent",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/"
         },
         {
           "command": "zova.toolsMetadata",
@@ -366,6 +384,14 @@
         {
           "command": "zova.refactorAnotherStyle",
           "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/style\\.ts$/ || resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/style\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorRenamePage",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorRenameComponent",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/)"
         }
       ],
       "zova.tools": [
