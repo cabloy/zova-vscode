@@ -31,6 +31,8 @@ import { refactorPageParams } from '../commands/refactor/pageParams.js';
 import { refactorComponentGeneric } from '../commands/refactor/componentGeneric.js';
 import { refactorAnotherRender } from '../commands/refactor/anotherRender.js';
 import { refactorAnotherStyle } from '../commands/refactor/anotherStyle.js';
+import { refactorRenamePage } from '../commands/refactor/renamePage.js';
+import { refactorRenameComponent } from '../commands/refactor/renameComponent.js';
 
 const extensionCommands = [
   // create
@@ -67,6 +69,14 @@ const extensionCommands = [
   {
     command: 'zova.refactorAnotherStyle',
     function: refactorAnotherStyle,
+  },
+  {
+    command: 'zova.refactorRenamePage',
+    function: refactorRenamePage,
+  },
+  {
+    command: 'zova.refactorRenameComponent',
+    function: refactorRenameComponent,
   },
   // tools
   { command: 'zova.toolsMetadata', function: toolsMetadata },
