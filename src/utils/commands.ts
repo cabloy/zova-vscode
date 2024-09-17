@@ -29,6 +29,7 @@ import { createSuite } from '../commands/create/suite.js';
 import { refactorPageQuery } from '../commands/refactor/pageQuery.js';
 import { refactorPageParams } from '../commands/refactor/pageParams.js';
 import { refactorComponentGeneric } from '../commands/refactor/componentGeneric.js';
+import { refactorAnotherRender } from '../commands/refactor/anotherRender.js';
 
 const extensionCommands = [
   // create
@@ -57,6 +58,10 @@ const extensionCommands = [
   {
     command: 'zova.refactorComponentGeneric',
     function: refactorComponentGeneric,
+  },
+  {
+    command: 'zova.refactorAnotherRender',
+    function: refactorAnotherRender,
   },
   // tools
   { command: 'zova.toolsMetadata', function: toolsMetadata },
