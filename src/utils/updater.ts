@@ -6,7 +6,11 @@ import { invokeZovaCli } from './commands.js';
 
 export async function checkIfUpdateCli() {
   try {
-    const res = await invokeZovaCli(['--version'], getWorkspaceRootDirectory());
+    const res = await invokeZovaCli(
+      ['--version'],
+      getWorkspaceRootDirectory(),
+      true
+    );
     const versionOld = res.trimEnd();
     let needUpdate;
     if (!semver.valid(versionOld)) {

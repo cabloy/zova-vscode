@@ -113,13 +113,17 @@ function wrapperCommand(command, fn) {
   };
 }
 
-export async function invokeZovaCli(args: string[], projectCurrent: string) {
+export async function invokeZovaCli(
+  args: string[],
+  projectCurrent: string,
+  forceGlobalCli?: boolean
+) {
   const console = new LocalConsole();
   const processHelper = new ProcessHelper(projectCurrent, console);
   const workspaceFolder = getWorkspaceRootDirectory();
   args = args.concat('--vscode');
   let res;
-  if (existsSync(path.join(workspaceFolder, 'zova-cli'))) {
+  if (!forceGlobalCli && existsSync(path.join(workspaceFolder, 'zova-cli'))) {
     await processHelper.spawnCmd({
       cmd: 'tsc',
       args: ['-b'],
