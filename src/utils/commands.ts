@@ -118,6 +118,7 @@ export async function invokeZovaCli(args: string[], projectCurrent: string) {
   const processHelper = new ProcessHelper(projectCurrent, console);
   const workspaceFolder = getWorkspaceRootDirectory();
   args = args.concat('--vscode');
+  let res;
   if (existsSync(path.join(workspaceFolder, 'zova-cli'))) {
     await processHelper.spawnCmd({
       cmd: 'tsc',
@@ -127,7 +128,7 @@ export async function invokeZovaCli(args: string[], projectCurrent: string) {
         cwd: path.join(workspaceFolder, 'zova-cli'),
       },
     });
-    await processHelper.spawnExe({
+    res = await processHelper.spawnExe({
       cmd: 'node',
       args: [
         path.join(workspaceFolder, 'zova-cli/cli/dist/bin/zova.js'),
@@ -139,7 +140,7 @@ export async function invokeZovaCli(args: string[], projectCurrent: string) {
     });
   } else {
     // spawn
-    await processHelper.spawnCmd({
+    res = await processHelper.spawnCmd({
       cmd: 'zova',
       args,
       options: {
@@ -148,4 +149,5 @@ export async function invokeZovaCli(args: string[], projectCurrent: string) {
       },
     });
   }
+  return res;
 }

@@ -440,7 +440,9 @@
   },
   "dependencies": {
     "@cabloy/process-helper": "^1.0.5",
-    "fs-extra": "^11.2.0"
+    "@npmcli/config": "^8.3.4",
+    "fs-extra": "^11.2.0",
+    "semver": "^7.6.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
