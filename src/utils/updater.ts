@@ -27,7 +27,11 @@ export async function checkIfUpdateCli() {
       newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
     }
   } catch (err) {
-    console.log(err);
+    if (err.code === 'ENOENT') {
+      newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
+    } else {
+      console.log(err);
+    }
   }
 }
 
