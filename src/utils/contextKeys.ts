@@ -51,5 +51,11 @@ export class ContextKeys {
       'zova.arrayProjectRoot',
       arrayProjectRoot
     );
+    // zova.arrayProjectSrc
+    vscode.commands.executeCommand(
+      'setContext',
+      'zova.arrayProjectSrc',
+      arrayProjectRoot.map((item) => `${item}/src`)
+    );
   }
 }
