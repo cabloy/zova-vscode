@@ -14,11 +14,13 @@ export interface ICommandPathInfo {
 export interface IProjectInfo {
   directoryCurrent?: string;
   isMulti?: boolean;
+  projectNames?: string[];
 }
 
 let _projectInfo: IProjectInfo = {
   directoryCurrent: undefined,
   isMulti: false,
+  projectNames: undefined,
 };
 
 export function getWorkspaceRootDirectory(): string {
@@ -61,16 +63,13 @@ export async function hasZovaProject(): Promise<IProjectInfo | undefined> {
     return _projectInfo;
   }
   // multi
-  let pathNames = await fse.readdir(workspaceFolder);
-  pathNames = pathNames
-    .map((item) => {
-      return path.join(workspaceFolder, item);
-    })
-    .filter((item) => {
-      return isZovaProject(item);
-    });
-  if (pathNames.length > 0) {
+  let projectNames = await fse.readdir(workspaceFolder);
+  projectNames = projectNames.filter((item) => {
+    return isZovaProject(path.join(workspaceFolder, item));
+  });
+  if (projectNames.length > 0) {
     _projectInfo.isMulti = true;
+    _projectInfo.projectNames = projectNames;
     return _projectInfo;
   }
 }
