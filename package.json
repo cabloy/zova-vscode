@@ -124,6 +124,11 @@
         "category": "Zova Init"
       },
       {
+        "command": "zova.initMonkey",
+        "title": "Monkey",
+        "category": "Zova Init"
+      },
+      {
         "command": "zova.refactorPageQuery",
         "title": "Add Page Query",
         "category": "Zova Refactor"
@@ -240,6 +245,10 @@
         },
         {
           "command": "zova.initLegacy",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.initMonkey",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -375,6 +384,10 @@
         {
           "command": "zova.initLegacy",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath in zova.arrayProjectRoot || resourcePath in zova.arrayProjectSrc)"
+        },
+        {
+          "command": "zova.initMonkey",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/)"
         }
       ],
       "zova.refactor": [
