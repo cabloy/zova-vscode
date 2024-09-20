@@ -22,6 +22,7 @@ import { initConfig } from '../commands/init/config.js';
 import { initConstant } from '../commands/init/constant.js';
 import { initLocale } from '../commands/init/locale.js';
 import { initError } from '../commands/init/error.js';
+import { initLegacy } from '../commands/init/legacy.js';
 import { createService } from '../commands/create/service.js';
 import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
@@ -55,6 +56,7 @@ const extensionCommands = [
   { command: 'zova.initConstant', function: initConstant },
   { command: 'zova.initLocale', function: initLocale },
   { command: 'zova.initError', function: initError },
+  { command: 'zova.initLegacy', function: initLegacy },
   // refactor
   { command: 'zova.refactorPageQuery', function: refactorPageQuery },
   { command: 'zova.refactorPageParams', function: refactorPageParams },
