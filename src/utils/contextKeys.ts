@@ -4,6 +4,7 @@ import {
   hasZovaProject,
   IProjectInfo,
 } from './zova.js';
+import path from 'node:path';
 
 export class ContextKeys {
   async initialize() {
@@ -43,7 +44,7 @@ export class ContextKeys {
     // arrayProjectRoot
     const workspaceFolder = getWorkspaceRootDirectory();
     const arrayProjectRoot = projectInfo.isMulti
-      ? projectInfo.projectNames.map((item) => `${workspaceFolder}/${item}`)
+      ? projectInfo.projectNames.map((item) => path.join(workspaceFolder, item))
       : [workspaceFolder];
     // zova.arrayProjectRoot
     vscode.commands.executeCommand(
@@ -55,7 +56,7 @@ export class ContextKeys {
     vscode.commands.executeCommand(
       'setContext',
       'zova.arrayProjectSrc',
-      arrayProjectRoot.map((item) => `${item}/src`)
+      arrayProjectRoot.map((item) => path.join(item, 'src'))
     );
   }
 }
