@@ -253,31 +253,31 @@
         },
         {
           "command": "zova.refactorPageQuery",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
         },
         {
           "command": "zova.refactorPageParams",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
         },
         {
           "command": "zova.refactorComponentGeneric",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
         },
         {
           "command": "zova.refactorAnotherRender",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+\\/render\\.tsx$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/render\\.tsx$/)"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)render\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)render\\.tsx$/)"
         },
         {
           "command": "zova.refactorAnotherStyle",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+\\/style\\.ts$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/style\\.ts$/)"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)style\\.ts$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)style\\.ts$/)"
         },
         {
           "command": "zova.refactorRenamePage",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
         },
         {
           "command": "zova.refactorRenameComponent",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
         },
         {
           "command": "zova.toolsMetadata",
@@ -309,77 +309,77 @@
       "zova.create": [
         {
           "command": "zova.createSuite",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/src\\/suite$/ || resourcePath =~ /\\/src\\/suite-vendor$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite-vendor$/)"
         },
         {
           "command": "zova.createModule",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/src\\/module$/ || resourcePath =~ /\\/src\\/module-vendor$/ || resourcePath =~ /\\/src\\/suite\\/[^\\/]+$/ || resourcePath =~ /\\/src\\/suite-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/src\\/suite\\/[^\\/]+\\/modules$/ || resourcePath =~ /\\/src\\/suite-vendor\\/[^\\/]+\\/modules$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)module$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)module-vendor$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)modules$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)modules$/)"
         },
         {
           "command": "zova.createLocalBean",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/bean/ || resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/)"
         },
         {
           "command": "zova.createModelBean",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/bean/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
           "command": "zova.createStoreBean",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/bean/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
           "command": "zova.createStyleBean",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/bean/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
           "command": "zova.createThemeBean",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/bean/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
           "command": "zova.createToolBean",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/bean/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
           "command": "zova.createGeneralBean",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/bean/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
           "command": "zova.createComponent",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/component$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)component$/)"
         },
         {
           "command": "zova.createPage",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/page$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)page$/)"
         },
         {
           "command": "zova.createService",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/service$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)service$/)"
         },
         {
           "command": "zova.createMock",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /\\/mock$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /(\\/|\\\\)mock$/)"
         }
       ],
       "zova.init": [
         {
           "command": "zova.initIcon",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
         },
         {
           "command": "zova.initConfig",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
         },
         {
           "command": "zova.initConstant",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
         },
         {
           "command": "zova.initLocale",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
         },
         {
           "command": "zova.initError",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
         },
         {
           "command": "zova.initLegacy",
@@ -387,43 +387,43 @@
         },
         {
           "command": "zova.initMonkey",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
         }
       ],
       "zova.refactor": [
         {
           "command": "zova.refactorPageQuery",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
         },
         {
           "command": "zova.refactorPageParams",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
         },
         {
           "command": "zova.refactorComponentGeneric",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
         },
         {
           "command": "zova.refactorAnotherRender",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/render\\.tsx$/ || resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/render\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)render\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)render\\.tsx$/)"
         },
         {
           "command": "zova.refactorAnotherStyle",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/style\\.ts$/ || resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/style\\.ts$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)style\\.ts$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)style\\.ts$/)"
         },
         {
           "command": "zova.refactorRenamePage",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/page\\/[^\\/]+$/ || resourcePath=~ /src\\/page\\/[^\\/]+\\/controller\\.ts$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
         },
         {
           "command": "zova.refactorRenameComponent",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src\\/component\\/[^\\/]+$/ || resourcePath=~ /src\\/component\\/[^\\/]+\\/controller\\.ts$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
         }
       ],
       "zova.tools": [
         {
           "command": "zova.toolsMetadata",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /\\/module\\/[^\\/]+$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+$/ || resourcePath =~ /\\/modules\\/[^\\/]+$/ || resourcePath =~ /\\/module\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/module-vendor\\/[^\\/]+\\/src$/ || resourcePath =~ /\\/modules\\/[^\\/]+\\/src$/ || resourcePath=~ /src\\/\\.metadata/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)\\.metadata/)"
         }
       ]
     },
