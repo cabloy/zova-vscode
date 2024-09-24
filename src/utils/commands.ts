@@ -134,6 +134,7 @@ export async function invokeZovaCli(
       options: {
         stdio: 'pipe',
         cwd: path.join(workspaceFolder, 'zova-cli'),
+        shell: true,
       },
     });
     res = await processHelper.spawnExe({
@@ -144,6 +145,7 @@ export async function invokeZovaCli(
       options: {
         stdio: 'pipe',
         cwd: projectCurrent,
+        shell: true,
       },
     });
   } else {
@@ -154,6 +156,7 @@ export async function invokeZovaCli(
       options: {
         stdio: 'pipe',
         cwd: projectCurrent,
+        shell: true,
       },
     });
   }
