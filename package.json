@@ -159,6 +159,11 @@
         "category": "Zova Refactor"
       },
       {
+        "command": "zova.refactorComponentProps",
+        "title": "Add Component Props",
+        "category": "Zova Refactor"
+      },
+      {
         "command": "zova.refactorComponentEmits",
         "title": "Add Component Emits",
         "category": "Zova Refactor"
@@ -284,6 +289,10 @@
         {
           "command": "zova.refactorRenamePage",
           "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
+        },
+        {
+          "command": "zova.refactorComponentProps",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
         },
         {
           "command": "zova.refactorComponentEmits",
@@ -432,6 +441,10 @@
         {
           "command": "zova.refactorRenamePage",
           "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorComponentProps",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
         },
         {
           "command": "zova.refactorComponentEmits",
