@@ -159,6 +159,16 @@
         "category": "Zova Refactor"
       },
       {
+        "command": "zova.refactorComponentEmits",
+        "title": "Add Component Emits",
+        "category": "Zova Refactor"
+      },
+      {
+        "command": "zova.refactorComponentSlots",
+        "title": "Add Component Slots",
+        "category": "Zova Refactor"
+      },
+      {
         "command": "zova.refactorRenameComponent",
         "title": "Rename Component",
         "category": "Zova Refactor"
@@ -274,6 +284,14 @@
         {
           "command": "zova.refactorRenamePage",
           "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
+        },
+        {
+          "command": "zova.refactorComponentEmits",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
+        },
+        {
+          "command": "zova.refactorComponentSlots",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
         },
         {
           "command": "zova.refactorRenameComponent",
@@ -414,6 +432,14 @@
         {
           "command": "zova.refactorRenamePage",
           "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorComponentEmits",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorComponentSlots",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
         },
         {
           "command": "zova.refactorRenameComponent",
