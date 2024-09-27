@@ -140,7 +140,7 @@
       },
       {
         "command": "zova.refactorComponentGeneric",
-        "title": "Add Component Generic",
+        "title": "Convert to Generic Component",
         "category": "Zova Refactor"
       },
       {
@@ -171,6 +171,11 @@
       {
         "command": "zova.refactorComponentSlots",
         "title": "Add Component Slots",
+        "category": "Zova Refactor"
+      },
+      {
+        "command": "zova.refactorComponentModel",
+        "title": "Add v-model",
         "category": "Zova Refactor"
       },
       {
@@ -300,6 +305,10 @@
         },
         {
           "command": "zova.refactorComponentSlots",
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
+        },
+        {
+          "command": "zova.refactorComponentModel",
           "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/"
         },
         {
@@ -452,6 +461,10 @@
         },
         {
           "command": "zova.refactorComponentSlots",
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
+        },
+        {
+          "command": "zova.refactorComponentModel",
           "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.ts$/)"
         },
         {
