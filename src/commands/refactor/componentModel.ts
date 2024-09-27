@@ -17,7 +17,7 @@ export async function refactorComponentModel(resource?: Uri) {
   }
   // name
   const name = await window.showInputBox({
-    prompt: 'What is the v-model name? (default: modelValue)',
+    prompt: 'What is the model name? (default: modelValue)',
     value: 'modelValue',
   });
   if (!name) {
