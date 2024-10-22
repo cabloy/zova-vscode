@@ -1,12 +1,12 @@
 import { commands, ExtensionContext, window } from 'vscode';
 import {
-  createGeneralBean,
-  createLocalBean,
-  createModelBean,
-  createStoreBean,
-  createStyleBean,
-  createThemeBean,
-  createToolBean,
+  beanGeneral,
+  beanLocal,
+  beanModel,
+  beanStore,
+  beanStyle,
+  beanTheme,
+  beanTool,
 } from '../commands/create/bean.js';
 import { logger } from './outputChannel.js';
 import { LocalConsole } from './console.js';
@@ -42,19 +42,20 @@ import { refactorRenameComponent } from '../commands/refactor/renameComponent.js
 
 const extensionCommands = [
   // create
-  { command: 'zova.createLocalBean', function: createLocalBean },
-  { command: 'zova.createModelBean', function: createModelBean },
-  { command: 'zova.createStoreBean', function: createStoreBean },
-  { command: 'zova.createStyleBean', function: createStyleBean },
-  { command: 'zova.createThemeBean', function: createThemeBean },
-  { command: 'zova.createToolBean', function: createToolBean },
-  { command: 'zova.createGeneralBean', function: createGeneralBean },
   { command: 'zova.createComponent', function: createComponent },
   { command: 'zova.createPage', function: createPage },
   { command: 'zova.createService', function: createService },
   { command: 'zova.createMock', function: createMock },
   { command: 'zova.createModule', function: createModule },
   { command: 'zova.createSuite', function: createSuite },
+  // bean
+  { command: 'zova.beanLocal', function: beanLocal },
+  { command: 'zova.beanModel', function: beanModel },
+  { command: 'zova.beanStore', function: beanStore },
+  { command: 'zova.beanStyle', function: beanStyle },
+  { command: 'zova.beanTheme', function: beanTheme },
+  { command: 'zova.beanTool', function: beanTool },
+  { command: 'zova.beanGeneral', function: beanGeneral },
   // init
   { command: 'zova.initIcon', function: initIcon },
   { command: 'zova.initConfig', function: initConfig },

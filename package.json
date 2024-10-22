@@ -59,37 +59,37 @@
         "category": "Zova Create"
       },
       {
-        "command": "zova.createLocalBean",
+        "command": "zova.beanLocal",
         "title": "Local",
         "category": "Zova Bean"
       },
       {
-        "command": "zova.createModelBean",
+        "command": "zova.beanModel",
         "title": "Model",
         "category": "Zova Bean"
       },
       {
-        "command": "zova.createStoreBean",
+        "command": "zova.beanStore",
         "title": "Store",
         "category": "Zova Bean"
       },
       {
-        "command": "zova.createStyleBean",
+        "command": "zova.beanStyle",
         "title": "Style",
         "category": "Zova Bean"
       },
       {
-        "command": "zova.createThemeBean",
+        "command": "zova.beanTheme",
         "title": "Theme",
         "category": "Zova Bean"
       },
       {
-        "command": "zova.createToolBean",
+        "command": "zova.beanTool",
         "title": "Tool",
         "category": "Zova Bean"
       },
       {
-        "command": "zova.createGeneralBean",
+        "command": "zova.beanGeneral",
         "title": "General",
         "category": "Zova Bean"
       },
@@ -216,31 +216,31 @@
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
-          "command": "zova.createLocalBean",
+          "command": "zova.beanLocal",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
-          "command": "zova.createModelBean",
+          "command": "zova.beanModel",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
-          "command": "zova.createStoreBean",
+          "command": "zova.beanStore",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
-          "command": "zova.createStyleBean",
+          "command": "zova.beanStyle",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
-          "command": "zova.createThemeBean",
+          "command": "zova.beanTheme",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
-          "command": "zova.createToolBean",
+          "command": "zova.beanTool",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
-          "command": "zova.createGeneralBean",
+          "command": "zova.beanGeneral",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -375,31 +375,31 @@
       ],
       "zova.bean": [
         {
-          "command": "zova.createLocalBean",
+          "command": "zova.beanLocal",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/)"
         },
         {
-          "command": "zova.createModelBean",
+          "command": "zova.beanModel",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
-          "command": "zova.createStoreBean",
+          "command": "zova.beanStore",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
-          "command": "zova.createStyleBean",
+          "command": "zova.beanStyle",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
-          "command": "zova.createThemeBean",
+          "command": "zova.beanTheme",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
-          "command": "zova.createToolBean",
+          "command": "zova.beanTool",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         },
         {
-          "command": "zova.createGeneralBean",
+          "command": "zova.beanGeneral",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean/)"
         }
       ],

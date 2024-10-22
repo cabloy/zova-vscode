@@ -10,7 +10,7 @@ import path from 'node:path';
 import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 
-export async function createLocalBean(resource?: Uri) {
+export async function beanLocal(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
@@ -34,7 +34,7 @@ export async function createLocalBean(resource?: Uri) {
   );
   // invoke
   await invokeZovaCli(
-    [':create:local', pathResource, `--module=${commandPathInfo.moduleName}`],
+    [':bean:local', pathResource, `--module=${commandPathInfo.moduleName}`],
     commandPathInfo.projectCurrent
   );
   // open
@@ -47,55 +47,35 @@ export async function createLocalBean(resource?: Uri) {
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
 
-export async function createModelBean(resource: Uri) {
-  await createGeneralBean_common(
-    resource,
-    'model',
-    'What is the model bean name?'
-  );
+export async function beanModel(resource: Uri) {
+  await beanGeneral_common(resource, 'model', 'What is the model bean name?');
 }
 
-export async function createStoreBean(resource: Uri) {
-  await createGeneralBean_common(
-    resource,
-    'store',
-    'What is the store bean name?'
-  );
+export async function beanStore(resource: Uri) {
+  await beanGeneral_common(resource, 'store', 'What is the store bean name?');
 }
 
-export async function createStyleBean(resource: Uri) {
-  await createGeneralBean_common(
-    resource,
-    'style',
-    'What is the style bean name?'
-  );
+export async function beanStyle(resource: Uri) {
+  await beanGeneral_common(resource, 'style', 'What is the style bean name?');
 }
 
-export async function createThemeBean(resource: Uri) {
-  await createGeneralBean_common(
-    resource,
-    'theme',
-    'What is the theme bean name?'
-  );
+export async function beanTheme(resource: Uri) {
+  await beanGeneral_common(resource, 'theme', 'What is the theme bean name?');
 }
 
-export async function createToolBean(resource: Uri) {
-  await createGeneralBean_common(
-    resource,
-    'tool',
-    'What is the tool bean name?'
-  );
+export async function beanTool(resource: Uri) {
+  await beanGeneral_common(resource, 'tool', 'What is the tool bean name?');
 }
 
-export async function createGeneralBean(resource: Uri) {
-  await createGeneralBean_common(
+export async function beanGeneral(resource: Uri) {
+  await beanGeneral_common(
     resource,
-    'bean',
+    'general',
     'What is the general bean name?'
   );
 }
 
-export async function createGeneralBean_common(
+export async function beanGeneral_common(
   resource: Uri,
   sceneName: string,
   prompt: string
@@ -122,7 +102,7 @@ export async function createGeneralBean_common(
   // invoke
   await invokeZovaCli(
     [
-      `:create:${sceneName}`,
+      `:bean:${sceneName}`,
       pathResource,
       `--module=${commandPathInfo.moduleName}`,
     ],
