@@ -109,9 +109,10 @@ export async function beanGeneral_common(
     commandPathInfo.projectCurrent
   );
   // open
+  const prefix = sceneName === 'general' ? 'bean' : sceneName;
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/bean/${sceneName}.${pathResource}.ts`
+    `src/bean/${prefix}.${pathResource}.ts`
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
