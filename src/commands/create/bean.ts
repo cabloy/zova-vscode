@@ -68,11 +68,7 @@ export async function beanTool(resource: Uri) {
 }
 
 export async function beanGeneral(resource: Uri) {
-  await beanGeneral_common(
-    resource,
-    'general',
-    'What is the general bean name?'
-  );
+  await beanGeneral_common(resource, 'bean', 'What is the general bean name?');
 }
 
 export async function beanGeneral_common(
@@ -100,19 +96,19 @@ export async function beanGeneral_common(
     ['src/bean/', 'src/']
   );
   // invoke
+  const commandName = sceneName === 'bean' ? 'general' : sceneName;
   await invokeZovaCli(
     [
-      `:bean:${sceneName}`,
+      `:bean:${commandName}`,
       pathResource,
       `--module=${commandPathInfo.moduleName}`,
     ],
     commandPathInfo.projectCurrent
   );
   // open
-  const prefix = sceneName === 'general' ? 'bean' : sceneName;
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/bean/${prefix}.${pathResource}.ts`
+    `src/bean/${sceneName}.${pathResource}.ts`
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
