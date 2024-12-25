@@ -86,7 +86,7 @@ export function getZovaProjectCurrent(resource: string) {
   // multi
   const workspaceFolder = getWorkspaceRootDirectory();
   const pos = resource.indexOf(path.sep, workspaceFolder.length + 1);
-  const projectFolder = resource.substring(0, pos);
+  const projectFolder = pos === -1 ? resource : resource.substring(0, pos);
   return projectFolder;
 }
 
