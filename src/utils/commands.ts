@@ -18,6 +18,10 @@ import { createComponent } from '../commands/create/component.js';
 import { createPage } from '../commands/create/page.js';
 import { initIcon } from '../commands/init/icon.js';
 import { toolsMetadata } from '../commands/tools/metadata.js';
+import {
+  toolsOpenapiConfig,
+  toolsOpenapiGenerate,
+} from '../commands/tools/openapi.js';
 import { initConfig } from '../commands/init/config.js';
 import { initConstant } from '../commands/init/constant.js';
 import { initLocale } from '../commands/init/locale.js';
@@ -93,6 +97,8 @@ const extensionCommands = [
   },
   // tools
   { command: 'zova.toolsMetadata', function: toolsMetadata },
+  { command: 'zova.toolsOpenapiConfig', function: toolsOpenapiConfig },
+  { command: 'zova.toolsOpenapiGenerate', function: toolsOpenapiGenerate },
 ];
 
 export class Commands {

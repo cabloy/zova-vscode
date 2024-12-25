@@ -187,6 +187,16 @@
         "command": "zova.toolsMetadata",
         "title": "Generate .metadata",
         "category": "Zova Tools"
+      },
+      {
+        "command": "zova.toolsOpenapiConfig",
+        "title": "Generate Openapi Config",
+        "category": "Zova Tools"
+      },
+      {
+        "command": "zova.toolsOpenapiGenerate",
+        "title": "Generate Openapi Client Services",
+        "category": "Zova Tools"
       }
     ],
     "menus": {
@@ -317,6 +327,14 @@
         },
         {
           "command": "zova.toolsMetadata",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.toolsOpenapiConfig",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.toolsOpenapiGenerate",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         }
       ],
@@ -483,6 +501,14 @@
         {
           "command": "zova.toolsMetadata",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)\\.metadata$/)"
+        },
+        {
+          "command": "zova.toolsOpenapiConfig",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath in zova.arrayProjectRoot || resourcePath in zova.arrayProjectSrc)"
+        },
+        {
+          "command": "zova.toolsOpenapiGenerate",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath in zova.arrayProjectRoot || resourcePath in zova.arrayProjectSrc)"
         }
       ]
     },
