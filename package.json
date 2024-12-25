@@ -195,7 +195,7 @@
       },
       {
         "command": "zova.toolsOpenapiGenerate",
-        "title": "Generate Openapi Client Services",
+        "title": "Generate Openapi Services",
         "category": "Zova Tools"
       }
     ],
