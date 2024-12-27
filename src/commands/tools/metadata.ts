@@ -32,19 +32,22 @@ export async function toolsMetadata(resource?: Uri) {
   }
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
-  if (!commandPathInfo.moduleName) {
-    return;
-  }
   // invoke
-  await invokeZovaCli(
-    [':tools:metadata', commandPathInfo.moduleName],
-    commandPathInfo.projectCurrent
-  );
+  const args = [':tools:metadata'];
+  if (commandPathInfo.moduleName) {
+    args.push(commandPathInfo.moduleName);
+  } else {
+    args.push('--force');
+  }
+  await invokeZovaCli(args, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(
-    commandPathInfo.moduleRoot,
-    `src/.metadata/index.ts`
-  );
-  showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
-  //window.showInformationMessage('Generate .metadata successfully!');
+  if (commandPathInfo.moduleName) {
+    const fileDest = path.join(
+      commandPathInfo.moduleRoot,
+      `src/.metadata/index.ts`
+    );
+    showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
+  } else {
+    window.showInformationMessage('Generate .metadata successfully!');
+  }
 }
