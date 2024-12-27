@@ -15,7 +15,10 @@ export async function toolsOpenapiConfig(resource?: Uri) {
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   // invoke
-  await invokeZovaCli([':openapi:config'], commandPathInfo.projectCurrent);
+  await invokeZovaCli(
+    [':openapi:config', commandPathInfo.moduleName || ''],
+    commandPathInfo.projectCurrent
+  );
   // open
   const fileDest = `openapi.config.ts`;
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
@@ -29,8 +32,13 @@ export async function toolsOpenapiGenerate(resource?: Uri) {
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   // invoke
-  await invokeZovaCli([':openapi:generate'], commandPathInfo.projectCurrent);
+  await invokeZovaCli(
+    [':openapi:generate', commandPathInfo.moduleName || ''],
+    commandPathInfo.projectCurrent
+  );
   // open
-  const fileDest = `src/suite/a-home/modules/home-api/src/service`;
+  const fileDest = commandPathInfo.moduleName
+    ? path.join(commandPathInfo.moduleRoot, `src/service/_openapi_.ts`)
+    : `src/suite/a-home/modules/home-api/src/service`;
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
