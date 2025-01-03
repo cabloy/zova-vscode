@@ -95,7 +95,7 @@
       },
       {
         "command": "zova.beanMetaThemeHandler",
-        "title": "General",
+        "title": "Theme Handler",
         "category": "Zova Meta"
       },
       {
