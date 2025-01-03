@@ -4,7 +4,7 @@ import {
   beanLocal,
   beanModel,
   beanStore,
-  beanStyle,
+  beanCss,
   beanTheme,
   beanTool,
   beanService,
@@ -57,11 +57,11 @@ const extensionCommands = [
   // bean
   { command: 'zova.beanLocal', function: beanLocal },
   { command: 'zova.beanStore', function: beanStore },
-  { command: 'zova.beanStyle', function: beanStyle },
+  { command: 'zova.beanCss', function: beanCss },
   { command: 'zova.beanTheme', function: beanTheme },
   { command: 'zova.beanTool', function: beanTool },
   { command: 'zova.beanGeneral', function: beanGeneral },
-  { command: 'vona.beanMetaThemeHandler', function: beanMetaThemeHandler },
+  { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init
   { command: 'zova.initIcon', function: initIcon },
   { command: 'zova.initConfig', function: initConfig },

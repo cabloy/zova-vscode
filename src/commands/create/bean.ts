@@ -22,8 +22,8 @@ export async function beanStore(resource: Uri) {
   await beanGeneral_common(resource, 'store', 'What is the store bean name?');
 }
 
-export async function beanStyle(resource: Uri) {
-  await beanGeneral_common(resource, 'style', 'What is the style bean name?');
+export async function beanCss(resource: Uri) {
+  await beanGeneral_common(resource, 'css', 'What is the css bean name?');
 }
 
 export async function beanTheme(resource: Uri) {
