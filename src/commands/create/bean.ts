@@ -46,6 +46,15 @@ export async function beanService(resource: Uri) {
   );
 }
 
+export async function beanMetaThemeHandler(resource: Uri) {
+  await beanGeneral_common(
+    resource,
+    'meta',
+    'What is the meta themeHandler bean name?',
+    'themeHandler'
+  );
+}
+
 export async function beanGeneral_common(
   resource: Uri,
   sceneName: string,

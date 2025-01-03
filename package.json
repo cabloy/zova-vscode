@@ -94,6 +94,11 @@
         "category": "Zova Bean"
       },
       {
+        "command": "zova.beanMetaThemeHandler",
+        "title": "General",
+        "category": "Zova Meta"
+      },
+      {
         "command": "zova.initIcon",
         "title": "Icon",
         "category": "Zova Init"
@@ -254,6 +259,10 @@
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
+          "command": "zova.beanMetaThemeHandler",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
           "command": "zova.initIcon",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
@@ -350,6 +359,11 @@
           "when": "zova.hasZovaProject"
         },
         {
+          "submenu": "zova.meta",
+          "group": "navigation",
+          "when": "zova.hasZovaProject"
+        },
+        {
           "submenu": "zova.init",
           "group": "navigation",
           "when": "zova.hasZovaProject"
@@ -418,6 +432,12 @@
         },
         {
           "command": "zova.beanGeneral",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean$/)"
+        }
+      ],
+      "zova.meta": [
+        {
+          "command": "zova.beanMetaThemeHandler",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean$/)"
         }
       ],
@@ -520,6 +540,10 @@
       {
         "id": "zova.bean",
         "label": "Zova Bean"
+      },
+      {
+        "id": "zova.meta",
+        "label": "Zova Meta"
       },
       {
         "id": "zova.init",
