@@ -11,40 +11,7 @@ import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 
 export async function beanLocal(resource?: Uri) {
-  const { fromPalette, fsPath } = preparePathResource(resource);
-  if (!fsPath) {
-    return;
-  }
-  // name
-  const name = await window.showInputBox({
-    prompt: 'What is the local bean name?',
-  });
-  if (!name) {
-    return;
-  }
-  // commandPathInfo
-  const commandPathInfo = extractCommandPathInfo(fsPath);
-  if (fromPalette) {
-    commandPathInfo.pathResource = '';
-  }
-  // pathResource
-  const pathResource = trimPathPrefixs(
-    combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['src/bean/', 'src/']
-  );
-  // invoke
-  await invokeZovaCli(
-    [':bean:local', pathResource, `--module=${commandPathInfo.moduleName}`],
-    commandPathInfo.projectCurrent
-  );
-  // open
-  const fileDest = pathResource.includes('/')
-    ? path.join(commandPathInfo.moduleRoot, 'src', `${pathResource}.ts`)
-    : path.join(
-        commandPathInfo.moduleRoot,
-        `src/bean/local.${pathResource}.ts`
-      );
-  showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
+  await beanGeneral_common(resource, 'local', 'What is the local bean name?');
 }
 
 export async function beanModel(resource: Uri) {
@@ -74,16 +41,19 @@ export async function beanGeneral(resource: Uri) {
 export async function beanGeneral_common(
   resource: Uri,
   sceneName: string,
-  prompt: string
+  prompt: string,
+  name?: string
 ) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
   }
   // name
-  const name = await window.showInputBox({ prompt });
   if (!name) {
-    return;
+    name = await window.showInputBox({ prompt });
+    if (!name) {
+      return;
+    }
   }
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
@@ -93,22 +63,31 @@ export async function beanGeneral_common(
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['src/bean/', 'src/']
+    [`src/${sceneName}/`, 'src/bean/', 'src/']
   );
   // invoke
-  const commandName = sceneName === 'bean' ? 'general' : sceneName;
   await invokeZovaCli(
     [
-      `:bean:${commandName}`,
+      `:create:bean`,
+      sceneName,
       pathResource,
       `--module=${commandPathInfo.moduleName}`,
     ],
     commandPathInfo.projectCurrent
   );
   // open
-  const fileDest = path.join(
-    commandPathInfo.moduleRoot,
-    `src/bean/${sceneName}.${pathResource}.ts`
-  );
+  let fileDest: string;
+  if (pathResource.includes('/')) {
+    fileDest = path.join(
+      commandPathInfo.moduleRoot,
+      'src',
+      `${pathResource}.ts`
+    );
+  } else {
+    const fileDestScene = ['service'].includes(sceneName)
+      ? `src/${sceneName}/${pathResource}.ts`
+      : `src/bean/${sceneName}.${pathResource}.ts`;
+    fileDest = path.join(commandPathInfo.moduleRoot, fileDestScene);
+  }
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
