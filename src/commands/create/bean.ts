@@ -38,6 +38,14 @@ export async function beanGeneral(resource: Uri) {
   await beanGeneral_common(resource, 'bean', 'What is the general bean name?');
 }
 
+export async function beanService(resource: Uri) {
+  await beanGeneral_common(
+    resource,
+    'service',
+    'What is the service bean name?'
+  );
+}
+
 export async function beanGeneral_common(
   resource: Uri,
   sceneName: string,

@@ -7,6 +7,7 @@ import {
   beanStyle,
   beanTheme,
   beanTool,
+  beanService,
 } from '../commands/create/bean.js';
 import { logger } from './outputChannel.js';
 import { LocalConsole } from './console.js';
@@ -28,7 +29,6 @@ import { initLocale } from '../commands/init/locale.js';
 import { initError } from '../commands/init/error.js';
 import { initLegacy } from '../commands/init/legacy.js';
 import { initMonkey } from '../commands/init/monkey.js';
-import { createService } from '../commands/create/service.js';
 import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
 import { createSuite } from '../commands/create/suite.js';
@@ -48,13 +48,13 @@ const extensionCommands = [
   // create
   { command: 'zova.createComponent', function: createComponent },
   { command: 'zova.createPage', function: createPage },
-  { command: 'zova.createService', function: createService },
+  { command: 'zova.createService', function: beanService },
+  { command: 'zova.createModel', function: beanModel },
   { command: 'zova.createMock', function: createMock },
   { command: 'zova.createModule', function: createModule },
   { command: 'zova.createSuite', function: createSuite },
   // bean
   { command: 'zova.beanLocal', function: beanLocal },
-  { command: 'zova.beanModel', function: beanModel },
   { command: 'zova.beanStore', function: beanStore },
   { command: 'zova.beanStyle', function: beanStyle },
   { command: 'zova.beanTheme', function: beanTheme },

@@ -1,7 +1,6 @@
 export * from './create/bean.js';
 export * from './create/component.js';
 export * from './create/page.js';
-export * from './create/service.js';
 export * from './create/mock.js';
 export * from './create/module.js';
 export * from './create/suite.js';

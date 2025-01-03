@@ -54,6 +54,11 @@
         "category": "Zova Create"
       },
       {
+        "command": "zova.createModel",
+        "title": "Model",
+        "category": "Zova Create"
+      },
+      {
         "command": "zova.createMock",
         "title": "Mock",
         "category": "Zova Create"
@@ -61,11 +66,6 @@
       {
         "command": "zova.beanLocal",
         "title": "Local",
-        "category": "Zova Bean"
-      },
-      {
-        "command": "zova.beanModel",
-        "title": "Model",
         "category": "Zova Bean"
       },
       {
@@ -222,15 +222,15 @@
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
+          "command": "zova.createModel",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
           "command": "zova.createMock",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
           "command": "zova.beanLocal",
-          "when": "zova.hasZovaProject && zova.currentZovaProject"
-        },
-        {
-          "command": "zova.beanModel",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -387,6 +387,10 @@
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)service$/)"
         },
         {
+          "command": "zova.createModel",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)model$/)"
+        },
+        {
           "command": "zova.createMock",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /(\\/|\\\\)mock$/)"
         }
@@ -395,10 +399,6 @@
         {
           "command": "zova.beanLocal",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/)"
-        },
-        {
-          "command": "zova.beanModel",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean$/)"
         },
         {
           "command": "zova.beanStore",
