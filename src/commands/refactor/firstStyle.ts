@@ -23,7 +23,11 @@ export async function refactorFirstStyle(resource?: Uri) {
   pathResource = pathResource.split('/').slice(0, 2).join('/');
   // invoke
   await invokeZovaCli(
-    [':refactor:style', pathResource, `--module=${commandPathInfo.moduleName}`],
+    [
+      ':refactor:firstStyle',
+      pathResource,
+      `--module=${commandPathInfo.moduleName}`,
+    ],
     commandPathInfo.projectCurrent
   );
   // open

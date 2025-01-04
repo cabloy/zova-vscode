@@ -24,7 +24,7 @@ export async function refactorFirstRender(resource?: Uri) {
   // invoke
   await invokeZovaCli(
     [
-      ':refactor:render',
+      ':refactor:firstRender',
       pathResource,
       `--module=${commandPathInfo.moduleName}`,
     ],
