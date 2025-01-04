@@ -95,13 +95,16 @@ export async function beanGeneral_common(
   // open
   let fileDest: string;
   if (pathResource.includes('/')) {
+    const pos = pathResource.lastIndexOf('/');
+    const subDir = pathResource.substring(0, pos);
+    const beanName = pathResource.substring(pos + 1);
     fileDest = path.join(
       commandPathInfo.moduleRoot,
-      'src',
-      `${pathResource}.ts`
+      `src/${subDir}`,
+      `${sceneName}.${beanName}.ts`
     );
   } else {
-    const fileDestScene = ['service'].includes(sceneName)
+    const fileDestScene = ['service', 'model'].includes(sceneName)
       ? `src/${sceneName}/${pathResource}.ts`
       : `src/bean/${sceneName}.${pathResource}.ts`;
     fileDest = path.join(commandPathInfo.moduleRoot, fileDestScene);
