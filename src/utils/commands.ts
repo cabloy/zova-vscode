@@ -8,6 +8,7 @@ import {
   beanTheme,
   beanTool,
   beanService,
+  beanData,
   beanMetaThemeHandler,
 } from '../commands/create/bean.js';
 import { logger } from './outputChannel.js';
@@ -61,6 +62,7 @@ const extensionCommands = [
   { command: 'zova.beanTheme', function: beanTheme },
   { command: 'zova.beanTool', function: beanTool },
   { command: 'zova.beanGeneral', function: beanGeneral },
+  { command: 'zova.beanData', function: beanData },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init
   { command: 'zova.initIcon', function: initIcon },
