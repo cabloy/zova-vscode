@@ -11,7 +11,7 @@ import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 import { firstCharToUpperCase } from '../../utils/utils.js';
 
-export async function refactorStyle(resource?: Uri) {
+export async function refactorFirstStyle(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;

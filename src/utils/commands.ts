@@ -37,8 +37,8 @@ import { createSuite } from '../commands/create/suite.js';
 import { refactorPageQuery } from '../commands/refactor/pageQuery.js';
 import { refactorPageParams } from '../commands/refactor/pageParams.js';
 import { refactorComponentGeneric } from '../commands/refactor/componentGeneric.js';
-import { refactorRender } from '../commands/refactor/render.js';
-import { refactorStyle } from '../commands/refactor/style.js';
+import { refactorFirstRender } from '../commands/refactor/firstRender.js';
+import { refactorFirstStyle } from '../commands/refactor/firstStyle.js';
 import { refactorAnotherRender } from '../commands/refactor/anotherRender.js';
 import { refactorAnotherStyle } from '../commands/refactor/anotherStyle.js';
 import { refactorRenamePage } from '../commands/refactor/renamePage.js';
@@ -81,8 +81,8 @@ const extensionCommands = [
     command: 'zova.refactorComponentGeneric',
     function: refactorComponentGeneric,
   },
-  { command: 'zova.refactorRender', function: refactorRender },
-  { command: 'zova.refactorStyle', function: refactorStyle },
+  { command: 'zova.refactorFirstRender', function: refactorFirstRender },
+  { command: 'zova.refactorFirstStyle', function: refactorFirstStyle },
   { command: 'zova.refactorAnotherRender', function: refactorAnotherRender },
   { command: 'zova.refactorAnotherStyle', function: refactorAnotherStyle },
   { command: 'zova.refactorRenamePage', function: refactorRenamePage },
