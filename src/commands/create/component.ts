@@ -44,7 +44,7 @@ export async function createComponent(resource?: Uri) {
   // open
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/component/${pathResource}/controller.ts`
+    `src/component/${pathResource}/controller.tsx`
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

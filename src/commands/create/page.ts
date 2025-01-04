@@ -40,7 +40,7 @@ export async function createPage(resource?: Uri) {
   // open
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/page/${pathResource}/controller.ts`
+    `src/page/${pathResource}/controller.tsx`
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
