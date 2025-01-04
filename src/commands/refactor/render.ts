@@ -11,21 +11,10 @@ import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 import { firstCharToUpperCase } from '../../utils/utils.js';
 
-export async function refactorAnotherRender(resource?: Uri) {
+export async function refactorRender(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
-  }
-  // name
-  let name = await window.showInputBox({
-    prompt: 'What is the render bean name?',
-    placeHolder: 'renderXXX',
-  });
-  if (!name) {
-    return;
-  }
-  if (!name.startsWith('render')) {
-    name = 'render' + firstCharToUpperCase(name);
   }
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
@@ -35,9 +24,8 @@ export async function refactorAnotherRender(resource?: Uri) {
   // invoke
   await invokeZovaCli(
     [
-      ':refactor:anotherRender',
+      ':refactor:render',
       pathResource,
-      name,
       `--module=${commandPathInfo.moduleName}`,
     ],
     commandPathInfo.projectCurrent
@@ -45,7 +33,7 @@ export async function refactorAnotherRender(resource?: Uri) {
   // open
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/${pathResource}/${name}.tsx`
+    `src/${pathResource}/render.tsx`
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

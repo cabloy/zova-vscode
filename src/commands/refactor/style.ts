@@ -11,21 +11,10 @@ import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 import { firstCharToUpperCase } from '../../utils/utils.js';
 
-export async function refactorAnotherStyle(resource?: Uri) {
+export async function refactorStyle(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
-  }
-  // name
-  let name = await window.showInputBox({
-    prompt: 'What is the style bean name?',
-    placeHolder: 'styleXXX',
-  });
-  if (!name) {
-    return;
-  }
-  if (!name.startsWith('style')) {
-    name = 'style' + firstCharToUpperCase(name);
   }
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
@@ -34,18 +23,13 @@ export async function refactorAnotherStyle(resource?: Uri) {
   pathResource = pathResource.split('/').slice(0, 2).join('/');
   // invoke
   await invokeZovaCli(
-    [
-      ':refactor:anotherStyle',
-      pathResource,
-      name,
-      `--module=${commandPathInfo.moduleName}`,
-    ],
+    [':refactor:style', pathResource, `--module=${commandPathInfo.moduleName}`],
     commandPathInfo.projectCurrent
   );
   // open
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/${pathResource}/${name}.ts`
+    `src/${pathResource}/style.ts`
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
