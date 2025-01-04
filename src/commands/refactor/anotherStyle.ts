@@ -24,9 +24,6 @@ export async function refactorAnotherStyle(resource?: Uri) {
   if (!name) {
     return;
   }
-  if (!name.startsWith('style')) {
-    name = 'style' + firstCharToUpperCase(name);
-  }
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   // pathResource

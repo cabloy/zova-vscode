@@ -24,9 +24,6 @@ export async function refactorAnotherRender(resource?: Uri) {
   if (!name) {
     return;
   }
-  if (!name.startsWith('render')) {
-    name = 'render' + firstCharToUpperCase(name);
-  }
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   // pathResource
