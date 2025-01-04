@@ -46,6 +46,8 @@ An extension offering commands and tools to make your experience with Zova more 
 - Convert to Generic Component
 - Rename Component
 
+- Create Render Bean
+- Create Style Bean
 - Create Another Render Bean
 - Create Another Style Bean
 
