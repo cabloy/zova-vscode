@@ -19,7 +19,6 @@ export async function refactorAnotherStyle(resource?: Uri) {
   // name
   let name = await window.showInputBox({
     prompt: 'What is the style bean name?',
-    placeHolder: 'styleXXX',
   });
   if (!name) {
     return;
@@ -42,7 +41,7 @@ export async function refactorAnotherStyle(resource?: Uri) {
   // open
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/${pathResource}/${name}.ts`
+    `src/${pathResource}/style.${name}.ts`
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

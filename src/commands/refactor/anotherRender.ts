@@ -19,7 +19,6 @@ export async function refactorAnotherRender(resource?: Uri) {
   // name
   let name = await window.showInputBox({
     prompt: 'What is the render bean name?',
-    placeHolder: 'renderXXX',
   });
   if (!name) {
     return;
@@ -42,7 +41,7 @@ export async function refactorAnotherRender(resource?: Uri) {
   // open
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/${pathResource}/${name}.tsx`
+    `src/${pathResource}/render.${name}.tsx`
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

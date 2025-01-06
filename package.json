@@ -311,55 +311,55 @@
         },
         {
           "command": "zova.refactorPageQuery",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
           "command": "zova.refactorPageParams",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
           "command": "zova.refactorComponentGeneric",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
           "command": "zova.refactorFirstRender",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorFirstStyle",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorAnotherRender",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorAnotherStyle",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorRenamePage",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
           "command": "zova.refactorComponentProps",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
           "command": "zova.refactorComponentEmits",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
           "command": "zova.refactorComponentSlots",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
           "command": "zova.refactorComponentModel",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
           "command": "zova.refactorRenameComponent",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/"
+          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
           "command": "zova.toolsMetadata",
@@ -505,55 +505,55 @@
       "zova.refactor": [
         {
           "command": "zova.refactorPageQuery",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorPageParams",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorComponentGeneric",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorFirstRender",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorFirstStyle",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorAnotherRender",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorAnotherStyle",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorRenamePage",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorComponentProps",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorComponentEmits",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorComponentSlots",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorComponentModel",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {
           "command": "zova.refactorRenameComponent",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx$/)"
+          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         }
       ],
       "zova.tools": [
