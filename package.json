@@ -139,6 +139,11 @@
         "category": "Zova Init"
       },
       {
+        "command": "zova.initMain",
+        "title": "Main",
+        "category": "Zova Init"
+      },
+      {
         "command": "zova.refactorPageQuery",
         "title": "Add Page Query",
         "category": "Zova Refactor"
@@ -307,6 +312,10 @@
         },
         {
           "command": "zova.initMonkey",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.initMain",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -499,6 +508,10 @@
         },
         {
           "command": "zova.initMonkey",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
+        },
+        {
+          "command": "zova.initMain",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
         }
       ],
