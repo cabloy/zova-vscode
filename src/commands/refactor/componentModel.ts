@@ -44,11 +44,12 @@ export async function refactorComponentModel(resource?: Uri) {
   );
   // open
   let fileDest = path.join(
+    commandPathInfo.projectCurrent,
     commandPathInfo.moduleRoot,
     `src/component/${pathResource}/controller.ts`
   );
   if (!fse.existsSync(fileDest)) {
     fileDest = `${fileDest}x`;
   }
-  showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
+  showTextDocument(fileDest);
 }

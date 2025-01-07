@@ -35,11 +35,12 @@ export async function refactorPageQuery(resource?: Uri) {
   );
   // open
   let fileDest = path.join(
+    commandPathInfo.projectCurrent,
     commandPathInfo.moduleRoot,
     `src/page/${pathResource}/controller.ts`
   );
   if (!fse.existsSync(fileDest)) {
     fileDest = `${fileDest}x`;
   }
-  showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
+  showTextDocument(fileDest);
 }
