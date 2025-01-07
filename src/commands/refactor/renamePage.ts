@@ -1,4 +1,5 @@
 import { Uri, window, workspace } from 'vscode';
+import fse from 'fs-extra';
 import {
   combineCliResourcePath,
   extractCommandPathInfo,
@@ -41,9 +42,12 @@ export async function refactorRenamePage(resource?: Uri) {
     commandPathInfo.projectCurrent
   );
   // open
-  const fileDest = path.join(
+  let fileDest = path.join(
     commandPathInfo.moduleRoot,
     `src/${parts[0]}/${name}/controller.ts`
   );
+  if (!fse.existsSync(fileDest)) {
+    fileDest = `${fileDest}x`;
+  }
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
