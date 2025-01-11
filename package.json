@@ -220,7 +220,7 @@
       },
       {
         "command": "zova.toolsOpenapiGenerate",
-        "title": "Generate Openapi Services",
+        "title": "Generate Openapi SDK",
         "category": "Zova Tools"
       }
     ],
