@@ -42,12 +42,8 @@ export async function beanData(resource: Uri) {
   await beanGeneral_common(resource, 'data', 'What is the data bean name?');
 }
 
-export async function beanService(resource: Uri) {
-  await beanGeneral_common(
-    resource,
-    'service',
-    'What is the service bean name?'
-  );
+export async function beanApi(resource: Uri) {
+  await beanGeneral_common(resource, 'api', 'What is the api bean name?');
 }
 
 export async function beanMetaThemeHandler(resource: Uri) {
@@ -108,7 +104,7 @@ export async function beanGeneral_common(
       `${sceneName}.${beanName}.ts`
     );
   } else {
-    const fileDestScene = ['service', 'model'].includes(sceneName)
+    const fileDestScene = ['api', 'model'].includes(sceneName)
       ? `src/${sceneName}/${pathResource}.ts`
       : `src/bean/${sceneName}.${pathResource}.ts`;
     fileDest = path.join(commandPathInfo.moduleRoot, fileDestScene);

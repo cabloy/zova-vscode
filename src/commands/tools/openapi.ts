@@ -38,7 +38,7 @@ export async function toolsOpenapiGenerate(resource?: Uri) {
   );
   // open
   const fileDest = commandPathInfo.moduleName
-    ? path.join(commandPathInfo.moduleRoot, `src/service/openapi/index.ts`)
-    : 'src/suite/a-home/modules/home-api/src/service/openapi/index.ts';
+    ? path.join(commandPathInfo.moduleRoot, `src/api/openapi/index.ts`)
+    : 'src/suite/a-home/modules/home-api/src/api/openapi/index.ts';
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

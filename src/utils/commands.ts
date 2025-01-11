@@ -7,7 +7,7 @@ import {
   beanCss,
   beanTheme,
   beanTool,
-  beanService,
+  beanApi,
   beanData,
   beanMetaThemeHandler,
 } from '../commands/create/bean.js';
@@ -53,7 +53,7 @@ const extensionCommands = [
   // create
   { command: 'zova.createComponent', function: createComponent },
   { command: 'zova.createPage', function: createPage },
-  { command: 'zova.createService', function: beanService },
+  { command: 'zova.createApi', function: beanApi },
   { command: 'zova.createModel', function: beanModel },
   { command: 'zova.createMock', function: createMock },
   { command: 'zova.createModule', function: createModule },
