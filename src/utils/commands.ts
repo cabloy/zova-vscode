@@ -1,7 +1,7 @@
 import { commands, ExtensionContext, window } from 'vscode';
 import {
   beanGeneral,
-  beanLocal,
+  beanService,
   beanModel,
   beanStore,
   beanCss,
@@ -59,7 +59,7 @@ const extensionCommands = [
   { command: 'zova.createModule', function: createModule },
   { command: 'zova.createSuite', function: createSuite },
   // bean
-  { command: 'zova.beanLocal', function: beanLocal },
+  { command: 'zova.beanService', function: beanService },
   { command: 'zova.beanStore', function: beanStore },
   { command: 'zova.beanCss', function: beanCss },
   { command: 'zova.beanTheme', function: beanTheme },

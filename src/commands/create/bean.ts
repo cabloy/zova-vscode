@@ -10,8 +10,12 @@ import path from 'node:path';
 import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 
-export async function beanLocal(resource?: Uri) {
-  await beanGeneral_common(resource, 'local', 'What is the local bean name?');
+export async function beanService(resource?: Uri) {
+  await beanGeneral_common(
+    resource,
+    'service',
+    'What is the service bean name?'
+  );
 }
 
 export async function beanModel(resource: Uri) {

@@ -64,8 +64,8 @@
         "category": "Zova Create"
       },
       {
-        "command": "zova.beanLocal",
-        "title": "Local",
+        "command": "zova.beanService",
+        "title": "Service",
         "category": "Zova Bean"
       },
       {
@@ -255,7 +255,7 @@
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
-          "command": "zova.beanLocal",
+          "command": "zova.beanService",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -447,7 +447,7 @@
       ],
       "zova.bean": [
         {
-          "command": "zova.beanLocal",
+          "command": "zova.beanService",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)bean$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)page(\\/|\\\\)[^(\\/|\\\\)]+$/)"
         },
         {
