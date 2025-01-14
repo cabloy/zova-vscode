@@ -50,6 +50,14 @@ export async function beanData(resource: Uri) {
   await beanGeneral_common(resource, 'data', 'What is the data bean name?');
 }
 
+export async function beanBehavior(resource: Uri) {
+  await beanGeneral_common(
+    resource,
+    'behavior',
+    'What is the behavior bean name?'
+  );
+}
+
 export async function beanApi(resource: Uri) {
   await beanGeneral_common(resource, 'api', 'What is the api bean name?');
 }

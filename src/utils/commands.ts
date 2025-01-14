@@ -10,6 +10,7 @@ import {
   beanTool,
   beanApi,
   beanData,
+  beanBehavior,
   beanMetaThemeHandler,
 } from '../commands/create/bean.js';
 import { logger } from './outputChannel.js';
@@ -68,6 +69,7 @@ const extensionCommands = [
   { command: 'zova.beanGeneral', function: beanGeneral },
   { command: 'zova.beanAop', function: beanAop },
   { command: 'zova.beanData', function: beanData },
+  { command: 'zova.beanBehavior', function: beanBehavior },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init
   { command: 'zova.initIcon', function: initIcon },
