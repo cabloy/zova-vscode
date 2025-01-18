@@ -11,6 +11,7 @@ import {
   beanApi,
   beanData,
   beanBehavior,
+  beanInterceptor,
   beanMetaThemeHandler,
 } from '../commands/create/bean.js';
 import { logger } from './outputChannel.js';
@@ -70,6 +71,7 @@ const extensionCommands = [
   { command: 'zova.beanAop', function: beanAop },
   { command: 'zova.beanData', function: beanData },
   { command: 'zova.beanBehavior', function: beanBehavior },
+  { command: 'zova.beanInterceptor', function: beanInterceptor },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init
   { command: 'zova.initIcon', function: initIcon },
