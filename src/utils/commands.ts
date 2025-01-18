@@ -57,11 +57,11 @@ const extensionCommands = [
   { command: 'zova.createPage', function: createPage },
   { command: 'zova.createApi', function: beanApi },
   { command: 'zova.createModel', function: beanModel },
+  { command: 'zova.createService', function: beanService },
   { command: 'zova.createMock', function: createMock },
   { command: 'zova.createModule', function: createModule },
   { command: 'zova.createSuite', function: createSuite },
   // bean
-  { command: 'zova.beanService', function: beanService },
   { command: 'zova.beanStore', function: beanStore },
   { command: 'zova.beanCss', function: beanCss },
   { command: 'zova.beanTheme', function: beanTheme },
