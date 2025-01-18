@@ -120,7 +120,7 @@ export async function beanGeneral_common(
       `${sceneName}.${beanName}.ts`
     );
   } else {
-    const fileDestScene = ['api', 'model'].includes(sceneName)
+    const fileDestScene = ['api', 'model', 'service'].includes(sceneName)
       ? `src/${sceneName}/${pathResource}.ts`
       : `src/bean/${sceneName}.${pathResource}.ts`;
     fileDest = path.join(commandPathInfo.moduleRoot, fileDestScene);
