@@ -150,20 +150,11 @@ export async function invokeZovaCli(
   args = args.concat('--vscode');
   let res;
   if (!forceGlobalCli && existsSync(path.join(workspaceFolder, 'zova-cli'))) {
-    await processHelper.spawnCmd({
-      cmd: 'tsc',
-      args: ['-b'],
-      options: {
-        stdio: 'pipe',
-        cwd: path.join(workspaceFolder, 'zova-cli'),
-        shell: true,
-      },
-    });
     res = await processHelper.spawnExe({
       cmd: 'node',
-      args: [
-        path.join(workspaceFolder, 'zova-cli/cli/dist/bin/zova.js'),
-      ].concat(args),
+      args: [path.join(workspaceFolder, 'zova-cli/cli/src/bin/zova.ts')].concat(
+        args
+      ),
       options: {
         stdio: 'pipe',
         cwd: projectCurrent,
