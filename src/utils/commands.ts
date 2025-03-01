@@ -152,9 +152,10 @@ export async function invokeZovaCli(
   if (!forceGlobalCli && existsSync(path.join(workspaceFolder, 'zova-cli'))) {
     res = await processHelper.spawnExe({
       cmd: 'node',
-      args: [path.join(workspaceFolder, 'zova-cli/cli/src/bin/zova.ts')].concat(
-        args
-      ),
+      args: [
+        '--experimental-transform-types',
+        path.join(workspaceFolder, 'zova-cli/cli/src/bin/zova.ts'),
+      ].concat(args),
       options: {
         stdio: 'pipe',
         cwd: projectCurrent,
