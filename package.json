@@ -4,7 +4,7 @@
   "description": "An extension for Zova offering commands and tools to make your experience more pleasant.",
   "version": "0.1.32",
   "engines": {
-    "vscode": "^1.92.0"
+    "vscode": "^1.97.2"
   },
   "categories": [
     "Programming Languages",
