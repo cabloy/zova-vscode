@@ -2,6 +2,7 @@ import { commands, ExtensionContext, window } from 'vscode';
 import {
   beanGeneral,
   beanAop,
+  beanAopMethod,
   beanService,
   beanModel,
   beanStore,
@@ -69,6 +70,7 @@ const extensionCommands = [
   { command: 'zova.beanTool', function: beanTool },
   { command: 'zova.beanGeneral', function: beanGeneral },
   { command: 'zova.beanAop', function: beanAop },
+  { command: 'zova.beanAopMethod', function: beanAopMethod },
   { command: 'zova.beanData', function: beanData },
   { command: 'zova.beanBehavior', function: beanBehavior },
   { command: 'zova.beanInterceptor', function: beanInterceptor },

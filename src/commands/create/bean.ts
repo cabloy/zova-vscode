@@ -43,7 +43,15 @@ export async function beanGeneral(resource: Uri) {
 }
 
 export async function beanAop(resource: Uri) {
-  await beanGeneral_common(resource, 'aop', 'What is the general aop name?');
+  await beanGeneral_common(resource, 'aop', 'What is the aop bean name?');
+}
+
+export async function beanAopMethod(resource: Uri) {
+  await beanGeneral_common(
+    resource,
+    'aopMethod',
+    'What is the aop method bean name?'
+  );
 }
 
 export async function beanData(resource: Uri) {
