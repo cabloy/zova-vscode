@@ -209,16 +209,6 @@
         "category": "Zova Refactor"
       },
       {
-        "command": "zova.refactorComponentEmits",
-        "title": "Add Component Emits",
-        "category": "Zova Refactor"
-      },
-      {
-        "command": "zova.refactorComponentSlots",
-        "title": "Add Component Slots",
-        "category": "Zova Refactor"
-      },
-      {
         "command": "zova.refactorComponentModel",
         "title": "Add v-model",
         "category": "Zova Refactor"
@@ -388,14 +378,6 @@
         },
         {
           "command": "zova.refactorComponentProps",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
-        },
-        {
-          "command": "zova.refactorComponentEmits",
-          "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
-        },
-        {
-          "command": "zova.refactorComponentSlots",
           "when": "zova.hasZovaProject && zova.currentZovaProject && resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/"
         },
         {
@@ -602,14 +584,6 @@
         },
         {
           "command": "zova.refactorComponentProps",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
-        },
-        {
-          "command": "zova.refactorComponentEmits",
-          "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
-        },
-        {
-          "command": "zova.refactorComponentSlots",
           "when": "zova.hasZovaProject && (resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath=~ /src(\\/|\\\\)component(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)controller\\.tsx?$/)"
         },
         {

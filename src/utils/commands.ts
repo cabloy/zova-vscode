@@ -48,8 +48,6 @@ import { refactorAnotherRender } from '../commands/refactor/anotherRender.js';
 import { refactorAnotherStyle } from '../commands/refactor/anotherStyle.js';
 import { refactorRenamePage } from '../commands/refactor/renamePage.js';
 import { refactorComponentProps } from '../commands/refactor/componentProps.js';
-import { refactorComponentEmits } from '../commands/refactor/componentEmits.js';
-import { refactorComponentSlots } from '../commands/refactor/componentSlots.js';
 import { refactorComponentModel } from '../commands/refactor/componentModel.js';
 import { refactorRenameComponent } from '../commands/refactor/renameComponent.js';
 
@@ -97,8 +95,6 @@ const extensionCommands = [
   { command: 'zova.refactorAnotherStyle', function: refactorAnotherStyle },
   { command: 'zova.refactorRenamePage', function: refactorRenamePage },
   { command: 'zova.refactorComponentProps', function: refactorComponentProps },
-  { command: 'zova.refactorComponentEmits', function: refactorComponentEmits },
-  { command: 'zova.refactorComponentSlots', function: refactorComponentSlots },
   { command: 'zova.refactorComponentModel', function: refactorComponentModel },
   {
     command: 'zova.refactorRenameComponent',

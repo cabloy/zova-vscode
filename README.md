@@ -40,8 +40,6 @@ An extension offering commands and tools to make your experience with Zova more 
 - Rename Page
 
 - Add Component Props
-- Add Component Emits
-- Add Component Slots
 - Add v-model
 - Convert to Generic Component
 - Rename Component

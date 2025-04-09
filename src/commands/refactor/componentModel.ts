@@ -18,12 +18,9 @@ export async function refactorComponentModel(resource?: Uri) {
   }
   // name
   const name = await window.showInputBox({
-    prompt: 'What is the model name? (default: modelValue)',
-    value: 'modelValue',
+    prompt: 'What is the model name? (blank as the default value)',
+    value: '',
   });
-  if (!name) {
-    return;
-  }
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   // pathResource
