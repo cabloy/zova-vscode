@@ -15,7 +15,7 @@ export async function initMonkeySys(resource?: Uri) {
   await initMonkey_common('monkeySys', resource);
 }
 
-export async function initMonkey_common(commandName: string, resource?: Uri) {
+async function initMonkey_common(commandName: string, resource?: Uri) {
   const { fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
