@@ -35,8 +35,8 @@ import { initConstant } from '../commands/init/constant.js';
 import { initLocale } from '../commands/init/locale.js';
 import { initError } from '../commands/init/error.js';
 import { initLegacy } from '../commands/init/legacy.js';
-import { initMonkey } from '../commands/init/monkey.js';
-import { initMain } from '../commands/init/main.js';
+import { initMonkey ,initMonkeySys} from '../commands/init/monkey.js';
+import { initMain ,initMainSys} from '../commands/init/main.js';
 import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
 import { createSuite } from '../commands/create/suite.js';
@@ -83,7 +83,9 @@ const extensionCommands = [
   { command: 'zova.initError', function: initError },
   { command: 'zova.initLegacy', function: initLegacy },
   { command: 'zova.initMonkey', function: initMonkey },
+  { command: 'zova.initMonkeySys', function: initMonkeySys },
   { command: 'zova.initMain', function: initMain },
+  { command: 'zova.initMainSys', function: initMainSys },
   // refactor
   { command: 'zova.refactorPageQuery', function: refactorPageQuery },
   { command: 'zova.refactorPageParams', function: refactorPageParams },

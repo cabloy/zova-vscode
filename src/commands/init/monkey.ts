@@ -26,3 +26,24 @@ export async function initMonkey(resource?: Uri) {
   const fileDest = path.join(commandPathInfo.moduleRoot, `src/monkey.ts`);
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
+
+
+export async function initMonkey_common(resource?: Uri,name:string) {
+  const { fsPath } = preparePathResource(resource);
+  if (!fsPath) {
+    return;
+  }
+  // commandPathInfo
+  const commandPathInfo = extractCommandPathInfo(fsPath);
+  if (!commandPathInfo.moduleName) {
+    return;
+  }
+  // invoke
+  await invokeZovaCli(
+    [':init:monkey', commandPathInfo.moduleName],
+    commandPathInfo.projectCurrent
+  );
+  // open
+  const fileDest = path.join(commandPathInfo.moduleRoot, `src/monkey.ts`);
+  showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
+}
