@@ -8,27 +8,14 @@ import path from 'node:path';
 import { showTextDocument } from '../../utils/global.js';
 
 export async function initMonkey(resource?: Uri) {
-  const { fsPath } = preparePathResource(resource);
-  if (!fsPath) {
-    return;
-  }
-  // commandPathInfo
-  const commandPathInfo = extractCommandPathInfo(fsPath);
-  if (!commandPathInfo.moduleName) {
-    return;
-  }
-  // invoke
-  await invokeZovaCli(
-    [':init:monkey', commandPathInfo.moduleName],
-    commandPathInfo.projectCurrent
-  );
-  // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/monkey.ts`);
-  showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
+  await initMonkey_common('monkey', resource);
 }
 
+export async function initMonkeySys(resource?: Uri) {
+  await initMonkey_common('monkeySys', resource);
+}
 
-export async function initMonkey_common(resource?: Uri,name:string) {
+export async function initMonkey_common(commandName: string, resource?: Uri) {
   const { fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
@@ -40,10 +27,13 @@ export async function initMonkey_common(resource?: Uri,name:string) {
   }
   // invoke
   await invokeZovaCli(
-    [':init:monkey', commandPathInfo.moduleName],
+    [`:init:${commandName}`, commandPathInfo.moduleName],
     commandPathInfo.projectCurrent
   );
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/monkey.ts`);
+  const fileDest = path.join(
+    commandPathInfo.moduleRoot,
+    `src/${commandName}.ts`
+  );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
