@@ -20,7 +20,9 @@ export async function toolsOpenapiConfig(resource?: Uri) {
     commandPathInfo.projectCurrent
   );
   // open
-  const fileDest = `openapi.config.ts`;
+  const fileDest = commandPathInfo.moduleName
+    ? path.join(commandPathInfo.moduleRoot, `cli/openapi.config.ts`)
+    : `openapi.config.ts`;
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
 
