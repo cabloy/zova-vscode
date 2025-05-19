@@ -14,6 +14,7 @@ import {
   beanData,
   beanBehavior,
   beanInterceptor,
+  beanTableCellFormat,
   beanMetaThemeHandler,
 } from '../commands/create/bean.js';
 import { logger } from './outputChannel.js';
@@ -35,8 +36,8 @@ import { initConstant } from '../commands/init/constant.js';
 import { initLocale } from '../commands/init/locale.js';
 import { initError } from '../commands/init/error.js';
 import { initLegacy } from '../commands/init/legacy.js';
-import { initMonkey ,initMonkeySys} from '../commands/init/monkey.js';
-import { initMain ,initMainSys} from '../commands/init/main.js';
+import { initMonkey, initMonkeySys } from '../commands/init/monkey.js';
+import { initMain, initMainSys } from '../commands/init/main.js';
 import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
 import { createSuite } from '../commands/create/suite.js';
@@ -74,6 +75,7 @@ const extensionCommands = [
   { command: 'zova.beanData', function: beanData },
   { command: 'zova.beanBehavior', function: beanBehavior },
   { command: 'zova.beanInterceptor', function: beanInterceptor },
+  { command: 'zova.beanTableCellFormat', function: beanTableCellFormat },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init
   { command: 'zova.initIcon', function: initIcon },
