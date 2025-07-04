@@ -190,12 +190,12 @@
       },
       {
         "command": "zova.initLib",
-        "title": "Main",
+        "title": "Lib",
         "category": "Zova Init"
       },
       {
         "command": "zova.initTypes",
-        "title": "Main",
+        "title": "Types",
         "category": "Zova Init"
       },
       {
