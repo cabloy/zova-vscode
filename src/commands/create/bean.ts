@@ -39,7 +39,11 @@ export async function beanTool(resource: Uri) {
 }
 
 export async function beanGeneral(resource: Uri) {
-  await beanGeneral_common(resource, 'bean', 'What is the general bean name?');
+  await beanGeneral_common(
+    resource,
+    'bean',
+    'What is the general service bean name?'
+  );
 }
 
 export async function beanSys(resource: Uri) {
