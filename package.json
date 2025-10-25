@@ -759,7 +759,7 @@
     "publish": "vsce publish --no-dependencies"
   },
   "dependencies": {
-    "@cabloy/process-helper": "^2.0.20",
+    "@cabloy/process-helper": "^2.0.21",
     "@npmcli/config": "^8.3.4",
     "fs-extra": "^11.2.0",
     "semver": "^7.6.2"
