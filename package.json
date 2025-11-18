@@ -16,7 +16,7 @@
     "onStartupFinished"
   ],
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "icon": "assets/zova.png",
   "publisher": "cabloy",
   "license": "MIT",
