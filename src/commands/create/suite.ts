@@ -27,6 +27,10 @@ export async function createSuite(resource?: Uri) {
   if (fromPalette) {
     commandPathInfo.pathResource = 'src/suite';
   }
+  // patch
+  if (!commandPathInfo.pathResource && commandPathInfo.suiteRoot) {
+    commandPathInfo.pathResource = path.dirname(commandPathInfo.suiteRoot);
+  }
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
@@ -34,7 +38,7 @@ export async function createSuite(resource?: Uri) {
   );
   // invoke
   await invokeZovaCli(
-    [':create:suite', pathResource, '--description=', '--author='],
+    [':create:suite', pathResource],
     commandPathInfo.projectCurrent
   );
   // open

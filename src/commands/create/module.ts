@@ -38,8 +38,6 @@ export async function createModule(resource?: Uri) {
       ':create:module',
       pathResource,
       `--suite=${commandPathInfo.suiteName || ''}`,
-      '--description=',
-      '--author=',
     ],
     commandPathInfo.projectCurrent
   );

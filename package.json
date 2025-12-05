@@ -505,7 +505,7 @@
       "zova.create": [
         {
           "command": "zova.createSuite",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite-vendor$/)"
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite-vendor$/ || resourcePath =~ /(\\/|\\\\)src(\\/|\\\\)suite-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/)"
         },
         {
           "command": "zova.createModule",
