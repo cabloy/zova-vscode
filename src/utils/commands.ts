@@ -185,3 +185,18 @@ export async function invokeZovaCli(
   }
   return res;
 }
+
+export async function invokePnpmCli(args: string[], projectCurrent: string) {
+  const console = new LocalConsole();
+  const processHelper = new ProcessHelper(projectCurrent, console);
+  // spawn
+  return await processHelper.spawnCmd({
+    cmd: 'pnpm',
+    args,
+    options: {
+      stdio: 'pipe',
+      cwd: projectCurrent,
+      shell: true,
+    },
+  });
+}

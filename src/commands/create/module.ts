@@ -7,7 +7,7 @@ import {
 } from '../../utils/zova.js';
 import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
-import { invokeZovaCli } from '../../utils/commands.js';
+import { invokePnpmCli, invokeZovaCli } from '../../utils/commands.js';
 import { newTerminal, showTextDocument } from '../../utils/global.js';
 
 export async function createModule(resource?: Uri) {
@@ -43,11 +43,19 @@ export async function createModule(resource?: Uri) {
     ],
     commandPathInfo.projectCurrent
   );
-  // pnpm install
-  newTerminal('pnpm install', commandPathInfo.projectCurrent);
+  // post
+  _postCreateModule(commandPathInfo.projectCurrent);
   // open
   const fileDest = commandPathInfo.suiteName
     ? path.join(commandPathInfo.suiteRoot, `modules/${name}/src/index.ts`)
     : path.join(commandPathInfo.pathResource, `${name}/src/index.ts`);
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
+}
+
+async function _postCreateModule(projectCurrent: string) {
+  // tools.deps
+  await invokeZovaCli([':tools:deps'], projectCurrent);
+  // pnpm install
+  // newTerminal('pnpm install', commandPathInfo.projectCurrent);
+  await invokePnpmCli(['install'], projectCurrent);
 }

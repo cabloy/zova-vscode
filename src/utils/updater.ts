@@ -2,7 +2,7 @@ import semver from 'semver';
 import { getRegistry } from './registry.js';
 import { newTerminal } from './global.js';
 import { getWorkspaceRootDirectory } from './zova.js';
-import { invokeZovaCli } from './commands.js';
+import { invokePnpmCli, invokeZovaCli } from './commands.js';
 
 export async function checkIfUpdateCli() {
   try {
@@ -24,11 +24,19 @@ export async function checkIfUpdateCli() {
       needUpdate = lt;
     }
     if (needUpdate) {
-      newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
+      invokePnpmCli(
+        ['add', '-g', 'zova-cli@latest'],
+        getWorkspaceRootDirectory()
+      );
+      // newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
     }
   } catch (err) {
     if (err.code === 'ENOENT' || err.code === 10127) {
-      newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
+      invokePnpmCli(
+        ['add', '-g', 'zova-cli@latest'],
+        getWorkspaceRootDirectory()
+      );
+      // newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
     } else {
       console.log(err);
     }
