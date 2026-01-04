@@ -82,14 +82,6 @@ export async function beanInterceptor(resource: Uri) {
   );
 }
 
-export async function beanTableCellFormat(resource: Uri) {
-  await beanGeneral_common(
-    resource,
-    'tableCellFormat',
-    'What is the tableCellFormat bean name?'
-  );
-}
-
 export async function beanTableFeature(resource: Uri) {
   await beanGeneral_common(
     resource,
