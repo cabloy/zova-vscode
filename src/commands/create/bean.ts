@@ -149,6 +149,7 @@ export async function beanGeneral_common(
     commandPathInfo.projectCurrent
   );
   // open
+  const ext = ['tableCell'].includes(sceneName) ? 'tsx' : 'ts';
   let fileDest: string;
   if (pathResource.includes('/')) {
     const pos = pathResource.lastIndexOf('/');
@@ -157,12 +158,12 @@ export async function beanGeneral_common(
     fileDest = path.join(
       commandPathInfo.moduleRoot,
       `src/${subDir}`,
-      `${sceneName}.${beanName}.ts`
+      `${sceneName}.${beanName}.${ext}`
     );
   } else {
     const fileDestScene = ['api', 'model', 'service'].includes(sceneName)
-      ? `src/${sceneName}/${pathResource}.ts`
-      : `src/bean/${sceneName}.${pathResource}.ts`;
+      ? `src/${sceneName}/${pathResource}.${ext}`
+      : `src/bean/${sceneName}.${pathResource}.${ext}`;
     fileDest = path.join(commandPathInfo.moduleRoot, fileDestScene);
   }
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
