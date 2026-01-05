@@ -14,7 +14,6 @@ import {
   beanData,
   beanBehavior,
   beanInterceptor,
-  beanTableFeature,
   beanTableCell,
   beanMetaThemeHandler,
 } from '../commands/create/bean.js';
@@ -78,7 +77,6 @@ const extensionCommands = [
   { command: 'zova.beanData', function: beanData },
   { command: 'zova.beanBehavior', function: beanBehavior },
   { command: 'zova.beanInterceptor', function: beanInterceptor },
-  { command: 'zova.beanTableFeature', function: beanTableFeature },
   { command: 'zova.beanTableCell', function: beanTableCell },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init

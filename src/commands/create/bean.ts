@@ -82,14 +82,6 @@ export async function beanInterceptor(resource: Uri) {
   );
 }
 
-export async function beanTableFeature(resource: Uri) {
-  await beanGeneral_common(
-    resource,
-    'tableFeature',
-    'What is the tableFeature bean name?'
-  );
-}
-
 export async function beanTableCell(resource: Uri) {
   await beanGeneral_common(
     resource,
