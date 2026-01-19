@@ -145,7 +145,7 @@ export async function beanGeneral_common(
     commandPathInfo.projectCurrent,
   );
   // open
-  const ext = ['tableCell'].includes(sceneName) ? 'tsx' : 'ts';
+  const ext = ['tableCell', 'action'].includes(sceneName) ? 'tsx' : 'ts';
   let fileDest: string;
   if (pathResource.includes('/')) {
     const pos = pathResource.lastIndexOf('/');
