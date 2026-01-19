@@ -14,7 +14,7 @@ export async function beanService(resource?: Uri) {
   await beanGeneral_common(
     resource,
     'service',
-    'What is the service bean name?'
+    'What is the service bean name?',
   );
 }
 
@@ -42,7 +42,7 @@ export async function beanGeneral(resource: Uri) {
   await beanGeneral_common(
     resource,
     'bean',
-    'What is the general service bean name?'
+    'What is the general service bean name?',
   );
 }
 
@@ -58,7 +58,7 @@ export async function beanAopMethod(resource: Uri) {
   await beanGeneral_common(
     resource,
     'aopMethod',
-    'What is the aop method bean name?'
+    'What is the aop method bean name?',
   );
 }
 
@@ -70,7 +70,7 @@ export async function beanBehavior(resource: Uri) {
   await beanGeneral_common(
     resource,
     'behavior',
-    'What is the behavior bean name?'
+    'What is the behavior bean name?',
   );
 }
 
@@ -78,7 +78,7 @@ export async function beanInterceptor(resource: Uri) {
   await beanGeneral_common(
     resource,
     'interceptor',
-    'What is the interceptor bean name?'
+    'What is the interceptor bean name?',
   );
 }
 
@@ -86,8 +86,12 @@ export async function beanTableCell(resource: Uri) {
   await beanGeneral_common(
     resource,
     'tableCell',
-    'What is the tableCell bean name?'
+    'What is the tableCell bean name?',
   );
+}
+
+export async function beanAction(resource: Uri) {
+  await beanGeneral_common(resource, 'action', 'What is the action bean name?');
 }
 
 export async function beanApi(resource: Uri) {
@@ -99,7 +103,7 @@ export async function beanMetaThemeHandler(resource: Uri) {
     resource,
     'meta',
     'What is the meta themeHandler bean name?',
-    'themeHandler'
+    'themeHandler',
   );
 }
 
@@ -107,7 +111,7 @@ export async function beanGeneral_common(
   resource: Uri,
   sceneName: string,
   prompt: string,
-  name?: string
+  name?: string,
 ) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
@@ -128,7 +132,7 @@ export async function beanGeneral_common(
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
-    [`src/${sceneName}/`, 'src/bean/', 'src/']
+    [`src/${sceneName}/`, 'src/bean/', 'src/'],
   );
   // invoke
   await invokeZovaCli(
@@ -138,7 +142,7 @@ export async function beanGeneral_common(
       pathResource,
       `--module=${commandPathInfo.moduleName}`,
     ],
-    commandPathInfo.projectCurrent
+    commandPathInfo.projectCurrent,
   );
   // open
   const ext = ['tableCell'].includes(sceneName) ? 'tsx' : 'ts';
@@ -150,7 +154,7 @@ export async function beanGeneral_common(
     fileDest = path.join(
       commandPathInfo.moduleRoot,
       `src/${subDir}`,
-      `${sceneName}.${beanName}.${ext}`
+      `${sceneName}.${beanName}.${ext}`,
     );
   } else {
     const fileDestScene = ['api', 'model', 'service'].includes(sceneName)

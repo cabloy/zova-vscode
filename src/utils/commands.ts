@@ -15,6 +15,7 @@ import {
   beanBehavior,
   beanInterceptor,
   beanTableCell,
+  beanAction,
   beanMetaThemeHandler,
 } from '../commands/create/bean.js';
 import { logger } from './outputChannel.js';
@@ -78,6 +79,7 @@ const extensionCommands = [
   { command: 'zova.beanBehavior', function: beanBehavior },
   { command: 'zova.beanInterceptor', function: beanInterceptor },
   { command: 'zova.beanTableCell', function: beanTableCell },
+  { command: 'zova.beanAction', function: beanAction },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init
   { command: 'zova.initIcon', function: initIcon },
@@ -128,8 +130,8 @@ export class Commands {
       this.context.subscriptions.push(
         commands.registerCommand(
           command,
-          wrapperCommand(command, commandFunction)
-        )
+          wrapperCommand(command, commandFunction),
+        ),
       );
     }
   }
@@ -150,7 +152,7 @@ function wrapperCommand(command, fn) {
 export async function invokeZovaCli(
   args: string[],
   projectCurrent: string,
-  forceGlobalCli?: boolean
+  forceGlobalCli?: boolean,
 ) {
   const console = new LocalConsole();
   const processHelper = new ProcessHelper(projectCurrent, console);
@@ -161,7 +163,7 @@ export async function invokeZovaCli(
     res = await processHelper.spawnExe({
       cmd: 'node',
       args: [path.join(workspaceFolder, 'zova-cli/cli/src/bin/zova.ts')].concat(
-        args
+        args,
       ),
       options: {
         stdio: 'pipe',
