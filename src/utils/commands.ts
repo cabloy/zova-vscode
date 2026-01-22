@@ -24,7 +24,10 @@ import { ProcessHelper } from '@cabloy/process-helper';
 import { getWorkspaceRootDirectory } from './zova.js';
 import { existsSync } from 'fs-extra';
 import path from 'node:path';
-import { createComponent } from '../commands/create/component.js';
+import {
+  createComponent,
+  createComponentFormField,
+} from '../commands/create/component.js';
 import { createPage } from '../commands/create/page.js';
 import { initIcon } from '../commands/init/icon.js';
 import { toolsMetadata } from '../commands/tools/metadata.js';
@@ -59,6 +62,10 @@ import { refactorRenameComponent } from '../commands/refactor/renameComponent.js
 const extensionCommands = [
   // create
   { command: 'zova.createComponent', function: createComponent },
+  {
+    command: 'zova.createComponentFormField',
+    function: createComponentFormField,
+  },
   { command: 'zova.createPage', function: createPage },
   { command: 'zova.createApi', function: beanApi },
   { command: 'zova.createModel', function: beanModel },

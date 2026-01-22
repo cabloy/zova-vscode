@@ -9,18 +9,31 @@ import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
 import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
+import { firstCharToUpperCase } from '../../utils/utils.js';
 
 export async function createComponent(resource?: Uri) {
+  await createComponent_common(resource, 'What is the component name?');
+}
+
+export async function createComponent_common(
+  resource: Uri,
+  prompt: string,
+  boilerplate?: string,
+  name?: string,
+) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
   }
   // name
-  const name = await window.showInputBox({
-    prompt: 'What is the component name?',
-  });
   if (!name) {
-    return;
+    name = await window.showInputBox({ prompt });
+    if (!name) {
+      return;
+    }
+  }
+  if (boilerplate && !name.startsWith(boilerplate)) {
+    name = `${boilerplate}${firstCharToUpperCase(name)}`;
   }
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
@@ -30,7 +43,7 @@ export async function createComponent(resource?: Uri) {
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['src/component/', 'src/']
+    ['src/component/', 'src/'],
   );
   // invoke
   await invokeZovaCli(
@@ -38,13 +51,14 @@ export async function createComponent(resource?: Uri) {
       ':create:component',
       pathResource,
       `--module=${commandPathInfo.moduleName}`,
+      `--boilerplate=${boilerplate || ''}`,
     ],
-    commandPathInfo.projectCurrent
+    commandPathInfo.projectCurrent,
   );
   // open
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `src/component/${pathResource}/controller.tsx`
+    `src/component/${pathResource}/controller.tsx`,
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
