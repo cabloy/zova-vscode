@@ -15,6 +15,14 @@ export async function createComponent(resource?: Uri) {
   await createComponent_common(resource, 'What is the component name?');
 }
 
+export async function createComponentFormField(resource?: Uri) {
+  await createComponent_common(
+    resource,
+    'What is the form field component name?',
+    'formField',
+  );
+}
+
 export async function createComponent_common(
   resource: Uri,
   prompt: string,
