@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { Uri, window } from 'vscode';
+import { Uri } from 'vscode';
 
 import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';

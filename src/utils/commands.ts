@@ -51,7 +51,6 @@ import { refactorRenamePage } from '../commands/refactor/renamePage.js';
 import { toolsMetadata } from '../commands/tools/metadata.js';
 import { toolsOpenapiConfig, toolsOpenapiGenerate } from '../commands/tools/openapi.js';
 import { LocalConsole } from './console.js';
-import { logger } from './outputChannel.js';
 import { getWorkspaceRootDirectory } from './zova.js';
 
 const extensionCommands = [

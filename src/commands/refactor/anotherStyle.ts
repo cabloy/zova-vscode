@@ -1,14 +1,12 @@
 import path from 'node:path';
-import { Uri, window, workspace } from 'vscode';
+import { Uri, window } from 'vscode';
 
 import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
-import { LocalConsole } from '../../utils/console.js';
 import { showTextDocument } from '../../utils/global.js';
-import { firstCharToUpperCase } from '../../utils/utils.js';
-import { combineCliResourcePath, extractCommandPathInfo, preparePathResource, trimPathPrefixs } from '../../utils/zova.js';
+import { extractCommandPathInfo, preparePathResource, trimPathPrefixs } from '../../utils/zova.js';
 
 export async function refactorAnotherStyle(resource?: Uri) {
-  const { fromPalette, fsPath } = preparePathResource(resource);
+  const { fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
   }
