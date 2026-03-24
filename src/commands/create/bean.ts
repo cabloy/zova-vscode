@@ -7,7 +7,7 @@ import {
 } from '../../utils/zova.js';
 import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
-import { invokeZovaCli } from '../../utils/commands.js';
+import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 
 export async function beanService(resource?: Uri) {
@@ -141,8 +141,14 @@ export async function beanGeneral_common(
       sceneName,
       pathResource,
       `--module=${commandPathInfo.moduleName}`,
+      '--nometadata',
     ],
     commandPathInfo.projectCurrent,
+  );
+  // metadata
+  invokeToolsMetadata(
+    commandPathInfo.moduleName,
+    commandPathInfo.projectCurrent
   );
   // open
   const ext = ['tableCell', 'action'].includes(sceneName) ? 'tsx' : 'ts';

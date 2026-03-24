@@ -156,6 +156,14 @@ function wrapperCommand(command, fn) {
   };
 }
 
+export async function invokeToolsMetadata(
+  moduleName: string,
+  projectCurrent: string,
+) {
+  // tools.metadata
+  await invokeZovaCli([':tools:metadata', moduleName], projectCurrent);
+}
+
 export async function invokeZovaCli(
   args: string[],
   projectCurrent: string,
@@ -192,6 +200,8 @@ export async function invokeZovaCli(
   }
   return res;
 }
+
+
 
 export async function invokePnpmCli(args: string[], projectCurrent: string) {
   const console = new LocalConsole();
