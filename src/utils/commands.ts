@@ -1,4 +1,8 @@
+import { ProcessHelper } from '@cabloy/process-helper';
+import { existsSync } from 'fs-extra';
+import path from 'node:path';
 import { commands, ExtensionContext, window } from 'vscode';
+
 import {
   beanGeneral,
   beanSys,
@@ -18,46 +22,37 @@ import {
   beanAction,
   beanMetaThemeHandler,
 } from '../commands/create/bean.js';
-import { logger } from './outputChannel.js';
-import { LocalConsole } from './console.js';
-import { ProcessHelper } from '@cabloy/process-helper';
-import { getWorkspaceRootDirectory } from './zova.js';
-import { existsSync } from 'fs-extra';
-import path from 'node:path';
-import {
-  createComponent,
-  createComponentFormField,
-} from '../commands/create/component.js';
-import { createPage } from '../commands/create/page.js';
-import { initIcon } from '../commands/init/icon.js';
-import { toolsMetadata } from '../commands/tools/metadata.js';
-import {
-  toolsOpenapiConfig,
-  toolsOpenapiGenerate,
-} from '../commands/tools/openapi.js';
-import { initConfig } from '../commands/init/config.js';
-import { initConstant } from '../commands/init/constant.js';
-import { initLocale } from '../commands/init/locale.js';
-import { initError } from '../commands/init/error.js';
-import { initLegacy } from '../commands/init/legacy.js';
-import { initMonkey, initMonkeySys } from '../commands/init/monkey.js';
-import { initMain, initMainSys } from '../commands/init/main.js';
-import { initLib } from '../commands/init/lib.js';
-import { initTypes } from '../commands/init/types.js';
+import { createComponent, createComponentFormField } from '../commands/create/component.js';
 import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
+import { createPage } from '../commands/create/page.js';
 import { createSuite } from '../commands/create/suite.js';
-import { refactorPageQuery } from '../commands/refactor/pageQuery.js';
-import { refactorPageParams } from '../commands/refactor/pageParams.js';
-import { refactorComponentGeneric } from '../commands/refactor/componentGeneric.js';
-import { refactorFirstRender } from '../commands/refactor/firstRender.js';
-import { refactorFirstStyle } from '../commands/refactor/firstStyle.js';
+import { initConfig } from '../commands/init/config.js';
+import { initConstant } from '../commands/init/constant.js';
+import { initError } from '../commands/init/error.js';
+import { initIcon } from '../commands/init/icon.js';
+import { initLegacy } from '../commands/init/legacy.js';
+import { initLib } from '../commands/init/lib.js';
+import { initLocale } from '../commands/init/locale.js';
+import { initMain, initMainSys } from '../commands/init/main.js';
+import { initMonkey, initMonkeySys } from '../commands/init/monkey.js';
+import { initTypes } from '../commands/init/types.js';
 import { refactorAnotherRender } from '../commands/refactor/anotherRender.js';
 import { refactorAnotherStyle } from '../commands/refactor/anotherStyle.js';
-import { refactorRenamePage } from '../commands/refactor/renamePage.js';
-import { refactorComponentProps } from '../commands/refactor/componentProps.js';
+import { refactorComponentGeneric } from '../commands/refactor/componentGeneric.js';
 import { refactorComponentModel } from '../commands/refactor/componentModel.js';
+import { refactorComponentProps } from '../commands/refactor/componentProps.js';
+import { refactorFirstRender } from '../commands/refactor/firstRender.js';
+import { refactorFirstStyle } from '../commands/refactor/firstStyle.js';
+import { refactorPageParams } from '../commands/refactor/pageParams.js';
+import { refactorPageQuery } from '../commands/refactor/pageQuery.js';
 import { refactorRenameComponent } from '../commands/refactor/renameComponent.js';
+import { refactorRenamePage } from '../commands/refactor/renamePage.js';
+import { toolsMetadata } from '../commands/tools/metadata.js';
+import { toolsOpenapiConfig, toolsOpenapiGenerate } from '../commands/tools/openapi.js';
+import { LocalConsole } from './console.js';
+import { logger } from './outputChannel.js';
+import { getWorkspaceRootDirectory } from './zova.js';
 
 const extensionCommands = [
   // create
@@ -134,12 +129,7 @@ export class Commands {
 
   initialize() {
     for (const { command, function: commandFunction } of extensionCommands) {
-      this.context.subscriptions.push(
-        commands.registerCommand(
-          command,
-          wrapperCommand(command, commandFunction),
-        ),
-      );
+      this.context.subscriptions.push(commands.registerCommand(command, wrapperCommand(command, commandFunction)));
     }
   }
 }
@@ -156,19 +146,13 @@ function wrapperCommand(command, fn) {
   };
 }
 
-export async function invokeToolsMetadata(
-  moduleName: string,
-  projectCurrent: string,
-) {
+export async function invokeToolsMetadata(moduleName: string | undefined, projectCurrent: string) {
+  if (!moduleName) return;
   // tools.metadata
   await invokeZovaCli([':tools:metadata', moduleName], projectCurrent);
 }
 
-export async function invokeZovaCli(
-  args: string[],
-  projectCurrent: string,
-  forceGlobalCli?: boolean,
-) {
+export async function invokeZovaCli(args: string[], projectCurrent: string, forceGlobalCli?: boolean) {
   const console = new LocalConsole();
   const processHelper = new ProcessHelper(projectCurrent, console);
   const workspaceFolder = getWorkspaceRootDirectory();
@@ -177,9 +161,7 @@ export async function invokeZovaCli(
   if (!forceGlobalCli && existsSync(path.join(workspaceFolder, 'zova-cli'))) {
     res = await processHelper.spawnExe({
       cmd: 'node',
-      args: [path.join(workspaceFolder, 'zova-cli/cli/src/bin/zova.ts')].concat(
-        args,
-      ),
+      args: [path.join(workspaceFolder, 'zova-cli/cli/src/bin/zova.ts')].concat(args),
       options: {
         stdio: 'pipe',
         cwd: projectCurrent,
@@ -200,8 +182,6 @@ export async function invokeZovaCli(
   }
   return res;
 }
-
-
 
 export async function invokePnpmCli(args: string[], projectCurrent: string) {
   const console = new LocalConsole();

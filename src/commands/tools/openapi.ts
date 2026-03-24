@@ -1,11 +1,9 @@
-import { Uri, window } from 'vscode';
-import {
-  extractCommandPathInfo,
-  preparePathResource,
-} from '../../utils/zova.js';
-import { invokeZovaCli } from '../../utils/commands.js';
 import path from 'node:path';
+import { Uri, window } from 'vscode';
+
+import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
+import { extractCommandPathInfo, preparePathResource } from '../../utils/zova.js';
 
 export async function toolsOpenapiConfig(resource?: Uri) {
   const { fsPath } = preparePathResource(resource);
@@ -15,14 +13,9 @@ export async function toolsOpenapiConfig(resource?: Uri) {
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   // invoke
-  await invokeZovaCli(
-    [':openapi:config', commandPathInfo.moduleName || ''],
-    commandPathInfo.projectCurrent
-  );
+  await invokeZovaCli([':openapi:config', commandPathInfo.moduleName || ''], commandPathInfo.projectCurrent);
   // open
-  const fileDest = commandPathInfo.moduleName
-    ? path.join(commandPathInfo.moduleRoot, `cli/openapi.config.ts`)
-    : `openapi.config.ts`;
+  const fileDest = commandPathInfo.moduleName ? path.join(commandPathInfo.moduleRoot, `cli/openapi.config.ts`) : `openapi.config.ts`;
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
 
@@ -34,10 +27,9 @@ export async function toolsOpenapiGenerate(resource?: Uri) {
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   // invoke
-  await invokeZovaCli(
-    [':openapi:generate', commandPathInfo.moduleName || ''],
-    commandPathInfo.projectCurrent
-  );
+  await invokeZovaCli([':openapi:generate', commandPathInfo.moduleName || ''], commandPathInfo.projectCurrent);
+  // metadata
+  invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
   const fileDest = commandPathInfo.moduleName
     ? path.join(commandPathInfo.moduleRoot, `src/api/openapi/index.ts`)

@@ -1,16 +1,12 @@
 import semver from 'semver';
-import { getRegistry } from './registry.js';
-import { newTerminal } from './global.js';
-import { getWorkspaceRootDirectory } from './zova.js';
+
 import { invokePnpmCli, invokeZovaCli } from './commands.js';
+import { getRegistry } from './registry.js';
+import { getWorkspaceRootDirectory } from './zova.js';
 
 export async function checkIfUpdateCli() {
   try {
-    const res = await invokeZovaCli(
-      ['--version'],
-      getWorkspaceRootDirectory(),
-      true
-    );
+    const res = await invokeZovaCli(['--version'], getWorkspaceRootDirectory(), true);
     const versionOld = res.trimEnd();
     let needUpdate;
     if (!semver.valid(versionOld)) {
@@ -24,18 +20,12 @@ export async function checkIfUpdateCli() {
       needUpdate = lt;
     }
     if (needUpdate) {
-      invokePnpmCli(
-        ['add', '-g', 'zova-cli@latest'],
-        getWorkspaceRootDirectory()
-      );
+      invokePnpmCli(['add', '-g', 'zova-cli@latest'], getWorkspaceRootDirectory());
       // newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
     }
   } catch (err) {
     if (err.code === 'ENOENT' || err.code === 10127) {
-      invokePnpmCli(
-        ['add', '-g', 'zova-cli@latest'],
-        getWorkspaceRootDirectory()
-      );
+      invokePnpmCli(['add', '-g', 'zova-cli@latest'], getWorkspaceRootDirectory());
       // newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
     } else {
       console.log(err);
