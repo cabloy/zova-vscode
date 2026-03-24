@@ -1,15 +1,11 @@
-import { Uri, window, workspace } from 'vscode';
-import {
-  combineCliResourcePath,
-  extractCommandPathInfo,
-  preparePathResource,
-  trimPathPrefixs,
-} from '../../utils/zova.js';
-import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
-import { invokeZovaCli } from '../../utils/commands.js';
+import { Uri, window, workspace } from 'vscode';
+
+import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
+import { LocalConsole } from '../../utils/console.js';
 import { showTextDocument } from '../../utils/global.js';
 import { firstCharToUpperCase } from '../../utils/utils.js';
+import { combineCliResourcePath, extractCommandPathInfo, preparePathResource, trimPathPrefixs } from '../../utils/zova.js';
 
 export async function refactorAnotherStyle(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
@@ -30,18 +26,12 @@ export async function refactorAnotherStyle(resource?: Uri) {
   pathResource = pathResource.split('/').slice(0, 2).join('/');
   // invoke
   await invokeZovaCli(
-    [
-      ':refactor:anotherStyle',
-      pathResource,
-      name,
-      `--module=${commandPathInfo.moduleName}`,
-    ],
-    commandPathInfo.projectCurrent
+    [':refactor:anotherStyle', pathResource, name, `--module=${commandPathInfo.moduleName}`, '--nometadata'],
+    commandPathInfo.projectCurrent,
   );
+  // metadata
+  invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(
-    commandPathInfo.moduleRoot,
-    `src/${pathResource}/style.${name}.ts`
-  );
+  const fileDest = path.join(commandPathInfo.moduleRoot, `src/${pathResource}/style.${name}.ts`);
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

@@ -1,11 +1,9 @@
-import { Uri, window } from 'vscode';
-import {
-  extractCommandPathInfo,
-  preparePathResource,
-} from '../../utils/zova.js';
-import { invokeZovaCli } from '../../utils/commands.js';
 import path from 'node:path';
+import { Uri, window } from 'vscode';
+
+import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
+import { extractCommandPathInfo, preparePathResource } from '../../utils/zova.js';
 
 export async function initIcon(resource?: Uri) {
   const { fsPath } = preparePathResource(resource);
@@ -18,15 +16,11 @@ export async function initIcon(resource?: Uri) {
     return;
   }
   // invoke
-  await invokeZovaCli(
-    [':init:icon', commandPathInfo.moduleName],
-    commandPathInfo.projectCurrent
-  );
+  await invokeZovaCli([':init:icon', commandPathInfo.moduleName, '--nometadata'], commandPathInfo.projectCurrent);
+  // metadata
+  invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(
-    commandPathInfo.moduleRoot,
-    `icons/default/zova.svg`
-  );
+  const fileDest = path.join(commandPathInfo.moduleRoot, `icons/default/zova.svg`);
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
   // window.showInformationMessage('Init icon successfully!');
 }
