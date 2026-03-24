@@ -1,6 +1,5 @@
 import * as vscode from 'vscode';
 import { logger } from './utils/outputChannel.js';
-import { FileWatchers } from './watchers/files.js';
 import { TextEditorWatchers } from './watchers/textEditor.js';
 import { Commands } from './utils/commands.js';
 import { checkIfUpdateCli } from './utils/updater.js';

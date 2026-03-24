@@ -1,32 +1,60 @@
 {
   "name": "zova-vscode",
   "displayName": "Zova - Official",
-  "description": "An extension for Zova offering commands and tools to make your experience more pleasant.",
   "version": "0.1.59",
-  "engines": {
-    "vscode": "^1.97.2"
-  },
+  "description": "An extension for Zova offering commands and tools to make your experience more pleasant.",
   "categories": [
     "Programming Languages",
     "Snippets"
   ],
-  "repository": "https://github.com/cabloy/zova-vscode",
-  "homepage": "https://zova.js.org",
-  "activationEvents": [
-    "onStartupFinished"
-  ],
-  "type": "module",
-  "main": "./dist/index.cjs",
-  "icon": "assets/zova.png",
-  "publisher": "cabloy",
-  "license": "MIT",
   "keywords": [
-    "Zova",
-    "Vue",
-    "Zova Framework",
     "VSCode",
+    "Vue",
+    "Zova",
+    "Zova Framework",
     "ioc"
   ],
+  "homepage": "https://zova.js.org",
+  "license": "MIT",
+  "repository": "https://github.com/cabloy/zova-vscode",
+  "publisher": "cabloy",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "oxlint src",
+    "test": "vscode-test",
+    "publish": "vsce publish --no-dependencies"
+  },
+  "dependencies": {
+    "@cabloy/process-helper": "^2.0.21",
+    "@npmcli/config": "^10.4.2",
+    "fs-extra": "^11.2.0",
+    "semver": "^7.6.2"
+  },
+  "devDependencies": {
+    "@cabloy/lint": "^5.0.24",
+    "@types/fs-extra": "^11.0.4",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.92.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.4.0",
+    "esbuild": "^0.21.5",
+    "npm-run-all": "^4.1.5",
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
+    "typescript": "^5.4.5"
+  },
   "contributes": {
     "commands": [
       {
@@ -753,43 +781,15 @@
       }
     ]
   },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "icon": "assets/zova.png",
+  "engines": {
+    "vscode": "^1.97.2"
+  },
   "permissions": [
     "webview",
     "http"
-  ],
-  "scripts": {
-    "vscode:prepublish": "pnpm run package",
-    "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
-    "watch": "npm-run-all -p watch:*",
-    "watch:esbuild": "node esbuild.js --watch",
-    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-    "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
-    "compile-tests": "tsc -p . --outDir out",
-    "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
-    "check-types": "tsc --noEmit",
-    "lint": "eslint src --ext ts",
-    "test": "vscode-test",
-    "publish": "vsce publish --no-dependencies"
-  },
-  "dependencies": {
-    "@cabloy/process-helper": "^2.0.21",
-    "@npmcli/config": "^10.4.2",
-    "fs-extra": "^11.2.0",
-    "semver": "^7.6.2"
-  },
-  "devDependencies": {
-    "@cabloy/lint": "^5.0.24",
-    "@types/fs-extra": "^11.0.4",
-    "@types/mocha": "^10.0.7",
-    "@types/node": "20.x",
-    "@types/vscode": "^1.92.0",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.4.0",
-    "esbuild": "^0.21.5",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^5.4.5",
-    "oxfmt": "^0.41.0",
-    "oxlint": "^1.56.0"
-  }
+  ]
 }

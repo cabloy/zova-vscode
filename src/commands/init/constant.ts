@@ -20,6 +20,6 @@ export async function initConstant(resource?: Uri) {
   // metadata
   invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/config/constants.ts`);
+  const fileDest = path.join(commandPathInfo.moduleRoot, 'src/config/constants.ts');
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

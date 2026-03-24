@@ -40,7 +40,7 @@ export async function toolsMetadata(resource?: Uri) {
   await invokeZovaCli(args, commandPathInfo.projectCurrent);
   // open
   if (commandPathInfo.moduleName) {
-    const fileDest = path.join(commandPathInfo.moduleRoot, `src/.metadata/index.ts`);
+    const fileDest = path.join(commandPathInfo.moduleRoot, 'src/.metadata/index.ts');
     showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
   } else {
     window.showInformationMessage('Generate .metadata successfully!');

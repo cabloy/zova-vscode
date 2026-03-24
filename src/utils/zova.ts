@@ -17,7 +17,7 @@ export interface IProjectInfo {
   projectNames?: string[];
 }
 
-let _projectInfo: IProjectInfo = {
+const _projectInfo: IProjectInfo = {
   directoryCurrent: undefined,
   isMulti: false,
   projectNames: undefined,
@@ -44,7 +44,7 @@ export function setProjectInfo(projectInfo: IProjectInfo) {
   vscode.commands.executeCommand(
     'setContext',
     'zova.currentZovaProject',
-    _projectInfo.directoryCurrent
+    _projectInfo.directoryCurrent,
   );
 }
 
@@ -64,7 +64,7 @@ export async function hasZovaProject(): Promise<IProjectInfo | undefined> {
   }
   // multi
   let projectNames = await fse.readdir(workspaceFolder);
-  projectNames = projectNames.filter((item) => {
+  projectNames = projectNames.filter(item => {
     return isZovaProject(path.join(workspaceFolder, item));
   });
   if (projectNames.length > 0) {
@@ -101,7 +101,7 @@ export function preparePathResource(resource?: vscode.Uri) {
 }
 
 export function extractCommandPathInfo(resource: string) {
-  let commandPathInfo = {} as ICommandPathInfo;
+  const commandPathInfo = {} as ICommandPathInfo;
   commandPathInfo.projectCurrent = getZovaProjectCurrent(resource);
   commandPathInfo.pathResource = resource
     .substring(commandPathInfo.projectCurrent.length + 1)
@@ -125,7 +125,7 @@ export function extractCommandPathInfo(resource: string) {
 }
 
 export function extractSuiteInfo(resource: string) {
-  const patterns = [/src\/suite\/([^\/]+)/, /src\/suite-vendor\/([^\/]+)/];
+  const patterns = [/src\/suite\/([^/]+)/, /src\/suite-vendor\/([^/]+)/];
   for (const pattern of patterns) {
     const matches = resource.match(pattern);
     if (matches) {
@@ -140,10 +140,10 @@ export function extractSuiteInfo(resource: string) {
 
 export function extractModuleInfo(resource: string) {
   const patterns = [
-    /src\/module\/([^\/]+)/,
-    /src\/module-vendor\/([^\/]+)/,
-    /src\/suite\/[^\/]+\/modules\/([^\/]+)/,
-    /src\/suite-vendor\/[^\/]+\/modules\/([^\/]+)/,
+    /src\/module\/([^/]+)/,
+    /src\/module-vendor\/([^/]+)/,
+    /src\/suite\/[^/]+\/modules\/([^/]+)/,
+    /src\/suite-vendor\/[^/]+\/modules\/([^/]+)/,
   ];
   for (const pattern of patterns) {
     const matches = resource.match(pattern);

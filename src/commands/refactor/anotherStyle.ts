@@ -11,7 +11,7 @@ export async function refactorAnotherStyle(resource?: Uri) {
     return;
   }
   // name
-  let name = await window.showInputBox({
+  const name = await window.showInputBox({
     prompt: 'What is the style bean name?',
   });
   if (!name) {

@@ -23,7 +23,7 @@ export class LocalConsole extends ProcessHelperConsole {
     if (typeof data !== 'object') {
       data = { text: String(data) };
     }
-    let { /* progressNo,*/ total, progress, text } = data;
+    let { /* progressNo, */ total, progress, text } = data;
     // logPrefix
     const logPrefix = options.logPrefix;
     if (logPrefix) {
@@ -44,7 +44,7 @@ export class LocalConsole extends ProcessHelperConsole {
   _adjustText(prefix, text) {
     return String(text)
       .split('\n')
-      .map((item) => (item ? prefix + item : item))
+      .map(item => (item ? prefix + item : item))
       .join('\n');
   }
 }

@@ -18,7 +18,7 @@ export async function refactorRenamePage(resource?: Uri) {
   const parts = pathResource.split('/').slice(0, 2);
   pathResource = parts.join('/');
   // name
-  let name = await window.showInputBox({
+  const name = await window.showInputBox({
     prompt: 'What is the new page name?',
     placeHolder: parts[1],
   });

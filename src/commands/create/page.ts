@@ -1,8 +1,7 @@
 import path from 'node:path';
-import { Uri, window, workspace } from 'vscode';
+import { Uri, window } from 'vscode';
 
 import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
-import { LocalConsole } from '../../utils/console.js';
 import { showTextDocument } from '../../utils/global.js';
 import { combineCliResourcePath, extractCommandPathInfo, preparePathResource, trimPathPrefixs } from '../../utils/zova.js';
 

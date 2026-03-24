@@ -28,6 +28,7 @@ export async function checkIfUpdateCli() {
       invokePnpmCli(['add', '-g', 'zova-cli@latest'], getWorkspaceRootDirectory());
       // newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
     } else {
+      // eslint-disable-next-line
       console.log(err);
     }
   }

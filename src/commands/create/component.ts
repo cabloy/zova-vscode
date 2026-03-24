@@ -1,11 +1,10 @@
-import { Uri, window, workspace } from 'vscode';
+import { Uri, window } from 'vscode';
 import {
   combineCliResourcePath,
   extractCommandPathInfo,
   preparePathResource,
   trimPathPrefixs,
 } from '../../utils/zova.js';
-import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
 import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
@@ -67,7 +66,7 @@ export async function createComponent_common(
   // metadata
   invokeToolsMetadata(
     commandPathInfo.moduleName,
-    commandPathInfo.projectCurrent
+    commandPathInfo.projectCurrent,
   );
   // open
   const fileDest = path.join(

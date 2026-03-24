@@ -21,14 +21,14 @@ export class ContextKeys {
     vscode.commands.executeCommand(
       'setContext',
       'zova.hasZovaProject',
-      !!projectInfo
+      !!projectInfo,
     );
     // zova.currentZovaProject
     if (projectInfo && !projectInfo.isMulti) {
       vscode.commands.executeCommand(
         'setContext',
         'zova.currentZovaProject',
-        projectInfo.directoryCurrent
+        projectInfo.directoryCurrent,
       );
     }
     // more keys
@@ -44,19 +44,19 @@ export class ContextKeys {
     // arrayProjectRoot
     const workspaceFolder = getWorkspaceRootDirectory();
     const arrayProjectRoot = projectInfo.isMulti
-      ? projectInfo.projectNames.map((item) => path.join(workspaceFolder, item))
+      ? projectInfo.projectNames.map(item => path.join(workspaceFolder, item))
       : [workspaceFolder];
     // zova.arrayProjectRoot
     vscode.commands.executeCommand(
       'setContext',
       'zova.arrayProjectRoot',
-      arrayProjectRoot
+      arrayProjectRoot,
     );
     // zova.arrayProjectSrc
     vscode.commands.executeCommand(
       'setContext',
       'zova.arrayProjectSrc',
-      arrayProjectRoot.map((item) => path.join(item, 'src'))
+      arrayProjectRoot.map(item => path.join(item, 'src')),
     );
   }
 }

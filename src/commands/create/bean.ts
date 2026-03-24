@@ -94,7 +94,7 @@ export async function beanGeneral_common(resource: Uri, sceneName: string, promp
   const pathResource = trimPathPrefixs(combineCliResourcePath(commandPathInfo.pathResource, name), [`src/${sceneName}/`, 'src/bean/', 'src/']);
   // invoke
   await invokeZovaCli(
-    [`:create:bean`, sceneName, pathResource, `--module=${commandPathInfo.moduleName}`, '--nometadata'],
+    [':create:bean', sceneName, pathResource, `--module=${commandPathInfo.moduleName}`, '--nometadata'],
     commandPathInfo.projectCurrent,
   );
   // metadata

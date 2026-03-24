@@ -5,7 +5,7 @@ export function newTerminal(command: string, projectCurrent: string) {
   const basename = path.basename(projectCurrent);
   const terminalName = `zova-cli:${basename}`;
   const existingTerminal = vscode.window.terminals.find(
-    (terminal) => terminal.name === terminalName
+    terminal => terminal.name === terminalName,
   );
   if (existingTerminal) {
     existingTerminal.show();
@@ -22,7 +22,7 @@ export function newTerminal(command: string, projectCurrent: string) {
 
 export async function showTextDocument(pathResource: string) {
   const doc = await vscode.workspace.openTextDocument(
-    vscode.Uri.file(pathResource)
+    vscode.Uri.file(pathResource),
   );
   vscode.window.showTextDocument(doc);
 }

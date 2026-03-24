@@ -15,7 +15,7 @@ export async function toolsOpenapiConfig(resource?: Uri) {
   // invoke
   await invokeZovaCli([':openapi:config', commandPathInfo.moduleName || ''], commandPathInfo.projectCurrent);
   // open
-  const fileDest = commandPathInfo.moduleName ? path.join(commandPathInfo.moduleRoot, `cli/openapi.config.ts`) : `openapi.config.ts`;
+  const fileDest = commandPathInfo.moduleName ? path.join(commandPathInfo.moduleRoot, 'cli/openapi.config.ts') : 'openapi.config.ts';
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
 
@@ -34,7 +34,7 @@ export async function toolsOpenapiGenerate(resource?: Uri) {
   }
   // open
   const fileDest = commandPathInfo.moduleName
-    ? path.join(commandPathInfo.moduleRoot, `src/api/openapi/index.ts`)
+    ? path.join(commandPathInfo.moduleRoot, 'src/api/openapi/index.ts')
     : 'src/suite/a-home/modules/home-api/src/api/openapi/index.ts';
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

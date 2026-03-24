@@ -20,6 +20,6 @@ export async function initLocale(resource?: Uri) {
   // metadata
   invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/config/locale/en-us.ts`);
+  const fileDest = path.join(commandPathInfo.moduleRoot, 'src/config/locale/en-us.ts');
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

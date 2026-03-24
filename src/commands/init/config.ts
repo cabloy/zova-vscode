@@ -20,6 +20,6 @@ export async function initConfig(resource?: Uri) {
   // metadata
   invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/config/config.ts`);
+  const fileDest = path.join(commandPathInfo.moduleRoot, 'src/config/config.ts');
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

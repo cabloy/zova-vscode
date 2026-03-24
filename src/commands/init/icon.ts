@@ -20,7 +20,7 @@ export async function initIcon(resource?: Uri) {
   // metadata
   invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `icons/default/zova.svg`);
+  const fileDest = path.join(commandPathInfo.moduleRoot, 'icons/default/zova.svg');
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
   // window.showInformationMessage('Init icon successfully!');
 }

@@ -20,6 +20,6 @@ export async function initError(resource?: Uri) {
   // metadata
   invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/config/errors.ts`);
+  const fileDest = path.join(commandPathInfo.moduleRoot, 'src/config/errors.ts');
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

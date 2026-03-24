@@ -1,11 +1,10 @@
-import { Uri, window, workspace } from 'vscode';
+import { Uri, window } from 'vscode';
 import {
   combineCliResourcePath,
   extractCommandPathInfo,
   preparePathResource,
   trimPathPrefixs,
 } from '../../utils/zova.js';
-import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
 import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
@@ -30,17 +29,17 @@ export async function createMock(resource?: Uri) {
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['mock/']
+    ['mock/'],
   );
   // invoke
   await invokeZovaCli(
     [':create:mock', pathResource, `--module=${commandPathInfo.moduleName}`],
-    commandPathInfo.projectCurrent
+    commandPathInfo.projectCurrent,
   );
   // open
   const fileDest = path.join(
     commandPathInfo.moduleRoot,
-    `mock/${pathResource}.fake.ts`
+    `mock/${pathResource}.fake.ts`,
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

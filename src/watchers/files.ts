@@ -1,9 +1,5 @@
-import {
-  ExtensionContext,
-  FileSystemWatcher,
-  RelativePattern,
-  workspace,
-} from 'vscode';
+import { ExtensionContext, FileSystemWatcher, RelativePattern, workspace } from 'vscode';
+
 import { getWorkspaceRootDirectory } from '../utils/zova.js';
 
 export class FileWatchers {
@@ -15,16 +11,17 @@ export class FileWatchers {
   }
 
   start() {
-    this.rootWatcher = workspace.createFileSystemWatcher(
-      new RelativePattern(getWorkspaceRootDirectory(), '**/*')
-    );
-    this.rootWatcher.onDidCreate((uri) => {
+    this.rootWatcher = workspace.createFileSystemWatcher(new RelativePattern(getWorkspaceRootDirectory(), '**/*'));
+    this.rootWatcher.onDidCreate(uri => {
+      // eslint-disable-next-line
       console.log('create:', uri);
     });
-    this.rootWatcher.onDidChange((uri) => {
+    this.rootWatcher.onDidChange(uri => {
+      // eslint-disable-next-line
       console.log('change:', uri);
     });
-    this.rootWatcher.onDidDelete((uri) => {
+    this.rootWatcher.onDidDelete(uri => {
+      // eslint-disable-next-line
       console.log('delete:', uri);
     });
   }

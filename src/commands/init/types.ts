@@ -20,6 +20,6 @@ export async function initTypes(resource?: Uri) {
   // metadata
   invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/types/index.ts`);
+  const fileDest = path.join(commandPathInfo.moduleRoot, 'src/types/index.ts');
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

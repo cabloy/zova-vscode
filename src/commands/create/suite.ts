@@ -1,11 +1,10 @@
-import { Uri, window, workspace } from 'vscode';
+import { Uri, window } from 'vscode';
 import {
   combineCliResourcePath,
   extractCommandPathInfo,
   preparePathResource,
   trimPathPrefixs,
 } from '../../utils/zova.js';
-import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
 import { invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
@@ -34,17 +33,17 @@ export async function createSuite(resource?: Uri) {
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['src/']
+    ['src/'],
   );
   // invoke
   await invokeZovaCli(
     [':create:suite', pathResource],
-    commandPathInfo.projectCurrent
+    commandPathInfo.projectCurrent,
   );
   // open
   const fileDest = path.join(
     commandPathInfo.pathResource,
-    `${name}/package.json`
+    `${name}/package.json`,
   );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

@@ -4,23 +4,23 @@ import path from 'node:path';
 import { commands, ExtensionContext, window } from 'vscode';
 
 import {
-  beanGeneral,
-  beanSys,
+  beanAction,
   beanAop,
   beanAopMethod,
-  beanService,
-  beanModel,
-  beanStore,
+  beanApi,
+  beanBehavior,
   beanCss,
+  beanData,
+  beanGeneral,
+  beanInterceptor,
+  beanMetaThemeHandler,
+  beanModel,
+  beanService,
+  beanStore,
+  beanSys,
+  beanTableCell,
   beanTheme,
   beanTool,
-  beanApi,
-  beanData,
-  beanBehavior,
-  beanInterceptor,
-  beanTableCell,
-  beanAction,
-  beanMetaThemeHandler,
 } from '../commands/create/bean.js';
 import { createComponent, createComponentFormField } from '../commands/create/component.js';
 import { createMock } from '../commands/create/mock.js';
@@ -133,7 +133,7 @@ export class Commands {
   }
 }
 
-function wrapperCommand(command, fn) {
+function wrapperCommand(_command, fn) {
   return async function (...args) {
     try {
       await fn(...args);

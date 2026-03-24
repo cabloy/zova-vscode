@@ -1,14 +1,13 @@
-import { Uri, window, workspace } from 'vscode';
+import { Uri, window } from 'vscode';
 import {
   combineCliResourcePath,
   extractCommandPathInfo,
   preparePathResource,
   trimPathPrefixs,
 } from '../../utils/zova.js';
-import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
-import { invokePnpmCli, invokeZovaCli } from '../../utils/commands.js';
-import { newTerminal, showTextDocument } from '../../utils/global.js';
+import { invokeZovaCli } from '../../utils/commands.js';
+import { showTextDocument } from '../../utils/global.js';
 
 export async function createModule(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
@@ -30,7 +29,7 @@ export async function createModule(resource?: Uri) {
   // pathResource
   const pathResource = trimPathPrefixs(
     combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['src/']
+    ['src/'],
   );
   // invoke
   await invokeZovaCli(
@@ -39,7 +38,7 @@ export async function createModule(resource?: Uri) {
       pathResource,
       `--suite=${commandPathInfo.suiteName || ''}`,
     ],
-    commandPathInfo.projectCurrent
+    commandPathInfo.projectCurrent,
   );
   // post
   _postCreateModule(commandPathInfo.projectCurrent);
