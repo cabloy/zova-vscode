@@ -1,14 +1,10 @@
-import { Uri, window, workspace } from 'vscode';
-import {
-  combineCliResourcePath,
-  extractCommandPathInfo,
-  preparePathResource,
-  trimPathPrefixs,
-} from '../../utils/zova.js';
-import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
+import { Uri, window, workspace } from 'vscode';
+
 import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
+import { LocalConsole } from '../../utils/console.js';
 import { showTextDocument } from '../../utils/global.js';
+import { combineCliResourcePath, extractCommandPathInfo, preparePathResource, trimPathPrefixs } from '../../utils/zova.js';
 
 export async function createPage(resource?: Uri) {
   const { fromPalette, fsPath } = preparePathResource(resource);
@@ -28,24 +24,12 @@ export async function createPage(resource?: Uri) {
     commandPathInfo.pathResource = '';
   }
   // pathResource
-  const pathResource = trimPathPrefixs(
-    combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['src/page/', 'src/']
-  );
+  const pathResource = trimPathPrefixs(combineCliResourcePath(commandPathInfo.pathResource, name), ['src/page/', 'src/']);
   // invoke
-  await invokeZovaCli(
-    [':create:page', pathResource, `--module=${commandPathInfo.moduleName}`,  '--nometadata'],
-    commandPathInfo.projectCurrent
-  );
+  await invokeZovaCli([':create:page', pathResource, `--module=${commandPathInfo.moduleName}`, '--nometadata'], commandPathInfo.projectCurrent);
   // metadata
-  invokeToolsMetadata(
-    commandPathInfo.moduleName,
-    commandPathInfo.projectCurrent
-  );
+  invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(
-    commandPathInfo.moduleRoot,
-    `src/page/${pathResource}/controller.tsx`
-  );
+  const fileDest = path.join(commandPathInfo.moduleRoot, `src/page/${pathResource}/controller.tsx`);
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
