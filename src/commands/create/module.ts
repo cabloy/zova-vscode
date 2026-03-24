@@ -55,5 +55,5 @@ async function _postCreateModule(projectCurrent: string) {
   await invokeZovaCli([':tools:deps'], projectCurrent);
   // pnpm install
   // newTerminal('pnpm install', commandPathInfo.projectCurrent);
-  await invokePnpmCli(['install'], projectCurrent);
+  // await invokePnpmCli(['install'], projectCurrent);
 }

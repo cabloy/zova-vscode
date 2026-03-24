@@ -7,7 +7,7 @@ import {
 } from '../../utils/zova.js';
 import { LocalConsole } from '../../utils/console.js';
 import path from 'node:path';
-import { invokeZovaCli } from '../../utils/commands.js';
+import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 import { firstCharToUpperCase } from '../../utils/utils.js';
 
@@ -60,8 +60,14 @@ export async function createComponent_common(
       pathResource,
       `--module=${commandPathInfo.moduleName}`,
       `--boilerplate=${boilerplate || ''}`,
+      '--nometadata',
     ],
     commandPathInfo.projectCurrent,
+  );
+  // metadata
+  invokeToolsMetadata(
+    commandPathInfo.moduleName,
+    commandPathInfo.projectCurrent
   );
   // open
   const fileDest = path.join(

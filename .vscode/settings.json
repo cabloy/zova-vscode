@@ -1,54 +1,32 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  "editor.tabSize": 2,
-  "editor.formatOnSave": true,
-  "files.eol": "\n",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
   // typescript
-  "typescript.disableAutomaticTypeAcquisition": false,
-  "typescript.format.enable": true,
-  "typescript.implementationsCodeLens.enabled": true,
-  "typescript.tsserver.useSyntaxServer": "auto",
-  "typescript.validate.enable": true,
-  "typescript.suggest.autoImports": true,
-  "typescript.suggest.includeCompletionsForImportStatements": true,
-  "typescript.preferences.importModuleSpecifier": "shortest",
-  "typescript.preferences.importModuleSpecifierEnding": "js",
-  "typescript.preferences.includePackageJsonAutoImports": "on",
-  // eslint
+  // "js/ts.experimental.useTsgo": true,
+  "js/ts.tsserver.automaticTypeAcquisition.enabled": true,
+  "js/ts.format.enabled": true,
+  "js/ts.implementationsCodeLens.enabled": true,
+  "js/ts.tsserver.useSyntaxServer": "auto",
+  "js/ts.validate.enabled": true,
+  "js/ts.suggest.autoImports": true,
+  "js/ts.suggest.includeCompletionsForImportStatements": true,
+  "js/ts.preferences.importModuleSpecifier": "shortest",
+  "js/ts.preferences.importModuleSpecifierEnding": "js",
+  "js/ts.preferences.includePackageJsonAutoImports": "on",
+  // oxfmt
+  "oxc.fmt.configPath": "oxfmt.config.ts",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.formatOnSave": true,
+  // oxlint
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "vue"],
-  // prettier
-  "prettier.singleQuote": true,
-  "prettier.jsxSingleQuote": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "source.fixAll.oxc": "always",
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode",
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "oxc.oxc-vscode",
   },
   // associations
   "files.associations": {
@@ -66,6 +44,4 @@
     "out": true, // set this to false to include "out" folder in search results
     "dist": true // set this to false to include "dist" folder in search results
   },
-  // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
-  "typescript.tsc.autoDetect": "off"
 }
