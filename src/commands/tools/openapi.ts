@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { Uri, window } from 'vscode';
 
-import { invokeZovaCli } from '../../utils/commands.js';
+import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 import { extractCommandPathInfo, preparePathResource } from '../../utils/zova.js';
 
@@ -27,9 +27,11 @@ export async function toolsOpenapiGenerate(resource?: Uri) {
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   // invoke
-  await invokeZovaCli([':openapi:generate', commandPathInfo.moduleName || ''], commandPathInfo.projectCurrent);
+  await invokeZovaCli([':openapi:generate', commandPathInfo.moduleName || '', '--nometadata'], commandPathInfo.projectCurrent);
   // metadata
-  invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
+  if (commandPathInfo.moduleName) {
+    invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
+  }
   // open
   const fileDest = commandPathInfo.moduleName
     ? path.join(commandPathInfo.moduleRoot, `src/api/openapi/index.ts`)

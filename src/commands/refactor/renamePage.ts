@@ -2,7 +2,7 @@ import fse from 'fs-extra';
 import path from 'node:path';
 import { Uri, window, workspace } from 'vscode';
 
-import { invokeZovaCli } from '../../utils/commands.js';
+import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { LocalConsole } from '../../utils/console.js';
 import { showTextDocument } from '../../utils/global.js';
 import { firstCharToUpperCase } from '../../utils/utils.js';
@@ -28,7 +28,10 @@ export async function refactorRenamePage(resource?: Uri) {
     return;
   }
   // invoke
-  await invokeZovaCli([':refactor:renameComponent', pathResource, name, `--module=${commandPathInfo.moduleName}`], commandPathInfo.projectCurrent);
+  await invokeZovaCli(
+    [':refactor:renameComponent', pathResource, name, `--module=${commandPathInfo.moduleName}`, '--nometadata'],
+    commandPathInfo.projectCurrent,
+  );
   // metadata
   invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open

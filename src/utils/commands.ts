@@ -146,8 +146,7 @@ function wrapperCommand(command, fn) {
   };
 }
 
-export async function invokeToolsMetadata(moduleName: string | undefined, projectCurrent: string) {
-  if (!moduleName) return;
+export async function invokeToolsMetadata(moduleName: string, projectCurrent: string) {
   // tools.metadata
   await invokeZovaCli([':tools:metadata', moduleName], projectCurrent);
 }
