@@ -27,6 +27,7 @@ import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
 import { createPage } from '../commands/create/page.js';
 import { createSuite } from '../commands/create/suite.js';
+import { initAsset } from '../commands/init/asset.js';
 import { initConfig } from '../commands/init/config.js';
 import { initConstant } from '../commands/init/constant.js';
 import { initError } from '../commands/init/error.js';
@@ -93,6 +94,7 @@ const extensionCommands = [
   { command: 'zova.initMonkeySys', function: initMonkeySys },
   { command: 'zova.initMain', function: initMain },
   { command: 'zova.initMainSys', function: initMainSys },
+  { command: 'zova.initAsset', function: initAsset },
   { command: 'zova.initLib', function: initLib },
   { command: 'zova.initTypes', function: initTypes },
   // refactor
