@@ -239,12 +239,12 @@
       },
       {
         "command": "zova.initAppMonkey",
-        "title": "App Monkey",
+        "title": "Monkey",
         "category": "Zova Init"
       },
       {
         "command": "zova.initSysMonkey",
-        "title": "Sys Monkey",
+        "title": "Monkey Sys",
         "category": "Zova Init"
       },
       {
