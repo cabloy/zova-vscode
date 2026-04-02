@@ -238,12 +238,12 @@
         "category": "Zova Init"
       },
       {
-        "command": "vona.initAppMonkey",
+        "command": "zova.initAppMonkey",
         "title": "App Monkey",
         "category": "Zova Init"
       },
       {
-        "command": "vona.initSysMonkey",
+        "command": "zova.initSysMonkey",
         "title": "Sys Monkey",
         "category": "Zova Init"
       },
