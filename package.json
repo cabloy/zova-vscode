@@ -238,6 +238,16 @@
         "category": "Zova Init"
       },
       {
+        "command": "vona.initAppMonkey",
+        "title": "App Monkey",
+        "category": "Zova Init"
+      },
+      {
+        "command": "vona.initSysMonkey",
+        "title": "Sys Monkey",
+        "category": "Zova Init"
+      },
+      {
         "command": "zova.refactorPageQuery",
         "title": "Add Page Query",
         "category": "Zova Refactor"
@@ -452,6 +462,14 @@
         },
         {
           "command": "zova.initTypes",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.initAppMonkey",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
+          "command": "zova.initSysMonkey",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -700,6 +718,14 @@
         {
           "command": "zova.initTypes",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
+        },
+        {
+          "command": "zova.initAppMonkey",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath in zova.arrayProjectRoot || resourcePath in zova.arrayProjectSrc)"
+        },
+        {
+          "command": "zova.initSysMonkey",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath in zova.arrayProjectRoot || resourcePath in zova.arrayProjectSrc)"
         }
       ],
       "zova.refactor": [
