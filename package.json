@@ -198,11 +198,6 @@
         "category": "Zova Init"
       },
       {
-        "command": "zova.initLegacy",
-        "title": "Legacy",
-        "category": "Zova Init"
-      },
-      {
         "command": "zova.initMonkey",
         "title": "Monkey",
         "category": "Zova Init"
@@ -430,10 +425,6 @@
         },
         {
           "command": "zova.initError",
-          "when": "zova.hasZovaProject && zova.currentZovaProject"
-        },
-        {
-          "command": "zova.initLegacy",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
@@ -686,10 +677,6 @@
         {
           "command": "zova.initError",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/)"
-        },
-        {
-          "command": "zova.initLegacy",
-          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath in zova.arrayProjectRoot || resourcePath in zova.arrayProjectSrc)"
         },
         {
           "command": "zova.initMonkey",
