@@ -1,33 +1,24 @@
-import { Uri, window } from 'vscode';
-import {
-  combineCliResourcePath,
-  extractCommandPathInfo,
-  preparePathResource,
-  trimPathPrefixs,
-} from '../../utils/zova.js';
 import path from 'node:path';
+import { Uri, window } from 'vscode';
+
 import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
 import { firstCharToUpperCase } from '../../utils/utils.js';
+import { combineCliResourcePath, extractCommandPathInfo, preparePathResource, trimPathPrefixs } from '../../utils/zova.js';
 
 export async function createComponent(resource?: Uri) {
   await createComponent_common(resource, 'What is the component name?');
 }
 
 export async function createComponentFormField(resource?: Uri) {
-  await createComponent_common(
-    resource,
-    'What is the form field component name?',
-    'formField',
-  );
+  await createComponent_common(resource, 'What is the form field component name?', 'formField');
 }
 
-export async function createComponent_common(
-  resource: Uri,
-  prompt: string,
-  boilerplate?: string,
-  name?: string,
-) {
+export async function createComponentTableActionBulk(resource?: Uri) {
+  await createComponent_common(resource, 'What is the table action bulk component name?', 'tableActionBulk');
+}
+
+export async function createComponent_common(resource: Uri, prompt: string, boilerplate?: string, name?: string) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
@@ -48,30 +39,15 @@ export async function createComponent_common(
     commandPathInfo.pathResource = '';
   }
   // pathResource
-  const pathResource = trimPathPrefixs(
-    combineCliResourcePath(commandPathInfo.pathResource, name),
-    ['src/component/', 'src/'],
-  );
+  const pathResource = trimPathPrefixs(combineCliResourcePath(commandPathInfo.pathResource, name), ['src/component/', 'src/']);
   // invoke
   await invokeZovaCli(
-    [
-      ':create:component',
-      pathResource,
-      `--module=${commandPathInfo.moduleName}`,
-      `--boilerplate=${boilerplate || ''}`,
-      '--nometadata',
-    ],
+    [':create:component', pathResource, `--module=${commandPathInfo.moduleName}`, `--boilerplate=${boilerplate || ''}`, '--nometadata'],
     commandPathInfo.projectCurrent,
   );
   // metadata
-  invokeToolsMetadata(
-    commandPathInfo.moduleName,
-    commandPathInfo.projectCurrent,
-  );
+  invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(
-    commandPathInfo.moduleRoot,
-    `src/component/${pathResource}/controller.tsx`,
-  );
+  const fileDest = path.join(commandPathInfo.moduleRoot, `src/component/${pathResource}/controller.tsx`);
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }
