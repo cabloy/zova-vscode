@@ -1,7 +1,7 @@
 {
   "name": "zova-vscode",
   "displayName": "Zova - Official",
-  "version": "0.1.66",
+  "version": "0.1.67",
   "description": "An extension for Zova offering commands and tools to make your experience more pleasant.",
   "categories": [
     "Programming Languages",
