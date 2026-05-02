@@ -3,7 +3,6 @@ import { Uri, window } from 'vscode';
 
 import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
-import { firstCharToUpperCase } from '../../utils/utils.js';
 import { combineCliResourcePath, extractCommandPathInfo, preparePathResource, trimPathPrefixs } from '../../utils/zova.js';
 
 export async function createComponent(resource?: Uri) {
@@ -34,9 +33,10 @@ export async function createComponent_common(resource: Uri, prompt: string, boil
       return;
     }
   }
-  if (boilerplate && !name.startsWith(boilerplate)) {
-    name = `${boilerplate}${firstCharToUpperCase(name)}`;
-  }
+  // need not append prefix for boilerplate
+  // if (boilerplate && !name.startsWith(boilerplate)) {
+  //   name = `${boilerplate}${firstCharToUpperCase(name)}`;
+  // }
   // commandPathInfo
   const commandPathInfo = extractCommandPathInfo(fsPath);
   if (fromPalette) {
