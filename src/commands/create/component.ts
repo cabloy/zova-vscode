@@ -14,8 +14,12 @@ export async function createComponentFormField(resource?: Uri) {
   await createComponent_common(resource, 'What is the form field component name?', 'formField');
 }
 
+export async function createComponentFormAction(resource?: Uri) {
+  await createComponent_common(resource, 'What is the form action component name?', 'actionRow');
+}
+
 export async function createComponentTableActionBulk(resource?: Uri) {
-  await createComponent_common(resource, 'What is the table action bulk component name?', 'action');
+  await createComponent_common(resource, 'What is the table action bulk component name?', 'actionBulk');
 }
 
 export async function createComponent_common(resource: Uri, prompt: string, boilerplate?: string, name?: string) {
