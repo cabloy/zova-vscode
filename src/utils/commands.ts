@@ -22,7 +22,12 @@ import {
   beanTheme,
   beanTool,
 } from '../commands/create/bean.js';
-import { createComponent, createComponentFormField, createComponentTableActionBulk } from '../commands/create/component.js';
+import {
+  createComponent,
+  createComponentFormAction,
+  createComponentFormField,
+  createComponentTableActionBulk,
+} from '../commands/create/component.js';
 import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
 import { createPage } from '../commands/create/page.js';
@@ -61,6 +66,10 @@ const extensionCommands = [
   {
     command: 'zova.createComponentFormField',
     function: createComponentFormField,
+  },
+  {
+    command: 'zova.createComponentFormAction',
+    function: createComponentFormAction,
   },
   {
     command: 'zova.createComponentTableActionBulk',
