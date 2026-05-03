@@ -13,6 +13,10 @@ export async function createComponentFormField(resource?: Uri) {
   await createComponent_common(resource, 'What is the form field component name?', 'formField');
 }
 
+export async function createComponentBlock(resource?: Uri) {
+  await createComponent_common(resource, 'What is the block component name?', 'block');
+}
+
 export async function createComponentFormAction(resource?: Uri) {
   await createComponent_common(resource, 'What is the form action component name?', 'actionRow');
 }

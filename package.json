@@ -73,6 +73,11 @@
         "category": "Zova Create"
       },
       {
+        "command": "zova.createComponentBlock",
+        "title": "Component Block",
+        "category": "Zova Create"
+      },
+      {
         "command": "zova.createComponentFormField",
         "title": "Component Form Field",
         "category": "Zova Create"
@@ -338,6 +343,10 @@
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
         {
+          "command": "zova.createComponentBlock",
+          "when": "zova.hasZovaProject && zova.currentZovaProject"
+        },
+        {
           "command": "zova.createComponentFormField",
           "when": "zova.hasZovaProject && zova.currentZovaProject"
         },
@@ -586,6 +595,10 @@
         },
         {
           "command": "zova.createComponent",
+          "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)component$/)"
+        },
+        {
+          "command": "zova.createComponentBlock",
           "when": "zova.hasZovaProject && explorerResourceIsFolder && (resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+$/ || resourcePath =~ /(\\/|\\\\)module(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)module-vendor(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath =~ /(\\/|\\\\)modules(\\/|\\\\)[^(\\/|\\\\)]+(\\/|\\\\)src$/ || resourcePath=~ /src(\\/|\\\\)component$/)"
         },
         {
