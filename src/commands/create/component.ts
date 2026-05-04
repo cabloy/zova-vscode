@@ -14,11 +14,11 @@ export async function createComponentFormField(resource?: Uri) {
 }
 
 export async function createComponentBlockPage(resource?: Uri) {
-  await createComponent_common(resource, 'What is the page block component name?', 'block');
+  await createComponent_common(resource, 'What is the page block component name?', 'blockPage');
 }
 
 export async function createComponentBlockPageEntry(resource?: Uri) {
-  await createComponent_common(resource, 'What is the page entry block component name?', 'block');
+  await createComponent_common(resource, 'What is the page entry block component name?', 'blockPageEntry');
 }
 
 export async function createComponentFormAction(resource?: Uri) {
