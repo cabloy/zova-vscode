@@ -16,7 +16,6 @@ import {
   beanMetaThemeHandler,
   beanModel,
   beanService,
-  beanStore,
   beanSys,
   beanTableCell,
   beanTheme,
@@ -93,7 +92,6 @@ const extensionCommands = [
   { command: 'zova.createModule', function: createModule },
   { command: 'zova.createSuite', function: createSuite },
   // bean
-  { command: 'zova.beanStore', function: beanStore },
   { command: 'zova.beanCss', function: beanCss },
   { command: 'zova.beanTheme', function: beanTheme },
   { command: 'zova.beanTool', function: beanTool },
