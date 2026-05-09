@@ -21,8 +21,8 @@ export async function createComponentBlockPageEntry(resource?: Uri) {
   await createComponent_common(resource, 'What is the page entry block component name?', 'blockPageEntry');
 }
 
-export async function createComponentFormAction(resource?: Uri) {
-  await createComponent_common(resource, 'What is the form action component name?', 'actionRow');
+export async function createComponentFormActionRow(resource?: Uri) {
+  await createComponent_common(resource, 'What is the form action row component name?', 'actionRow');
 }
 
 export async function createComponentTableActionBulk(resource?: Uri) {

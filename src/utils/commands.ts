@@ -25,7 +25,7 @@ import {
   createComponent,
   createComponentBlockPage,
   createComponentBlockPageEntry,
-  createComponentFormAction,
+  createComponentFormActionRow,
   createComponentFormField,
   createComponentTableActionBulk,
 } from '../commands/create/component.js';
@@ -77,8 +77,8 @@ const extensionCommands = [
     function: createComponentBlockPageEntry,
   },
   {
-    command: 'zova.createComponentFormAction',
-    function: createComponentFormAction,
+    command: 'zova.createComponentFormActionRow',
+    function: createComponentFormActionRow,
   },
   {
     command: 'zova.createComponentTableActionBulk',
