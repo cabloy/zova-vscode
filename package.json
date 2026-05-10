@@ -89,7 +89,7 @@
       },
       {
         "command": "zova.createComponentFormActionRow",
-        "title": "Component Form Action",
+        "title": "Component Form Action Row",
         "category": "Zova Create"
       },
       {
