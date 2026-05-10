@@ -54,11 +54,11 @@ export async function beanInterceptor(resource: Uri) {
 }
 
 export async function beanTableCell(resource: Uri) {
-  await beanGeneral_common(resource, 'tableCell', 'What is the tableCell bean name?', undefined, 'actionRow');
+  await beanGeneral_common(resource, 'tableCell', 'What is the tableCell bean name?');
 }
 
 export async function beanTableCellActionRow(resource: Uri) {
-  await beanGeneral_common(resource, 'tableCell', 'What is the tableCell bean name?');
+  await beanGeneral_common(resource, 'tableCell', 'What is the tableCell bean name?', undefined, 'actionRow');
 }
 
 export async function beanAction(resource: Uri) {
