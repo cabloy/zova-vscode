@@ -18,6 +18,7 @@ import {
   beanService,
   beanSys,
   beanTableCell,
+  beanTableCellActionRow,
   beanTheme,
   beanTool,
 } from '../commands/create/bean.js';
@@ -103,6 +104,7 @@ const extensionCommands = [
   { command: 'zova.beanBehavior', function: beanBehavior },
   { command: 'zova.beanInterceptor', function: beanInterceptor },
   { command: 'zova.beanTableCell', function: beanTableCell },
+  { command: 'zova.beanTableCellActionRow', function: beanTableCellActionRow },
   { command: 'zova.beanAction', function: beanAction },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init

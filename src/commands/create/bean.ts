@@ -54,6 +54,10 @@ export async function beanInterceptor(resource: Uri) {
 }
 
 export async function beanTableCell(resource: Uri) {
+  await beanGeneral_common(resource, 'tableCell', 'What is the tableCell bean name?', undefined, 'actionRow');
+}
+
+export async function beanTableCellActionRow(resource: Uri) {
   await beanGeneral_common(resource, 'tableCell', 'What is the tableCell bean name?');
 }
 
@@ -69,7 +73,7 @@ export async function beanMetaThemeHandler(resource: Uri) {
   await beanGeneral_common(resource, 'meta', 'What is the meta themeHandler bean name?', 'themeHandler');
 }
 
-export async function beanGeneral_common(resource: Uri, sceneName: string, prompt: string, name?: string) {
+export async function beanGeneral_common(resource: Uri, sceneName: string, prompt: string, name?: string, boilerplate?: string) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
@@ -90,7 +94,7 @@ export async function beanGeneral_common(resource: Uri, sceneName: string, promp
   const pathResource = trimPathPrefixs(combineCliResourcePath(commandPathInfo.pathResource, name), [`src/${sceneName}/`, 'src/bean/', 'src/']);
   // invoke
   await invokeZovaCli(
-    [':create:bean', sceneName, pathResource, `--module=${commandPathInfo.moduleName}`, '--nometadata'],
+    [':create:bean', sceneName, pathResource, `--module=${commandPathInfo.moduleName}`, `--boilerplate=${boilerplate || ''}`, '--nometadata'],
     commandPathInfo.projectCurrent,
   );
   // metadata
