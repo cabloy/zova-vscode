@@ -22,11 +22,11 @@ export async function createComponentBlockPageEntry(resource?: Uri) {
 }
 
 export async function createComponentFormActionRow(resource?: Uri) {
-  await createComponent_common(resource, 'What is the form action row component name?', 'actionRow');
+  await createComponent_common(resource, 'What is the form action row component name?', 'formActionRow');
 }
 
 export async function createComponentTableActionBulk(resource?: Uri) {
-  await createComponent_common(resource, 'What is the table action bulk component name?', 'actionBulk');
+  await createComponent_common(resource, 'What is the table action bulk component name?', 'tableActionBulk');
 }
 
 export async function createComponent_common(resource: Uri, prompt: string, boilerplate?: string, name?: string) {
