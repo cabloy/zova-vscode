@@ -9,6 +9,8 @@ import {
   beanApi,
   beanBehavior,
   beanCommand,
+  beanCommandBulk,
+  beanCommandRow,
   beanCss,
   beanData,
   beanGeneral,
@@ -106,6 +108,8 @@ const extensionCommands = [
   { command: 'zova.beanTableCell', function: beanTableCell },
   { command: 'zova.beanTableCellActionRow', function: beanTableCellActionRow },
   { command: 'zova.beanCommand', function: beanCommand },
+  { command: 'zova.beanCommandBulk', function: beanCommandBulk },
+  { command: 'zova.beanCommandRow', function: beanCommandRow },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init
   { command: 'zova.initIcon', function: initIcon },
