@@ -61,8 +61,8 @@ export async function beanTableCellActionRow(resource: Uri) {
   await beanGeneral_common(resource, 'tableCell', 'What is the tableCell bean name?', undefined, 'tableActionRow');
 }
 
-export async function beanAction(resource: Uri) {
-  await beanGeneral_common(resource, 'action', 'What is the action bean name?');
+export async function beanCommand(resource: Uri) {
+  await beanGeneral_common(resource, 'command', 'What is the command bean name?');
 }
 
 export async function beanApi(resource: Uri) {
@@ -100,7 +100,7 @@ export async function beanGeneral_common(resource: Uri, sceneName: string, promp
   // metadata
   invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const ext = ['tableCell', 'action'].includes(sceneName) ? 'tsx' : 'ts';
+  const ext = ['tableCell', 'command'].includes(sceneName) ? 'tsx' : 'ts';
   let fileDest: string;
   if (pathResource.includes('/')) {
     const pos = pathResource.lastIndexOf('/');

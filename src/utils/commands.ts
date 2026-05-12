@@ -4,11 +4,11 @@ import path from 'node:path';
 import { commands, ExtensionContext, window } from 'vscode';
 
 import {
-  beanAction,
   beanAop,
   beanAopMethod,
   beanApi,
   beanBehavior,
+  beanCommand,
   beanCss,
   beanData,
   beanGeneral,
@@ -105,7 +105,7 @@ const extensionCommands = [
   { command: 'zova.beanInterceptor', function: beanInterceptor },
   { command: 'zova.beanTableCell', function: beanTableCell },
   { command: 'zova.beanTableCellActionRow', function: beanTableCellActionRow },
-  { command: 'zova.beanAction', function: beanAction },
+  { command: 'zova.beanCommand', function: beanCommand },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init
   { command: 'zova.initIcon', function: initIcon },
