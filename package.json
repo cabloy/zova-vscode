@@ -39,7 +39,7 @@
     "@cabloy/process-helper": "^2.0.21",
     "@npmcli/config": "^10.4.2",
     "fs-extra": "^11.2.0",
-    "globby": "^16.2.0",
+    "globby": "^14.1.0",
     "semver": "^7.6.2"
   },
   "devDependencies": {
