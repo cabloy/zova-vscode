@@ -1,10 +1,7 @@
 import { Disposable, ExtensionContext, window } from 'vscode';
-import {
-  getProjectInfo,
-  getZovaProjectCurrent,
-  isZovaProject,
-  setProjectInfo,
-} from '../utils/zova.js';
+import * as vscode from 'vscode';
+
+import { getZovaProjectCurrent } from '../utils/zova.js';
 
 export class TextEditorWatchers {
   context: ExtensionContext;
@@ -30,17 +27,8 @@ export class TextEditorWatchers {
   }
 
   _checkProjectCurrent(file: string) {
-    const projectInfo = getProjectInfo();
-    if (!projectInfo.isMulti) {
-      // do nothing
-      return;
-    }
-    // multi
-    const projectFolder = getZovaProjectCurrent(file);
-    if (isZovaProject(projectFolder)) {
-      setProjectInfo({ directoryCurrent: projectFolder });
-    } else {
-      setProjectInfo({ directoryCurrent: undefined });
-    }
+    const projectCurrent = getZovaProjectCurrent(file);
+    if (!projectCurrent) return;
+    vscode.commands.executeCommand('setContext', 'zova.currentZovaProject', projectCurrent);
   }
 }

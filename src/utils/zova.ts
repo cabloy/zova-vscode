@@ -1,5 +1,6 @@
-import path from 'node:path';
 import fse from 'fs-extra';
+import { globby } from 'globby';
+import path from 'node:path';
 import * as vscode from 'vscode';
 
 export interface ICommandPathInfo {
@@ -12,15 +13,11 @@ export interface ICommandPathInfo {
 }
 
 export interface IProjectInfo {
-  directoryCurrent?: string;
-  isMulti?: boolean;
-  projectNames?: string[];
+  projectPaths?: string[];
 }
 
 const _projectInfo: IProjectInfo = {
-  directoryCurrent: undefined,
-  isMulti: false,
-  projectNames: undefined,
+  projectPaths: undefined,
 };
 
 export function getWorkspaceRootDirectory(): string {
@@ -31,7 +28,7 @@ export function isZovaProject(pathRoot: string) {
   if (!pathRoot) {
     return false;
   }
-  const pathTest = path.join(pathRoot, 'src/boot/zova.ts');
+  const pathTest = path.join(pathRoot, '__ZOVA__');
   return fse.pathExistsSync(pathTest);
 }
 
@@ -39,61 +36,31 @@ export function getProjectInfo() {
   return _projectInfo;
 }
 
-export function setProjectInfo(projectInfo: IProjectInfo) {
-  Object.assign(_projectInfo, projectInfo);
-  vscode.commands.executeCommand(
-    'setContext',
-    'zova.currentZovaProject',
-    _projectInfo.directoryCurrent,
-  );
-}
-
 export async function hasZovaProject(): Promise<IProjectInfo | undefined> {
-  // reset
-  _projectInfo.directoryCurrent = undefined;
-  _projectInfo.isMulti = false;
   // workspace
   const workspaceFolder = getWorkspaceRootDirectory();
   if (!workspaceFolder) {
     return;
   }
-  if (isZovaProject(workspaceFolder)) {
-    _projectInfo.directoryCurrent = workspaceFolder;
-    _projectInfo.isMulti = false;
-    return _projectInfo;
-  }
-  // multi
-  let projectNames = await fse.readdir(workspaceFolder);
-  projectNames = projectNames.filter(item => {
-    return isZovaProject(path.join(workspaceFolder, item));
+  const files = await globby('**/__ZOVA__', { cwd: workspaceFolder, deep: 3, ignore: ['**/node_modules/**'] });
+  if (files.length === 0) return;
+  _projectInfo.projectPaths = files.map(item => {
+    return path.join(workspaceFolder, path.dirname(item));
   });
-  if (projectNames.length > 0) {
-    _projectInfo.isMulti = true;
-    _projectInfo.projectNames = projectNames;
-    return _projectInfo;
-  }
+  return _projectInfo;
 }
 
 export function getZovaProjectCurrent(resource: string) {
-  const projectInfo = getProjectInfo();
-  if (!projectInfo.isMulti) {
-    return projectInfo.directoryCurrent;
+  while (true) {
+    if (!resource) return;
+    resource = path.dirname(resource);
+    if (!resource) return;
+    if (isZovaProject(resource)) return resource;
   }
-  // current
-  if (!resource) {
-    return projectInfo.directoryCurrent;
-  }
-  // multi
-  const workspaceFolder = getWorkspaceRootDirectory();
-  const pos = resource.indexOf(path.sep, workspaceFolder.length + 1);
-  const projectFolder = pos === -1 ? resource : resource.substring(0, pos);
-  return projectFolder;
 }
 
 export function preparePathResource(resource?: vscode.Uri) {
-  const fsPath = resource
-    ? resource.fsPath
-    : vscode.window.activeTextEditor?.document.uri.fsPath;
+  const fsPath = resource ? resource.fsPath : vscode.window.activeTextEditor?.document.uri.fsPath;
   if (!fsPath) {
     return { fromPalette: true, fsPath };
   }
@@ -103,9 +70,7 @@ export function preparePathResource(resource?: vscode.Uri) {
 export function extractCommandPathInfo(resource: string) {
   const commandPathInfo = {} as ICommandPathInfo;
   commandPathInfo.projectCurrent = getZovaProjectCurrent(resource);
-  commandPathInfo.pathResource = resource
-    .substring(commandPathInfo.projectCurrent.length + 1)
-    .replaceAll('\\', '/');
+  commandPathInfo.pathResource = resource.substring(commandPathInfo.projectCurrent.length + 1).replaceAll('\\', '/');
   const pathResource = commandPathInfo.pathResource;
   // suite
   const suiteInfo = extractSuiteInfo(pathResource);
