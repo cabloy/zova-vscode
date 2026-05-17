@@ -1,5 +1,5 @@
 import NPMConfig from '@npmcli/config';
-import { definitions, flatten, shorthands } from '@npmcli/config/lib/definitions';
+import { definitions, flatten, shorthands } from '@npmcli/config/lib/definitions/index.js';
 
 let __registry: string;
 

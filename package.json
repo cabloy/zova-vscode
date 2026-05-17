@@ -43,7 +43,7 @@
     "semver": "^7.6.2"
   },
   "devDependencies": {
-    "@cabloy/lint": "^5.0.24",
+    "@cabloy/lint": "^5.1.15",
     "@types/fs-extra": "^11.0.4",
     "@types/mocha": "^10.0.7",
     "@types/node": "20.x",
