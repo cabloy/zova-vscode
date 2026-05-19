@@ -42,7 +42,11 @@ export async function hasZovaProject(): Promise<IProjectInfo | undefined> {
   if (!workspaceFolder) {
     return;
   }
-  const files = await globby('**/__ZOVA__', { cwd: workspaceFolder, deep: 3, ignore: ['**/node_modules/**'] });
+  const files = await globby('**/__ZOVA__', {
+    cwd: workspaceFolder,
+    deep: 3,
+    ignore: ['**/node_modules/**'],
+  });
   if (files.length === 0) return;
   _projectInfo.projectPaths = files.map(item => {
     return path.join(workspaceFolder, path.dirname(item));
@@ -51,10 +55,11 @@ export async function hasZovaProject(): Promise<IProjectInfo | undefined> {
 }
 
 export function getZovaProjectCurrent(resource: string) {
+  const workspaceFolder = getWorkspaceRootDirectory();
   while (true) {
-    if (!resource) return;
+    if (!resource || !resource.startsWith(workspaceFolder)) return;
     resource = path.dirname(resource);
-    if (!resource) return;
+    if (!resource || !resource.startsWith(workspaceFolder)) return;
     if (isZovaProject(resource)) return resource;
   }
 }
@@ -70,7 +75,9 @@ export function preparePathResource(resource?: vscode.Uri) {
 export function extractCommandPathInfo(resource: string) {
   const commandPathInfo = {} as ICommandPathInfo;
   commandPathInfo.projectCurrent = getZovaProjectCurrent(resource);
-  commandPathInfo.pathResource = resource.substring(commandPathInfo.projectCurrent.length + 1).replaceAll('\\', '/');
+  commandPathInfo.pathResource = resource
+    .substring(commandPathInfo.projectCurrent.length + 1)
+    .replaceAll('\\', '/');
   const pathResource = commandPathInfo.pathResource;
   // suite
   const suiteInfo = extractSuiteInfo(pathResource);
