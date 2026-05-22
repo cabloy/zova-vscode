@@ -160,7 +160,9 @@ export class Commands {
 
   initialize() {
     for (const { command, function: commandFunction } of extensionCommands) {
-      this.context.subscriptions.push(commands.registerCommand(command, wrapperCommand(command, commandFunction)));
+      this.context.subscriptions.push(
+        commands.registerCommand(command, wrapperCommand(command, commandFunction)),
+      );
     }
   }
 }
@@ -182,16 +184,20 @@ export async function invokeToolsMetadata(moduleName: string, projectCurrent: st
   await invokeZovaCli([':tools:metadata', moduleName], projectCurrent);
 }
 
-export async function invokeZovaCli(args: string[], projectCurrent: string, forceGlobalCli?: boolean) {
+export async function invokeZovaCli(
+  args: string[],
+  projectCurrent: string,
+  forceGlobalCli?: boolean,
+) {
   const console = new LocalConsole();
   const processHelper = new ProcessHelper(projectCurrent, console);
   const workspaceFolder = getWorkspaceRootDirectory();
   args = args.concat('--vscode');
   let res;
-  if (!forceGlobalCli && existsSync(path.join(workspaceFolder, 'zova-cli'))) {
+  if (!forceGlobalCli && existsSync(path.join(workspaceFolder, 'packages-cli'))) {
     res = await processHelper.spawnExe({
       cmd: 'node',
-      args: [path.join(workspaceFolder, 'zova-cli/cli/src/bin/zova.ts')].concat(args),
+      args: [path.join(workspaceFolder, 'packages-cli/cli/src/bin/zova.ts')].concat(args),
       options: {
         stdio: 'pipe',
         cwd: projectCurrent,
