@@ -349,37 +349,37 @@
         {
           "submenu": "zova.create",
           "group": "navigation",
-          "when": "zova.hasZovaProject"
+          "when": "zova.hasZovaProject && resourcePath =~ /(\\/|\\\\)zova(\\/|\\\\)/"
         },
         {
           "submenu": "zova.aspect",
           "group": "navigation",
-          "when": "zova.hasZovaProject"
+          "when": "zova.hasZovaProject && resourcePath =~ /(\\/|\\\\)zova(\\/|\\\\)/"
         },
         {
           "submenu": "zova.bean",
           "group": "navigation",
-          "when": "zova.hasZovaProject"
+          "when": "zova.hasZovaProject && resourcePath =~ /(\\/|\\\\)zova(\\/|\\\\)/"
         },
         {
           "submenu": "zova.meta",
           "group": "navigation",
-          "when": "zova.hasZovaProject"
+          "when": "zova.hasZovaProject && resourcePath =~ /(\\/|\\\\)zova(\\/|\\\\)/"
         },
         {
           "submenu": "zova.init",
           "group": "navigation",
-          "when": "zova.hasZovaProject"
+          "when": "zova.hasZovaProject && resourcePath =~ /(\\/|\\\\)zova(\\/|\\\\)/"
         },
         {
           "submenu": "zova.refactor",
           "group": "navigation",
-          "when": "zova.hasZovaProject"
+          "when": "zova.hasZovaProject && resourcePath =~ /(\\/|\\\\)zova(\\/|\\\\)/"
         },
         {
           "submenu": "zova.tools",
           "group": "navigation",
-          "when": "zova.hasZovaProject"
+          "when": "zova.hasZovaProject && resourcePath =~ /(\\/|\\\\)zova(\\/|\\\\)/"
         }
       ],
       "zova.create": [

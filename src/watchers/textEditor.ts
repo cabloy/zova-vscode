@@ -1,7 +1,4 @@
-import { Disposable, ExtensionContext, window } from 'vscode';
-import * as vscode from 'vscode';
-
-import { getZovaProjectCurrent } from '../utils/zova.js';
+import { Disposable, ExtensionContext } from 'vscode';
 
 export class TextEditorWatchers {
   context: ExtensionContext;
@@ -12,11 +9,11 @@ export class TextEditorWatchers {
   }
 
   start() {
-    this.textEditorDisposable = window.onDidChangeActiveTextEditor(e => {
-      this._checkProjectCurrent(e.document.uri.fsPath);
-    });
-    // check immediately
-    this._checkProjectCurrent(window.activeTextEditor?.document.uri.fsPath);
+    // this.textEditorDisposable = window.onDidChangeActiveTextEditor(e => {
+    //   this._checkProjectCurrent(e.document.uri.fsPath);
+    // });
+    // // check immediately
+    // this._checkProjectCurrent(window.activeTextEditor?.document.uri.fsPath);
   }
 
   stop() {
@@ -26,9 +23,9 @@ export class TextEditorWatchers {
     }
   }
 
-  _checkProjectCurrent(file: string) {
-    const projectCurrent = getZovaProjectCurrent(file);
-    if (!projectCurrent) return;
-    vscode.commands.executeCommand('setContext', 'zova.currentZovaProject', projectCurrent);
-  }
+  // _checkProjectCurrent(file: string) {
+  //   const projectCurrent = getZovaProjectCurrent(file);
+  //   if (!projectCurrent) return;
+  //   vscode.commands.executeCommand('setContext', 'zova.currentZovaProject', projectCurrent);
+  // }
 }
