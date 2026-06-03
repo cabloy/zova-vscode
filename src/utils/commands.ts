@@ -62,7 +62,6 @@ import { refactorRenamePage } from '../commands/refactor/renamePage.js';
 import { toolsMetadata } from '../commands/tools/metadata.js';
 import { toolsOpenapiConfig, toolsOpenapiGenerate } from '../commands/tools/openapi.js';
 import { LocalConsole } from './console.js';
-import { getWorkspaceRootDirectory } from './zova.js';
 
 const extensionCommands = [
   // create
@@ -191,13 +190,12 @@ export async function invokeZovaCli(
 ) {
   const console = new LocalConsole();
   const processHelper = new ProcessHelper(projectCurrent, console);
-  const workspaceFolder = getWorkspaceRootDirectory();
   args = args.concat('--vscode');
   let res;
-  if (!forceGlobalCli && existsSync(path.join(workspaceFolder, 'packages-cli'))) {
+  if (!forceGlobalCli && existsSync(path.join(projectCurrent, 'packages-cli'))) {
     res = await processHelper.spawnExe({
       cmd: 'node',
-      args: [path.join(workspaceFolder, 'packages-cli/cli/src/bin/zova.ts')].concat(args),
+      args: [path.join(projectCurrent, 'packages-cli/cli/src/bin/zova.ts')].concat(args),
       options: {
         stdio: 'pipe',
         cwd: projectCurrent,

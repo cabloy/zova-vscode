@@ -1,38 +1,35 @@
-import semver from 'semver';
-
-import { invokePnpmCli, invokeZovaCli } from './commands.js';
+// import { invokeZovaCli } from './commands.js';
 import { getRegistry } from './registry.js';
-import { getWorkspaceRootDirectory } from './zova.js';
 
-export async function checkIfUpdateCli() {
-  try {
-    const res = await invokeZovaCli(['--version'], getWorkspaceRootDirectory(), true);
-    const versionOld = res.trimEnd();
-    let needUpdate;
-    if (!semver.valid(versionOld)) {
-      needUpdate = true;
-    } else {
-      // version new
-      const info: any = await getPackageInfo('zova-cli');
-      const versionNew = info.version;
-      // check
-      const lt = semver.lt(versionOld, versionNew);
-      needUpdate = lt;
-    }
-    if (needUpdate) {
-      invokePnpmCli(['add', '-g', 'zova-cli@latest'], getWorkspaceRootDirectory());
-      // newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
-    }
-  } catch (err) {
-    if (err.code === 'ENOENT' || err.code === 10127) {
-      invokePnpmCli(['add', '-g', 'zova-cli@latest'], getWorkspaceRootDirectory());
-      // newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
-    } else {
-      // eslint-disable-next-line
-      console.log(err);
-    }
-  }
-}
+// export async function checkIfUpdateCli() {
+//   try {
+//     const res = await invokeZovaCli(['--version'], getWorkspaceRootDirectory(), true);
+//     const versionOld = res.trimEnd();
+//     let needUpdate;
+//     if (!semver.valid(versionOld)) {
+//       needUpdate = true;
+//     } else {
+//       // version new
+//       const info: any = await getPackageInfo('zova-cli');
+//       const versionNew = info.version;
+//       // check
+//       const lt = semver.lt(versionOld, versionNew);
+//       needUpdate = lt;
+//     }
+//     if (needUpdate) {
+//       invokePnpmCli(['add', '-g', 'zova-cli@latest'], getWorkspaceRootDirectory());
+//       // newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
+//     }
+//   } catch (err) {
+//     if (err.code === 'ENOENT' || err.code === 10127) {
+//       invokePnpmCli(['add', '-g', 'zova-cli@latest'], getWorkspaceRootDirectory());
+//       // newTerminal(`pnpm add -g zova-cli@latest`, getWorkspaceRootDirectory());
+//     } else {
+//       // eslint-disable-next-line
+//       console.log(err);
+//     }
+//   }
+// }
 
 export async function getPackageInfo(packageName: string) {
   const registry = await getRegistry();
