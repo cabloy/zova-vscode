@@ -10,8 +10,8 @@ import {
   beanBehavior,
   beanCommand,
   beanCommandBulk,
-  beanCommandRow,
   beanCommandDetailsRow,
+  beanCommandRow,
   beanCss,
   beanData,
   beanGeneral,
@@ -32,8 +32,8 @@ import {
   createComponentBlockPageEntry,
   createComponentFormActionRow,
   createComponentFormField,
-  createComponentTableActionBulk,
   createComponentDetailsActionBulk,
+  createComponentTableActionBulk,
 } from '../commands/create/component.js';
 import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
