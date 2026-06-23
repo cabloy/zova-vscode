@@ -3,7 +3,12 @@ import { Uri, window } from 'vscode';
 
 import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
-import { combineCliResourcePath, extractCommandPathInfo, preparePathResource, trimPathPrefixs } from '../../utils/zova.js';
+import {
+  combineCliResourcePath,
+  extractCommandPathInfo,
+  preparePathResource,
+  trimPathPrefixs,
+} from '../../utils/zova.js';
 
 export async function createComponent(resource?: Uri) {
   await createComponent_common(resource, 'What is the component name?');
@@ -18,18 +23,43 @@ export async function createComponentBlockPage(resource?: Uri) {
 }
 
 export async function createComponentBlockPageEntry(resource?: Uri) {
-  await createComponent_common(resource, 'What is the page entry block component name?', 'blockPageEntry');
+  await createComponent_common(
+    resource,
+    'What is the page entry block component name?',
+    'blockPageEntry',
+  );
 }
 
 export async function createComponentFormActionRow(resource?: Uri) {
-  await createComponent_common(resource, 'What is the form action row component name?', 'formActionRow');
+  await createComponent_common(
+    resource,
+    'What is the form action row component name?',
+    'formActionRow',
+  );
 }
 
 export async function createComponentTableActionBulk(resource?: Uri) {
-  await createComponent_common(resource, 'What is the table action bulk component name?', 'tableActionBulk');
+  await createComponent_common(
+    resource,
+    'What is the table action bulk component name?',
+    'tableActionBulk',
+  );
 }
 
-export async function createComponent_common(resource: Uri, prompt: string, boilerplate?: string, name?: string) {
+export async function createComponentDetailsActionBulk(resource?: Uri) {
+  await createComponent_common(
+    resource,
+    'What is the details action bulk component name?',
+    'detailsActionBulk',
+  );
+}
+
+export async function createComponent_common(
+  resource: Uri,
+  prompt: string,
+  boilerplate?: string,
+  name?: string,
+) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
@@ -51,15 +81,27 @@ export async function createComponent_common(resource: Uri, prompt: string, boil
     commandPathInfo.pathResource = '';
   }
   // pathResource
-  const pathResource = trimPathPrefixs(combineCliResourcePath(commandPathInfo.pathResource, name), ['src/component/', 'src/']);
+  const pathResource = trimPathPrefixs(combineCliResourcePath(commandPathInfo.pathResource, name), [
+    'src/component/',
+    'src/',
+  ]);
   // invoke
   await invokeZovaCli(
-    [':create:component', pathResource, `--module=${commandPathInfo.moduleName}`, `--boilerplate=${boilerplate || ''}`, '--nometadata'],
+    [
+      ':create:component',
+      pathResource,
+      `--module=${commandPathInfo.moduleName}`,
+      `--boilerplate=${boilerplate || ''}`,
+      '--nometadata',
+    ],
     commandPathInfo.projectCurrent,
   );
   // metadata
   invokeToolsMetadata(commandPathInfo.moduleName, commandPathInfo.projectCurrent);
   // open
-  const fileDest = path.join(commandPathInfo.moduleRoot, `src/component/${pathResource}/controller.tsx`);
+  const fileDest = path.join(
+    commandPathInfo.moduleRoot,
+    `src/component/${pathResource}/controller.tsx`,
+  );
   showTextDocument(path.join(commandPathInfo.projectCurrent, fileDest));
 }

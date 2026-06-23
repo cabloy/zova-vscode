@@ -3,7 +3,12 @@ import { Uri, window } from 'vscode';
 
 import { invokeToolsMetadata, invokeZovaCli } from '../../utils/commands.js';
 import { showTextDocument } from '../../utils/global.js';
-import { combineCliResourcePath, extractCommandPathInfo, preparePathResource, trimPathPrefixs } from '../../utils/zova.js';
+import {
+  combineCliResourcePath,
+  extractCommandPathInfo,
+  preparePathResource,
+  trimPathPrefixs,
+} from '../../utils/zova.js';
 
 export async function beanService(resource?: Uri) {
   await beanGeneral_common(resource, 'service', 'What is the service bean name?');
@@ -58,7 +63,23 @@ export async function beanTableCell(resource: Uri) {
 }
 
 export async function beanTableCellActionRow(resource: Uri) {
-  await beanGeneral_common(resource, 'tableCell', 'What is the tableCell bean name?', undefined, 'tableActionRow');
+  await beanGeneral_common(
+    resource,
+    'tableCell',
+    'What is the tableCell bean name?',
+    undefined,
+    'tableActionRow',
+  );
+}
+
+export async function beanTableCellDetailsActionRow(resource: Uri) {
+  await beanGeneral_common(
+    resource,
+    'tableCell',
+    'What is the tableCell bean name?',
+    undefined,
+    'detailsActionRow',
+  );
 }
 
 export async function beanCommand(resource: Uri) {
@@ -66,11 +87,33 @@ export async function beanCommand(resource: Uri) {
 }
 
 export async function beanCommandBulk(resource: Uri) {
-  await beanGeneral_common(resource, 'command', 'What is the command bulk bean name?', undefined, 'commandBulk');
+  await beanGeneral_common(
+    resource,
+    'command',
+    'What is the command bulk bean name?',
+    undefined,
+    'commandBulk',
+  );
 }
 
 export async function beanCommandRow(resource: Uri) {
-  await beanGeneral_common(resource, 'command', 'What is the command row bean name?', undefined, 'commandRow');
+  await beanGeneral_common(
+    resource,
+    'command',
+    'What is the command row bean name?',
+    undefined,
+    'commandRow',
+  );
+}
+
+export async function beanCommandDetailsRow(resource: Uri) {
+  await beanGeneral_common(
+    resource,
+    'command',
+    'What is the command details row bean name?',
+    undefined,
+    'commandDetailsRow',
+  );
 }
 
 export async function beanApi(resource: Uri) {
@@ -78,10 +121,21 @@ export async function beanApi(resource: Uri) {
 }
 
 export async function beanMetaThemeHandler(resource: Uri) {
-  await beanGeneral_common(resource, 'meta', 'What is the meta themeHandler bean name?', 'themeHandler');
+  await beanGeneral_common(
+    resource,
+    'meta',
+    'What is the meta themeHandler bean name?',
+    'themeHandler',
+  );
 }
 
-export async function beanGeneral_common(resource: Uri, sceneName: string, prompt: string, name?: string, boilerplate?: string) {
+export async function beanGeneral_common(
+  resource: Uri,
+  sceneName: string,
+  prompt: string,
+  name?: string,
+  boilerplate?: string,
+) {
   const { fromPalette, fsPath } = preparePathResource(resource);
   if (!fsPath) {
     return;
@@ -99,10 +153,21 @@ export async function beanGeneral_common(resource: Uri, sceneName: string, promp
     commandPathInfo.pathResource = '';
   }
   // pathResource
-  const pathResource = trimPathPrefixs(combineCliResourcePath(commandPathInfo.pathResource, name), [`src/${sceneName}/`, 'src/bean/', 'src/']);
+  const pathResource = trimPathPrefixs(combineCliResourcePath(commandPathInfo.pathResource, name), [
+    `src/${sceneName}/`,
+    'src/bean/',
+    'src/',
+  ]);
   // invoke
   await invokeZovaCli(
-    [':create:bean', sceneName, pathResource, `--module=${commandPathInfo.moduleName}`, `--boilerplate=${boilerplate || ''}`, '--nometadata'],
+    [
+      ':create:bean',
+      sceneName,
+      pathResource,
+      `--module=${commandPathInfo.moduleName}`,
+      `--boilerplate=${boilerplate || ''}`,
+      '--nometadata',
+    ],
     commandPathInfo.projectCurrent,
   );
   // metadata
@@ -114,7 +179,11 @@ export async function beanGeneral_common(resource: Uri, sceneName: string, promp
     const pos = pathResource.lastIndexOf('/');
     const subDir = pathResource.substring(0, pos);
     const beanName = pathResource.substring(pos + 1);
-    fileDest = path.join(commandPathInfo.moduleRoot, `src/${subDir}`, `${sceneName}.${beanName}.${ext}`);
+    fileDest = path.join(
+      commandPathInfo.moduleRoot,
+      `src/${subDir}`,
+      `${sceneName}.${beanName}.${ext}`,
+    );
   } else {
     const fileDestScene = ['api', 'model', 'service'].includes(sceneName)
       ? `src/${sceneName}/${pathResource}.${ext}`

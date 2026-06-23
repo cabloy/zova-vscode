@@ -11,6 +11,7 @@ import {
   beanCommand,
   beanCommandBulk,
   beanCommandRow,
+  beanCommandDetailsRow,
   beanCss,
   beanData,
   beanGeneral,
@@ -21,6 +22,7 @@ import {
   beanSys,
   beanTableCell,
   beanTableCellActionRow,
+  beanTableCellDetailsActionRow,
   beanTheme,
   beanTool,
 } from '../commands/create/bean.js';
@@ -31,6 +33,7 @@ import {
   createComponentFormActionRow,
   createComponentFormField,
   createComponentTableActionBulk,
+  createComponentDetailsActionBulk,
 } from '../commands/create/component.js';
 import { createMock } from '../commands/create/mock.js';
 import { createModule } from '../commands/create/module.js';
@@ -86,6 +89,10 @@ const extensionCommands = [
     command: 'zova.createComponentTableActionBulk',
     function: createComponentTableActionBulk,
   },
+  {
+    command: 'zova.createComponentDetailsActionBulk',
+    function: createComponentDetailsActionBulk,
+  },
   { command: 'zova.createPage', function: createPage },
   { command: 'zova.createApi', function: beanApi },
   { command: 'zova.createModel', function: beanModel },
@@ -106,9 +113,11 @@ const extensionCommands = [
   { command: 'zova.beanInterceptor', function: beanInterceptor },
   { command: 'zova.beanTableCell', function: beanTableCell },
   { command: 'zova.beanTableCellActionRow', function: beanTableCellActionRow },
+  { command: 'zova.beanTableCellDetailsActionRow', function: beanTableCellDetailsActionRow },
   { command: 'zova.beanCommand', function: beanCommand },
   { command: 'zova.beanCommandBulk', function: beanCommandBulk },
   { command: 'zova.beanCommandRow', function: beanCommandRow },
+  { command: 'zova.beanCommandDetailsRow', function: beanCommandDetailsRow },
   { command: 'zova.beanMetaThemeHandler', function: beanMetaThemeHandler },
   // init
   { command: 'zova.initIcon', function: initIcon },
