@@ -30,9 +30,9 @@ import {
   createComponent,
   createComponentBlockPage,
   createComponentBlockPageEntry,
+  createComponentDetailsActionBulk,
   createComponentFormActionRow,
   createComponentFormField,
-  createComponentDetailsActionBulk,
   createComponentTableActionBulk,
 } from '../commands/create/component.js';
 import { createMock } from '../commands/create/mock.js';
